@@ -8,7 +8,6 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import SubNav from './submenu-button';
 import SubMenu from './sub-menu';
-import { log } from 'console';
 const roboto = Roboto({
     weight: ["500"],
     subsets: ["latin"],
