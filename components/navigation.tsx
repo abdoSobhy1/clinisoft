@@ -40,7 +40,6 @@ export default function Navigation() {
     const [isMobile, setIsMobile] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
-    console.log(isOpen);
 
     useEffect(() => {
         setIsMobile(window.innerWidth < 1024);

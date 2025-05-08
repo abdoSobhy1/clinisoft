@@ -11,6 +11,24 @@ type Stat = {
   label: string;
 };
 
+// Individual counter component to properly use the hook
+function StatCounter({ stat, shouldCount }: { stat: Stat; shouldCount: boolean }) {
+  const count = useCountUp(shouldCount ? stat.value : 0, 1500);
+
+  return (
+    <div className="flex justify-center items-center gap-4">
+      <Image src={stat.icon} alt={stat.label} width={60} height={60} />
+      <div>
+        <p className="text-4xl font-semibold min-w-[120px]">
+          {count}
+          {stat.suffix}
+        </p>
+        <div className="text-lg font-medium">{stat.label}</div>
+      </div>
+    </div>
+  );
+}
+
 const stats: Stat[] = [
   { icon: "/clinics.svg", value: 2000, suffix: "+", label: "Clinics" },
   { icon: "/devices.svg", value: 5752, suffix: "+", label: "Active Devices" },
@@ -38,24 +56,11 @@ export default function StatsSection() {
     };
   }, [isAnimated]);
 
-  const animatedValues = stats.map((stat) =>
-    useCountUp(startCounting ? stat.value : 0, 1500)
-  );
-
   return (
     <section className="bg-teal py-9" ref={sectionRef}>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10 text-white px-6">
         {stats.map((stat, index) => (
-          <div key={index} className="flex justify-center items-center gap-4">
-            <Image src={stat.icon} alt={stat.label} width={60} height={60} />
-            <div>
-              <p className="text-4xl font-semibold min-w-[120px]">
-                {animatedValues[index]}
-                {stat.suffix}
-              </p>
-              <div className="text-lg font-medium">{stat.label}</div>
-            </div>
-          </div>
+          <StatCounter key={index} stat={stat} shouldCount={startCounting} />
         ))}
       </div>
     </section>
