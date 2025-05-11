@@ -4,10 +4,9 @@ import * as React from "react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ChevronRight, ChevronLeft } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -171,63 +170,40 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CarouselPrevious({
-  className,
-  variant = "outline",
-  size = "icon",
-  ...props
-}: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollPrev, canScrollPrev } = useCarousel()
+function CarouselPrevious() {
+  const { scrollPrev, canScrollPrev } = useCarousel()
 
   return (
-    <Button
+    <button
       data-slot="carousel-previous"
-      variant={variant}
-      size={size}
-      className={cn(
-        "absolute size-8 rounded-full",
-        orientation === "horizontal"
-          ? "top-1/2 -left-12 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
-      )}
+      className={
+        "inline-flex items-center justify-center absolute size-10 text-xl rounded-full top-1/2 left-0 -translate-y-1/2 z-20 bg-[rgba(0,0,0,0.25)] hover:bg-[rgba(0,0,0,0.50)] transition-all duration-300 text-white cursor-pointer"
+      }
       disabled={!canScrollPrev}
       onClick={scrollPrev}
-      {...props}
     >
-      <ArrowLeft />
+      <ChevronLeft />
       <span className="sr-only">Previous slide</span>
-    </Button>
+    </button >
   )
 }
 
-function CarouselNext({
-  className,
-  variant = "outline",
-  size = "icon",
-  ...props
-}: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollNext, canScrollNext } = useCarousel()
+function CarouselNext() {
+  const { scrollNext, canScrollNext } = useCarousel()
 
   return (
-    <Button
+
+    <button
       data-slot="carousel-next"
-      variant={variant}
-      size={size}
-      className={cn(
-        "absolute size-8 rounded-full",
-        orientation === "horizontal"
-          ? "top-1/2 -right-12 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-        className
-      )}
+      className={
+        "inline-flex items-center justify-center absolute size-10 text-xl rounded-full top-1/2 right-0 -translate-y-1/2 z-20 bg-[rgba(0,0,0,0.25)] hover:bg-[rgba(0,0,0,0.50)] transition-all duration-300 text-white cursor-pointer"
+      }
       disabled={!canScrollNext}
       onClick={scrollNext}
-      {...props}
     >
-      <ArrowRight />
+      <ChevronRight />
       <span className="sr-only">Next slide</span>
-    </Button>
+    </button>
   )
 }
 

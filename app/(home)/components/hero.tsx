@@ -1,12 +1,12 @@
 // components/HeroSection.tsx
 import Image from 'next/image';
-import Link from 'next/link';
+import MainButton from '@/components/main-button';
 
 export default function HeroSection() {
     return (
-        <section className="py-12">
-            <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row gap-8">
-                <div className="bg-white p-8 rounded-2xl shadow-md flex flex-col justify-between">
+        <section className="py-12 px-4">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="bg-white p-8 rounded-2xl shadow-xl flex flex-col items-center lg:items-start justify-between order-2 md:order-1 text-center lg:text-left">
                     <Image
                         src="/logo-small.png"
                         alt="CliniSoft logo"
@@ -19,7 +19,7 @@ export default function HeroSection() {
                         Clinic Digital Transformation
                     </h1>
 
-                    <div className="space-y-4 text-[#767676] mb-6">
+                    <div className="space-y-4 text-[#767676] mb-6 ">
                         <p>
                             Our journey began in <strong>2005</strong> with a vision to empower
                             healthcare professionals with intuitive and efficient tools.
@@ -39,19 +39,15 @@ export default function HeroSection() {
                         </p>
                     </div>
 
-                    <Link href="/about" className='self-end'>
-                        <span className="inline-block bg-teal-600 text-white font-medium px-8 py-2 ml-auto rounded-full hover:bg-teal-700 transition cursor-pointer">
-                            Read More
-                        </span>
-                    </Link>
+                    <MainButton href="/about">Read More</MainButton >
                 </div>
-                <div className='w-full'>
+                <div className='w-full order-1 md:order-2 h-full' >
                     <Image
                         src="/hero-image.webp"
                         alt="Doctor using digital tablet with healthcare interface"
                         width={600}
                         height={600}
-                        className="rounded-3xl object-cover w-full h-auto"
+                        className="rounded-3xl object-cover w-full h-[300px] md:h-full"
                         priority
                     />
                 </div>

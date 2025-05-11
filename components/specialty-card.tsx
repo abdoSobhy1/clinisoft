@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import MainButton from "@/components/main-button";
 
 type SpecialtyCardProps = {
     title: string;
@@ -9,18 +10,15 @@ type SpecialtyCardProps = {
 
 export default function SpecialtyCard({ title, description, icon }: SpecialtyCardProps) {
     return (
-        <div className="rounded-3xl bg-white p-4 shadow-md h-full">
+        <div className="rounded-3xl bg-white p-4 shadow-md h-full flex flex-col justify-between">
             <div className="flex items-center gap-6">
-                <div className="rounded-lg">
-                    <Image src={icon} alt={title} width={100} height={100} />
+                <div className="rounded-lg bg-[#EBFDFF] border-2 border-[#BAE5E9] aspect-square w-[90px] flex items-center justify-center">
+                    <Image src={icon} alt={title} width={60} height={60} />
                 </div>
-                <h3 className="text-teal">{title}</h3>
+                <h3 className="text-[#29858D] font-bold text-3xl">{title}</h3>
             </div>
-            <p className="text-gray-700">{description}</p>
-            <button>
-                <Link href={`/specialties/${title.toLowerCase().replace(/\s+/g, '-')}`} className="text-teal">Explore More</Link>
-            </button>
-
+            <p className="text-[#242424] py-8 leading-8">{description}</p>
+            <MainButton href={`/specialties/${title.toLowerCase().replace(/\s+/g, '-')}`} bgColor="bg-teal">Explore More</MainButton>
         </div>
     );
 }
