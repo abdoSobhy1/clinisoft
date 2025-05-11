@@ -85,7 +85,7 @@ export default function SpecialtiesCaroussel() {
                 <h2 className="text-[2rem] text-[#1A6D74] font-semibold">
                     More Medical Specialties
                 </h2>
-                <p className="font-semibold text-[#1A6D74] max-w-[500px] text-center"> "Discover our specialized medical software solutions tailored for various healthcare fields."</p>
+                <p className="font-semibold text-[#1A6D74] max-w-[500px] text-center"> &quot;Discover our specialized medical software solutions tailored for various healthcare fields.&quot;</p>
                 <MainButton href="/specialties" className="bg-maroon hover:bg-maroon-500 lg:self-center">View All Specialties</MainButton>
             </div>
         </section>

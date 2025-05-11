@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import MainButton from "@/components/main-button";
 
@@ -18,7 +17,7 @@ export default function SpecialtyCard({ title, description, icon }: SpecialtyCar
                 <h3 className="text-[#29858D] font-bold text-3xl">{title}</h3>
             </div>
             <p className="text-[#242424] py-8 leading-8">{description}</p>
-            <MainButton href={`/specialties/${title.toLowerCase().replace(/\s+/g, '-')}`} bgColor="bg-teal">Explore More</MainButton>
+            <MainButton href={`/specialties/${title.toLowerCase().replace(/\s+/g, '-')}`} className="bg-teal hover:bg-teal-700">Explore More</MainButton>
         </div>
     );
 }

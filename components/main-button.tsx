@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-export default function MainButton({ children, href, bgColor, className }: { children: React.ReactNode, href: string, bgColor?: string, className?: string }) {
+export default function MainButton({ children, href, className }: { children: React.ReactNode, href: string, className?: string }) {
     return (
         <Link
             href={href}
