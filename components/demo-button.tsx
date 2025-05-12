@@ -5,10 +5,14 @@ import { useEffect, useState } from "react";
 export default function DemoButton(props: { shortHand?: boolean }) {
 
     const [isMobile, setIsMobile] = useState(false);
-
     useEffect(() => {
+        if (!props.shortHand) {
+            return;
+        }
+
         setIsMobile(window.innerWidth < 1024);
         window.addEventListener('resize', () => {
+            console.log("resized", props.shortHand);
             setIsMobile(window.innerWidth < 1024);
         });
         return () => {
