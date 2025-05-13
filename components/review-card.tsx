@@ -1,11 +1,10 @@
-import { Review } from "@/app/(home)/components/testimonials";
 import Image from "next/image";
 
 type ReviewCardProps = {
     doctor: string;
     review: string;
     image: string;
-    onClick: (review: Review) => void;
+    onClick: (review: any) => void;
 }
 
 export default function ReviewCard({ doctor, review, image, onClick }: ReviewCardProps) {

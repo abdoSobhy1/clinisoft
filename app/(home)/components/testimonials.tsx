@@ -11,7 +11,7 @@ import reviews from '@/public/testimonials/reviews.json'
 
 
 
-export type Review = {
+type Review = {
     doctor: string;
     review: string;
     image: string;
