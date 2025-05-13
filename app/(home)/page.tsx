@@ -4,6 +4,7 @@ import SpecialtiesCaroussel from "./components/specialties-caroussel";
 import Features from "./components/features";
 import Innovations from "./components/Innovations";
 import ValueSection from "./components/value-section";
+import Testimonials from "./components/testimonials";
 export default function Home() {
   return (
     <main>
@@ -13,6 +14,7 @@ export default function Home() {
       <Features />
       <Innovations />
       <ValueSection />
+      <Testimonials />
     </main>
   );
 }
