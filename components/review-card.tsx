@@ -4,7 +4,7 @@ type ReviewCardProps = {
     doctor: string;
     review: string;
     image: string;
-    onClick: (review: any) => void;
+    onClick: (review: string) => void;
 }
 
 export default function ReviewCard({ doctor, review, image, onClick }: ReviewCardProps) {
