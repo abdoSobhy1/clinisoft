@@ -72,6 +72,7 @@ export default function ContactForm() {
                     <select
                         {...form.register("specialties")}
                         className="w-full p-2 bg-white border border-[#94949440] rounded-lg mt-4"
+                        id="specialties"
                     >
                         <option value="" className="text-gray-500" hidden>Select a specialty</option>
                         {specialties.map((specialty) => (
@@ -112,6 +113,7 @@ export default function ContactForm() {
                 <label htmlFor="message" className="font-bold">Comment or Message</label>
                 <textarea
                     {...form.register("message")}
+                    id="message"
                     className="w-full p-2 bg-white border border-[#94949440] rounded-lg mt-4"
                     rows={4}
                     placeholder="Enter your message here..."
