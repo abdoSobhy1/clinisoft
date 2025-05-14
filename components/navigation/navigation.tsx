@@ -2,12 +2,13 @@
 
 import { Roboto } from 'next/font/google';
 import { usePathname } from 'next/navigation';
-import NavButton from '@/components/nav-button';
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from './ui/sheet';
+import NavButton from '@/components/navigation/nav-button';
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from '../ui/sheet';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import SubNav from './submenu-button';
-import SubMenu from './sub-menu';
+import SubNav from '../submenu-button';
+import SubMenu from '../sub-menu';
+import { ChevronDown } from 'lucide-react';
 const roboto = Roboto({
     weight: ["500"],
     subsets: ["latin"],
@@ -66,7 +67,7 @@ export default function Navigation() {
                     {navLinks.map(link => (link.subMenu ? (
                         <div className='group' key={link.name}>
                             <button className='w-full' onClick={() => setIsSubMenuOpen(!isSubMenuOpen)}>
-                                <NavButton href={'#'} label={link.name} isActive={pathname === link.path} isSubMenu={true} />
+                                <span className={`flex items-center gap-2 text-teal text-sm opacity-70 font-medium relative px-2 transition duration-300 uppercase cursor-pointer after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:transition after:duration-300 hover:opacity-100 hover:after:bg-teal ${pathname === link.path ? 'after:bg-teal opacity-100' : ''}`}>{link.name} <ChevronDown size={14} className={`${isSubMenuOpen ? 'rotate-180' : ''} transition-transform duration-300`} /></span>
                             </button>
                             <SubMenu isMobile={isMobile} isOpen={isSubMenuOpen}>
                                 {link.subMenu?.map((subItem) => (

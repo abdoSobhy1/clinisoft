@@ -35,7 +35,7 @@ export default function Testimonials() {
 
     return (
         <section className="py-6 px-4 ">
-            <h2 className="py-12 text-center text-5xl font-semibold text-teal">Loved & Recommended by Physicians</h2>
+            <h2 className="py-12 text-center text-2xl md:text-5xl font-semibold text-teal">Loved & Recommended by Physicians</h2>
             <Carousel plugins={[plugin.current]}
                 className="w-full"
                 onMouseEnter={() => plugin.current.stop()}

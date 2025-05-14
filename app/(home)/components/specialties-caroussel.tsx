@@ -66,7 +66,7 @@ export default function SpecialtiesCaroussel() {
     return (
         <section className="py-6 px-4 ">
             <Carousel plugins={[plugin.current]}
-                className="w-full relative before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-r before:bg-[linear-gradient(to_right,_white,_transparent_20%,_transparent_80%,_white)] before:z-1 before:pointer-events-none"
+                className="w-full relative before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-r before:bg-[linear-gradient(to_right,_white,_transparent_10%,_transparent_90%,_white)] md:before:bg-[linear-gradient(to_right,_white,_transparent_20%,_transparent_80%,_white)] before:z-1 before:pointer-events-none"
                 onMouseEnter={() => plugin.current.stop()}
                 onMouseLeave={() => plugin.current.play()}
                 opts={{ loop: true }}
@@ -86,7 +86,7 @@ export default function SpecialtiesCaroussel() {
                     More Medical Specialties
                 </h2>
                 <p className="font-semibold text-[#1A6D74] max-w-[500px] text-center"> &quot;Discover our specialized medical software solutions tailored for various healthcare fields.&quot;</p>
-                <MainButton href="/specialties" className="bg-maroon hover:bg-maroon-500 lg:self-center">View All Specialties</MainButton>
+                <MainButton href="/specialties" className="bg-maroon hover:bg-maroon-500 lg:self-center w-max" >View All Specialties</MainButton>
             </div>
         </section>
     );

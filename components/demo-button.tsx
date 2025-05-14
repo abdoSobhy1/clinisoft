@@ -9,10 +9,8 @@ export default function DemoButton(props: { shortHand?: boolean }) {
         if (!props.shortHand) {
             return;
         }
-
         setIsMobile(window.innerWidth < 1024);
         window.addEventListener('resize', () => {
-            console.log("resized", props.shortHand);
             setIsMobile(window.innerWidth < 1024);
         });
         return () => {

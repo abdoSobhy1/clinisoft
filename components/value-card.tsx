@@ -17,7 +17,7 @@ export default function ValueCard({ stat, title, description, icon, shouldCount 
     return (
         <div className="rounded-3xl bg-white p-4 shadow-md h-full text-center">
             <div className="mb-8">
-                <Image src={icon} alt={title} width={60} height={60} className="mx-auto" />
+                <Image src={icon} alt={title} width={60} height={60} className="mx-auto mb-4" />
                 <p className="text-teal text-5xl font-semibold">{count} %</p>
                 <h3 className="text-[24px] font-semibold text-[#1e949e]">{title}</h3>
             </div>

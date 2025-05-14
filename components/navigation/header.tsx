@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import Navigation from "./navigation";
-import DemoButton from "./demo-button";
+import DemoButton from "../demo-button";
 import Link from "next/link";
 
 
