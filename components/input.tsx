@@ -1,4 +1,4 @@
-import { UseFormRegisterReturn, FieldErrors } from "react-hook-form";
+import { UseFormRegisterReturn } from "react-hook-form";
 
 export default function Input({ type, label, form, placeholder, isRequired }: {
     type: string,

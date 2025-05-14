@@ -1,5 +1,4 @@
 import React from "react";
-import Seperator from "./seperator";
 interface FooterSectionProps {
     title: string;
     children: React.ReactNode;
