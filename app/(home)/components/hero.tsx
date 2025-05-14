@@ -8,7 +8,7 @@ export default function HeroSection() {
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="bg-white p-8 rounded-2xl shadow-xl flex flex-col items-center lg:items-start justify-between order-2 md:order-1 text-center lg:text-left">
                     <Image
-                        src="/logo-small.png"
+                        src="/images/logo-small.png"
                         alt="CliniSoft logo"
                         width={64}
                         height={64}
@@ -43,7 +43,7 @@ export default function HeroSection() {
                 </div>
                 <div className='w-full order-1 md:order-2 h-full' >
                     <Image
-                        src="/hero-image.webp"
+                        src="/images/hero-image.webp"
                         alt="Doctor using digital tablet with healthcare interface"
                         width={600}
                         height={600}

@@ -5,18 +5,18 @@ const icons = [
     {
         href: "https://www.linkedin.com/company/clinisoft-hr",
         label: "LinkedIn",
-        icon: "/icons/linkedin.svg"
+        icon: "/images/icons/linkedin.svg"
     },
     {
         href: "https://www.instagram.com/clinisoft.insta",
         label: "Instagram",
-        icon: "/icons/instagram.svg"
+        icon: "/images/icons/instagram.svg"
 
     },
     {
         href: "https://www.facebook.com/CliniSoft",
         label: "Facebook",
-        icon: "/icons/facebook.svg"
+        icon: "/images/icons/facebook.svg"
 
     }
 ];

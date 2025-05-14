@@ -9,25 +9,25 @@ const valueCards = [
         stat: 0,
         title: "Data Leakage",
         description: "Our system provides robust data protection through a combination of strong access controls, encryption, regular security assessments, and compliance with data privacy regulations.",
-        icon: "/icons/data-leakage.svg"
+        icon: "/images/icons/data-leakage.svg"
     },
     {
         stat: 99,
         title: "Data Retention",
         description: "Never lose a byte: our automated, encrypted backups paired with a resilient system design, protecting your data from any eventuality.",
-        icon: "/icons/retention.svg"
+        icon: "/images/icons/retention.svg"
     },
     {
         stat: 100,
         title: "Cost Effectiveness",
         description: "Own premium features and performance with a single and smart investment (one time purchase).",
-        icon: "/icons/cost-effectiveness.svg"
+        icon: "/images/icons/cost-effectiveness.svg"
     },
     {
         stat: 99,
         title: "Time saving",
         description: "Streamlined data entry allows for more eye contact and meaningful interaction, while rapid retrieval and printouts minimize wait times.",
-        icon: "/icons/time-saving.svg"
+        icon: "/images/icons/time-saving.svg"
     }
 ]
 

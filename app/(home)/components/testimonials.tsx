@@ -7,7 +7,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { useRef, useState } from "react";
 import Image from "next/image";
 
-import reviews from '@/public/testimonials/reviews.json'
+import reviews from '@/public/reviews.json'
 
 
 

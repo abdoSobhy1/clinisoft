@@ -13,9 +13,9 @@ type Stat = {
 
 
 const stats: Stat[] = [
-  { icon: "/clinics.svg", value: 2000, suffix: "+", label: "Clinics" },
-  { icon: "/devices.svg", value: 5752, suffix: "+", label: "Active Devices" },
-  { icon: "/patients.svg", value: 16, suffix: "M+", label: "Patients" },
+  { icon: "/images/clinics.svg", value: 2000, suffix: "+", label: "Clinics" },
+  { icon: "/images/devices.svg", value: 5752, suffix: "+", label: "Active Devices" },
+  { icon: "/images/patients.svg", value: 16, suffix: "M+", label: "Patients" },
 ];
 
 export default function StatsSection() {

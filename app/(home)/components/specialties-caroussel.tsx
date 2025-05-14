@@ -9,52 +9,52 @@ const specialties = [
     {
         title: "Ophthalmology",
         description: "We offer Eye Clinic Management Software in addition to Medical Software for Diagnosing & Treating Vision Disorders.",
-        icon: "/icons/ophthalmology.svg"
+        icon: "/images/icons/ophthalmology.svg"
     },
     {
         title: "Dermatology",
         description: "We offer Dermatology Clinic Management Software in addition to Medical Software for Diagnosing & Treating Skin Conditions.",
-        icon: "/icons/dermatology.svg"
+        icon: "/images/icons/dermatology.svg"
     },
     {
         title: "Dentistry",
         description: "We offer Dental Clinic Management Software in addition to Medical Software for Diagnosing & Treating Dental Conditions.",
-        icon: "/icons/dentistry.svg"
+        icon: "/images/icons/dentistry.svg"
     },
     {
         title: "E.N.T",
         description: "We offer ENT Clinic Management Software in addition to Medical Software for Diagnosing & Treating ENT Conditions.",
-        icon: "/icons/ent.svg"
+        icon: "/images/icons/ent.svg"
     },
     {
         title: "Internal Medicine",
         description: "We offer Internal Medicine Clinic Management Software in addition to Medical Software for Diagnosing & Treating Internal Diseases.",
-        icon: "/icons/internal medicine.svg"
+        icon: "/images/icons/internal medicine.svg"
     },
     {
         title: "Neuro Surgery",
         description: "We offer Neurosurgery Clinic Management Software in addition to Medical Software for Diagnosing & Treating Neurological Disorders.",
-        icon: "/icons/neuro surgery.svg"
+        icon: "/images/icons/neuro surgery.svg"
     },
     {
         title: "Orthopedic Surgery",
         description: "We offer Orthopedic Clinic Management Software in addition to Medical Software for Diagnosing & Treating Bone & Joint Conditions.",
-        icon: "/icons/orthopedic surgery.svg"
+        icon: "/images/icons/orthopedic surgery.svg"
     },
     {
         title: "Pediatrics",
         description: "We offer Pediatric Clinic Management Software in addition to Medical Software for Diagnosing & Treating Children's Health Conditions.",
-        icon: "/icons/pediatrics.svg"
+        icon: "/images/icons/pediatrics.svg"
     },
     {
         title: "Physiotherapy",
         description: "We offer Physiotherapy Center Management Software in addition to Medical Software for Diagnosing & Treating Physical Rehabilitations.",
-        icon: "/icons/physiotherapy.svg"
+        icon: "/images/icons/physiotherapy.svg"
     },
     {
         title: "Urology",
         description: "We offer Urology Clinic Management Software in addition to Medical Software for Diagnosing & Treating Urinary System Conditions.",
-        icon: "/icons/urology.svg"
+        icon: "/images/icons/urology.svg"
     },
 ];
 

@@ -9,7 +9,7 @@ const featuresList = [
             </>
         ),
         description: "Your time is valuable, our software is designed to simplify your workflow, maximize your productivity and save you time and effort.",
-        icon: "/icons/convenient.svg"
+        icon: "/images/icons/convenient.svg"
     },
     {
         title: (
@@ -18,7 +18,7 @@ const featuresList = [
             </>
         ),
         description: "We prioritize patient privacy and data security, you can rest assured that your patients' sensitive information is protected from unauthorized access.",
-        icon: "/icons/server.svg"
+        icon: "/images/icons/server.svg"
     },
     {
         title: (
@@ -27,12 +27,12 @@ const featuresList = [
             </>
         ),
         description: "Say goodbye to costly annual renewals. Our software is available for a single upfront payment.",
-        icon: "/icons/wallet.svg"
+        icon: "/images/icons/wallet.svg"
     },
     {
         title: "Innovative functions and modules",
         description: "As industry leaders in innovation, our groundbreaking solutions revolutionize healthcare. Our continually evolving modules are designed to meet your specific needs.",
-        icon: "/icons/rocket.svg"
+        icon: "/images/icons/rocket.svg"
     }
 ];
 
