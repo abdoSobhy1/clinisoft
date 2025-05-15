@@ -65,6 +65,7 @@ export default function ContactForm() {
                     type="text"
                     label="Name"
                     form={form.register("name")}
+                    error={form.formState.errors.name?.message}
                     isRequired={true}
                 />
                 <div className="form-group">
@@ -81,18 +82,21 @@ export default function ContactForm() {
                             </option>
                         ))}
                     </select>
+                    {form.formState.errors.specialties && <p className="text-red-500 text-sm">{form.formState.errors.specialties.message}</p>}
                 </div>
             </div>
             <Input
                 type="text"
                 label="City"
                 form={form.register("city")}
+                error={form.formState.errors.city?.message}
                 isRequired={true}
             />
             <Input
                 type="email"
                 label="Email"
                 form={form.register("email")}
+                error={form.formState.errors.email?.message}
                 isRequired={true}
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -100,6 +104,7 @@ export default function ContactForm() {
                     type="number"
                     label="Mobile Number"
                     form={form.register("mobileNumber")}
+                    error={form.formState.errors.mobileNumber?.message}
                     placeholder="+201234567890"
                     isRequired={true}
                 />
@@ -107,6 +112,7 @@ export default function ContactForm() {
                     type="text"
                     label="Best Time for Call"
                     form={form.register("bestTimeForCall")}
+                    error={form.formState.errors.bestTimeForCall?.message}
                 />
             </div>
             <div className="form-group">
@@ -118,6 +124,7 @@ export default function ContactForm() {
                     rows={4}
                     placeholder="Enter your message here..."
                 />
+                {form.formState.errors.message && <p className="text-red-500 text-sm">{form.formState.errors.message.message}</p>}
             </div>
             <button
                 type="submit"

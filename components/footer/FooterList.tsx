@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
+import { cn } from "@/lib/utils";
 interface FooterListItem {
     label: string;
     href?: string;
@@ -8,11 +8,12 @@ interface FooterListItem {
 
 interface FooterListProps {
     items: FooterListItem[];
+    className?: string;
 }
 
-const FooterList: React.FC<FooterListProps> = ({ items }) => {
+const FooterList: React.FC<FooterListProps> = ({ items, className }) => {
     return (
-        <ul className="space-y-8">
+        <ul className={cn("space-y-8", className)}>
             {items.map((item, idx) => {
                 return item.href ? (
                     <li key={idx}>

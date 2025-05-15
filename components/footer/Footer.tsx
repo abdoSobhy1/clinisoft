@@ -57,9 +57,9 @@ const Footer: React.FC = () => (
                 <FooterList items={otherLinks} />
                 <Seperator className="hidden md:block" vertical />
             </FooterSection>
-            <FooterSection title="Contact Us" className="col-span-2 md:col-span-1 text-center md:text-left my-4" >
+            <FooterSection title="Contact Us" className="col-span-2 md:col-span-1 text-center md:text-left my-4 md:my-0" >
                 <Seperator className="block md:hidden -top-2" />
-                <FooterList items={contactInfo} />
+                <FooterList items={contactInfo} className="space-y-4" />
                 <Seperator className="hidden md:block" vertical />
                 <Seperator className="block md:hidden top-auto -bottom-4" />
             </FooterSection>
