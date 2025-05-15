@@ -4,12 +4,10 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Dialog } from "@/components/ui/dialog";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import Image from "next/image";
 
 import reviews from '@/public/reviews.json'
-
-
 
 type Review = {
     doctor: string;
@@ -18,28 +16,41 @@ type Review = {
     specialty: string;
 }
 
-
-
 export default function Testimonials() {
-    const plugin = useRef(
-        Autoplay({ delay: 2000 })
-    )
-
-    const [open, setOpen] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
     const [selectedReview, setSelectedReview] = useState<Review | null>(null)
+
+    const autoplayRef = useRef(
+        Autoplay({ delay: 2000, stopOnInteraction: false })
+    )
 
     const handleReviewClick = (review: Review) => {
         setSelectedReview(review)
-        setOpen(true)
+        setIsOpen(true)
+        autoplayRef.current.stop()
     }
+
+    const handleDialogClose = useCallback((isOpen: boolean) => {
+        setIsOpen(isOpen)
+        if (!isOpen) {
+            autoplayRef.current.play()
+        }
+    }, [])
 
     return (
         <section className="py-6 px-4 ">
             <h2 className="py-12 text-center text-2xl md:text-5xl font-semibold text-teal">Loved & Recommended by Physicians</h2>
-            <Carousel plugins={[plugin.current]}
+            <Carousel
+                plugins={[autoplayRef.current]}
                 className="w-full"
-                onMouseEnter={() => plugin.current.stop()}
-                onMouseLeave={() => plugin.current.play()}
+                onMouseEnter={() => {
+                    autoplayRef.current.stop()
+                }}
+                onMouseLeave={() => {
+                    if (!isOpen) {
+                        autoplayRef.current.play()
+                    }
+                }}
                 opts={{ loop: true }}
             >
                 <CarouselNext />
@@ -52,7 +63,7 @@ export default function Testimonials() {
                     ))}
                 </CarouselContent>
             </Carousel>
-            <Dialog open={open} onOpenChange={setOpen}>
+            <Dialog open={isOpen} onOpenChange={handleDialogClose}>
                 {
                     selectedReview &&
                     <DialogContent>

@@ -12,6 +12,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "CliniSoft",
   description: "The Pioneers of Clinic Digital Transformation",
+  icons: {
+    icon: "/images/icons/favicon.ico",
+    shortcut: '/images/icons/favicon.ico'
+  },
 };
 
 export default function RootLayout({
