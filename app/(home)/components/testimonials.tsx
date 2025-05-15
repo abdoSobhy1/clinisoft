@@ -66,7 +66,7 @@ export default function Testimonials() {
             <Dialog open={isOpen} onOpenChange={handleDialogClose}>
                 {
                     selectedReview &&
-                    <DialogContent>
+                    <DialogContent className="bg-white">
                         <DialogTitle className="sr-only">Testimonial</DialogTitle>
                         <div className="text-center">
                             <Image src={selectedReview?.image} alt={selectedReview?.doctor} width={100} height={100} className="mx-auto rounded-full mb-4" />

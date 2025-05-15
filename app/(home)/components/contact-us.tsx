@@ -20,12 +20,12 @@ export default function ContactUsForm() {
                     <Slot key={slot.title} title={slot.title} href={slot.href} />
                 ))}</div>
                 <div className="bg-[#1e2334] rounded-[20px] px-8  pt-20 pb-5 text-center">
-                    <Image src="/images/icons/phoneCall.svg" alt="Phone Call" width={48} height={48} className="mx-auto mb-8" />
-                    <p className="text-white text-2xl font-semibold mb-3">Contact Us</p>
-                    <p className="text-[#d0cfec] leading-6 mb-4">You can contact us for a free quote.</p>
-                    <p className="text-white text-2xl font-semibold mb-20">+2 (120) 469 8888</p>
+                    <Image src="/images/icons/whatsapp.svg" alt="Phone Call" width={48} height={48} className="mx-auto mb-8" />
+                    <p className="text-white text-2xl font-semibold mb-3">Chat with us</p>
+                    <p className="text-[#d0cfec] leading-6 mb-4">You can chat with us for a free quote.</p>
+                    <p className="text-white text-2xl font-semibold mb-20">+20 (120) 812 3222</p>
 
-                    <MainButton href="/contact-us" className="lg:w-full bg-maroon hover:bg-maroon-700 text-center">Contact Us</MainButton>
+                    <MainButton href="http://wa.me/+201208123222" className="lg:w-full bg-maroon hover:bg-maroon-700 text-center">Chat with us</MainButton>
                 </div>
             </div>
         </section>
