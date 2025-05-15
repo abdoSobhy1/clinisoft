@@ -4,6 +4,7 @@ import Input from "@/components/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as z from "zod";
+import { useState } from "react";
 
 const formSchema = z.object({
     name: z.string().min(3, { message: "Name is required." }),
@@ -35,6 +36,10 @@ const specialties = [
 ];
 
 export default function ContactForm() {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitError, setSubmitError] = useState<string | null>(null);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -48,9 +53,47 @@ export default function ContactForm() {
         },
     });
 
-    const onSubmit: SubmitHandler<z.infer<typeof formSchema>> = (values) => {
-        console.log(values);
-        form.reset();
+    const handleFormSubmit: SubmitHandler<z.infer<typeof formSchema>> = async (values) => {
+        try {
+            setIsSubmitting(true);
+            setSubmitError(null);
+            setSubmitSuccess(false);
+
+            const params = new URLSearchParams({
+                Subject: 'Email',
+                Name: values.name,
+                Speciality: values.specialties,
+                City: values.city,
+                Email: values.email,
+                MobileNumber: values.mobileNumber,
+                BestTimeForCall: values.bestTimeForCall || '',
+                Message: values.message || ''
+            });
+
+            const response = await fetch(`http://cswf.azurewebsites.net/Functions/ContactUs?${params.toString()}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'POST',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                }
+            });
+
+            const data = await response.text();
+
+            if (!response.ok) {
+                throw new Error(data || 'Failed to submit form');
+            }
+
+            setSubmitSuccess(true);
+            form.reset();
+        } catch (error) {
+            console.error('Form submission error:', error);
+            setSubmitError(error instanceof Error ? error.message : 'An error occurred while submitting the form');
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
     return (<div className="bg-[#F4F3F6] rounded-[20px] p-8 border-2 border-white">
@@ -59,7 +102,9 @@ export default function ContactForm() {
             <p className="text-2xl text-[#203e71] font-semibold">Please fill this form and we will contact you shortly</p>
         </div>
 
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+
+
+        <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                     type="text"
@@ -128,8 +173,9 @@ export default function ContactForm() {
             </div>
             <button
                 type="submit"
-                className="w-full bg-teal text-white py-2 px-4 rounded-full cursor-pointer">
-                Submit
+                disabled={isSubmitting}
+                className={`w-full bg-teal text-white py-2 px-4 rounded-full cursor-pointer ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
+                {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
         </form>
     </div>
