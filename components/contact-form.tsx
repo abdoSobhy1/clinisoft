@@ -71,7 +71,7 @@ export default function ContactForm() {
                 Message: values.message || ''
             });
 
-            const response = await fetch(`http://cswf.azurewebsites.net/Functions/ContactUs?${params.toString()}`, {
+            const response = await fetch(`https://cswf.azurewebsites.net/Functions/ContactUs?${params.toString()}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
