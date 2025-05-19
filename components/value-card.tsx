@@ -3,8 +3,7 @@ import Image from "next/image";
 import Accordion from "./accordion";
 import { cn } from "@/lib/utils";
 import { ChevronsDown } from "lucide-react";
-import { useAutoOpenOnView } from "@/hooks/useAutoOpenOnView";
-import { useEffect } from "react";
+// import { useAutoOpenOnView } from "@/hooks/useAutoOpenOnView";
 
 type ValueCardProps = {
     stat: number;
