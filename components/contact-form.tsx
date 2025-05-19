@@ -83,6 +83,7 @@ export default function ContactForm() {
 
             const data = await response.text();
 
+
             if (!response.ok) {
                 throw new Error(data || 'Failed to submit form');
             }
@@ -97,7 +98,7 @@ export default function ContactForm() {
         }
     }
 
-    return (<div className="bg-[#F4F3F6] rounded-[20px] p-8 border-2 border-white">
+    return (<div className="bg-white rounded-[20px] p-8 border-2 border-white">
         <div className="mb-4 space-y-3">
             <h2 className="text-3xl font-semibold text-[#203e71]">Contact Us</h2>
             <p className="text-2xl text-[#203e71] font-semibold">Please fill this form and we will contact you shortly</p>
@@ -115,7 +116,7 @@ export default function ContactForm() {
                     <label htmlFor="specialties" className="font-bold">Specialty <span className="text-red-500 font-medium">*</span></label>
                     <select
                         {...form.register("specialties")}
-                        className={`w-full p-2 bg-white border border-[#94949440] rounded-lg mt-4
+                        className={`w-full p-2 bg-[#F1F1F180] border-1 border-[#D3D3D3] rounded-2xl mt-2
                                   ${form.watch("specialties") === "" ? "text-[#9CA3AF]" : "text-black"}`}
                         id="specialties" >
                         <option value="" hidden disabled className="text-[#9CA3AF]">
@@ -147,11 +148,10 @@ export default function ContactForm() {
             />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
-                    type="number"
+                    type="text"
                     label="Mobile Number"
                     form={form.register("mobileNumber")}
                     error={form.formState.errors.mobileNumber?.message}
-                    placeholder="+201234567890"
                     isRequired={true}
                 />
                 <Input
@@ -166,9 +166,8 @@ export default function ContactForm() {
                 <textarea
                     {...form.register("message")}
                     id="message"
-                    className="w-full p-2 bg-white border border-[#94949440] rounded-lg mt-4 placeholder:text-[#e9e9e9]"
+                    className="w-full p-2 bg-[#F1F1F180] border-1 border-[#D3D3D3] rounded-2xl mt-2 placeholder:text-[#e9e9e9]"
                     rows={4}
-                    placeholder="Enter your message here..."
                 />
                 {form.formState.errors.message && <p className="text-red-500 text-sm">{form.formState.errors.message.message}</p>}
             </div>

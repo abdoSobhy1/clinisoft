@@ -6,7 +6,7 @@ import Innovations from "./components/Innovations";
 import ValueSection from "./components/value-section";
 import Testimonials from "./components/testimonials";
 import ContactUs from "./components/contact-us";
-
+import SuccessPartners from "./components/scuccess-partners";
 export default function Home() {
   return (
     <main>
@@ -16,6 +16,7 @@ export default function Home() {
       <Features />
       <Innovations />
       <ValueSection />
+      <SuccessPartners />
       <Testimonials />
       <ContactUs />
     </main>

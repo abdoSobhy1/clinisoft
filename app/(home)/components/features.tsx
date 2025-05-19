@@ -5,7 +5,7 @@ const featuresList = [
         title: (
             <>
                 Convenient, Quick<br />
-                <strong>Easy</strong> to use
+                & <strong>Easy</strong> to use
             </>
         ),
         description: "Your time is valuable, our software is designed to simplify your workflow, maximize your productivity and save you time and effort.",
@@ -14,23 +14,23 @@ const featuresList = [
     {
         title: (
             <>
-                Patient data is encrypted & stored on <strong>secure</strong> servers
+                Improved patient <br /> data <strong>Privacy</strong>
             </>
         ),
         description: "We prioritize patient privacy and data security, you can rest assured that your patients' sensitive information is protected from unauthorized access.",
-        icon: "/images/icons/server.svg"
+        icon: "/images/icons/patient-privacy.svg"
     },
     {
         title: (
             <>
-                <strong>One time</strong> <br /> payment
+                <strong>One time</strong> payment
             </>
         ),
         description: "Say goodbye to costly annual renewals. Our software is available for a single upfront payment.",
         icon: "/images/icons/wallet.svg"
     },
     {
-        title: "Innovative functions and modules",
+        title: <><strong>Modern </strong> clinic processes</>,
         description: "As industry leaders in innovation, our groundbreaking solutions revolutionize healthcare. Our continually evolving modules are designed to meet your specific needs.",
         icon: "/images/icons/rocket.svg"
     }

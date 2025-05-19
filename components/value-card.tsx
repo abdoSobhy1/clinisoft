@@ -1,5 +1,6 @@
 import { useCountUp } from "@/hooks/useCountup";
 import Image from "next/image";
+import Accordion from "./accordion";
 
 type ValueCardProps = {
     stat: number;
@@ -21,7 +22,9 @@ export default function ValueCard({ stat, title, description, icon, shouldCount 
                 <p className="text-teal text-5xl font-semibold">{count} %</p>
                 <h3 className="text-[24px] font-semibold text-[#1e949e]">{title}</h3>
             </div>
-            <p className="text-[#4d504f] text-lg leading-8">{description}</p>
+            <Accordion>
+                <p className="text-[#4d504f] text-lg leading-8">{description}</p>
+            </Accordion>
         </div>
     )
 }

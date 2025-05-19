@@ -10,8 +10,8 @@ export default function Header() {
 
 
     return (
-        <header className="py-4 px-6  bg-white sticky top-0 z-50 shadow-lg">
-            <div className="flex justify-between items-center max-w-screen-xl mx-auto">
+        <header className="py-4 px-6 max-w-screen-xl mx-auto bg-[#FFFFFFCC] border-white border-1 backdrop-blur-xs rounded-full sticky top-8 z-50 shadow-md">
+            <div className="flex justify-between items-center  mx-auto">
                 <div className="flex items-center space-x-2 order-2 md:order-1">
                     <Link href="/">
                         <Image src="/images/logo.png" alt="CliniSoft Logo" width={160} height={40} priority />
