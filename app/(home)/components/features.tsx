@@ -1,4 +1,6 @@
+'use client'
 import FeatureCard from "@/components/feature-card"
+import { useAccordionRows } from "@/hooks/useAccordionRows"
 
 const featuresList = [
     {
@@ -36,14 +38,25 @@ const featuresList = [
     }
 ];
 
-
-
 export default function Features() {
+    const { containerRef, handleCardToggle, getCardState } = useAccordionRows({
+        className: "feature-card"
+    });
+
     return (
         <section className="py-12 px-4 relative before:content-[''] before:absolute before:w-full before:h-0.5  before:bg-linear-to-l before:from-[#1E949E00] before:via-[#1E949E] before:to-[#1E949E00] before:bottom-0 before:left-0">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
+            <div ref={containerRef} className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
                 {featuresList.map((feature, index) => (
-                    <FeatureCard key={index.toString()} title={feature.title} description={feature.description} icon={feature.icon} isWide={index === 3} />
+                    <FeatureCard
+                        key={index.toString()}
+                        title={feature.title}
+                        description={feature.description}
+                        icon={feature.icon}
+                        isWide={index === 3}
+                        isOpen={getCardState(index)}
+                        onToggle={() => handleCardToggle(index)}
+                        className="feature-card"
+                    />
                 ))}
             </div>
         </section>

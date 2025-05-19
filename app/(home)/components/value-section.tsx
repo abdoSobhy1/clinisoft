@@ -3,6 +3,7 @@ import ValueCard from "@/components/value-card";
 import { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useAccordionRows } from "@/hooks/useAccordionRows";
 
 const valueCards = [
     {
@@ -31,11 +32,13 @@ const valueCards = [
     }
 ]
 
-
 export default function ValueSection() {
     const sectionRef = useRef<HTMLDivElement>(null);
     const [startCounting, setStartCounting] = useState(false);
     const [isAnimated, setIsAnimated] = useState(false);
+    const { containerRef, handleCardToggle, getCardState } = useAccordionRows({
+        className: "value-card"
+    });
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -56,9 +59,19 @@ export default function ValueSection() {
     return (
         <section ref={sectionRef} className="py-12 px-4">
             <h2 className="py-12 text-center text-2xl md:text-5xl font-semibold text-teal">How We Bring Value</h2>
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(min(250px,95%),1fr))] gap-8">
-                {valueCards.map((card) => (
-                    <ValueCard key={card.title} stat={card.stat} title={card.title} description={card.description} icon={card.icon} shouldCount={startCounting} />
+            <div ref={containerRef} className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(min(250px,95%),1fr))] gap-8">
+                {valueCards.map((card, index) => (
+                    <ValueCard
+                        key={card.title}
+                        stat={card.stat}
+                        title={card.title}
+                        description={card.description}
+                        icon={card.icon}
+                        shouldCount={startCounting}
+                        isOpen={getCardState(index)}
+                        onToggle={() => handleCardToggle(index)}
+                        className="value-card"
+                    />
                 ))}
             </div>
         </section>

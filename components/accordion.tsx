@@ -7,15 +7,24 @@ interface AccordionProps {
     children: React.ReactNode;
     initialHeight?: number;
     className?: string;
+    isOpen?: boolean;
+    onToggle?: () => void;
+    hideButton?: string;
 }
 
-export default function Accordion({ children, initialHeight = 0, className }: AccordionProps) {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+export default function Accordion({ children, initialHeight = 0, className, isOpen: controlledIsOpen, onToggle, hideButton }: AccordionProps) {
+    const [uncontrolledIsOpen, setUncontrolledIsOpen] = useState<boolean>(false);
     const contentRef = useRef<HTMLDivElement>(null);
     const [height, setHeight] = useState(initialHeight);
 
+    const isOpen = controlledIsOpen ?? uncontrolledIsOpen;
+
     const handleClick = () => {
-        setIsOpen((prev) => !prev);
+        if (onToggle) {
+            onToggle();
+        } else {
+            setUncontrolledIsOpen(prev => !prev);
+        }
     };
 
     useEffect(() => {
@@ -34,12 +43,11 @@ export default function Accordion({ children, initialHeight = 0, className }: Ac
                     opacity: !initialHeight ? isOpen ? 1 : 0 : 1,
                 }}
             >
-
                 {children}
             </div>
             <button
                 onClick={handleClick}
-                className="mx-auto"
+                className={cn("mx-auto", hideButton)}
             >
                 <ChevronsDown
                     className={`text-[#616161] w-8 h-8 ${isOpen ? "rotate-180" : ""}`}
