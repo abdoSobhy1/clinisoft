@@ -3,7 +3,7 @@ import Image from "next/image"
 const partners = [[
     { partner: "orange", logo: "/images/partners/orange.webp" },
     { partner: "microsoft", logo: "/images/partners/microsoft.webp" },
-    { partner: "teamViewer", logo: "/images/partners/Teamviewer.webp" },
+    { partner: "teamViewer", logo: "/images/partners/teamviewer.webp" },
     { partner: "samsung", logo: "/images/partners/samsung.webp" },
     { partner: "meta", logo: "/images/partners/meta.webp" },
     { partner: "google", logo: "/images/partners/google.webp" },

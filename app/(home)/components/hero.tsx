@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import MainButton from '@/components/main-button';
-// import Accordion from '@/components/accordion';
+import Accordion from '@/components/accordion';
 
 export default function HeroSection() {
     //<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -20,28 +20,28 @@ export default function HeroSection() {
                         The Pioneers of <br />
                         Clinic Digital Transformation
                     </h1>
-                    {/* <Accordion initialHeight={70} className='flex flex-col'> */}
-                    <div className="space-y-4 text-[#767676] mb-6">
-                        <p>
-                            Our journey began in <strong>2005</strong> with a vision to empower
-                            healthcare professionals with intuitive and efficient tools.
-                        </p>
-                        <p>
-                            We understood that the needs of each medical specialty are unique, and
-                            a one-size-fits-all approach would not suffice.
-                        </p>
-                        <p>
-                            To address this, we embarked on a mission to develop{' '}
-                            <strong>tailored interfaces for every specialty</strong>.
-                        </p>
-                        <p>
-                            This meticulous attention to detail has allowed us to create solutions
-                            that seamlessly integrate into the workflows of physicians across
-                            various fields.
-                        </p>
-                    </div>
-                    <MainButton href="/about" className='ml-auto'>Read More</MainButton >
-                    {/* </Accordion> */}
+                    <Accordion initialHeight={70} className='flex flex-col'>
+                        <div className="space-y-4 text-[#767676] mb-6">
+                            <p>
+                                Our journey began in <strong>2005</strong> with a vision to empower
+                                healthcare professionals with intuitive and efficient tools.
+                            </p>
+                            <p>
+                                We understood that the needs of each medical specialty are unique, and
+                                a one-size-fits-all approach would not suffice.
+                            </p>
+                            <p>
+                                To address this, we embarked on a mission to develop{' '}
+                                <strong>tailored interfaces for every specialty</strong>.
+                            </p>
+                            <p>
+                                This meticulous attention to detail has allowed us to create solutions
+                                that seamlessly integrate into the workflows of physicians across
+                                various fields.
+                            </p>
+                        </div>
+                        <MainButton href="/about" className='ml-auto'>Read More</MainButton >
+                    </Accordion>
 
                 </div>
                 {/* <div className='w-full order-1 md:order-2 h-full' >
