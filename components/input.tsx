@@ -14,7 +14,7 @@ export default function Input({ type, label, form, placeholder, isRequired, erro
     return (
         <div className="form-group">
             <label htmlFor={label.toLocaleLowerCase()} className="font-bold">{label} {isRequired && <span className="text-red-500 font-medium">*</span>}</label>
-            <input type={type} id={label.toLocaleLowerCase()} {...form} placeholder={placeholder} className={`w-full p-2 bg-white border border-[#94949440] rounded-lg mt-4 ${phoneClasses}`} />
+            <input type={type} id={label.toLocaleLowerCase()} {...form} placeholder={placeholder} className={`w-full p-2 bg-white border border-[#94949440] rounded-lg mt-4 placeholder:text-[#e9e9e9] ${phoneClasses}`} />
             {error && <p className="text-red-500 text-sm">{error}</p>}
         </div>
     )

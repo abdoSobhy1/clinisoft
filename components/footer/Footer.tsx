@@ -39,7 +39,7 @@ const contactInfo = [
 ];
 
 const Footer: React.FC = () => (
-    <footer className="bg-[#1A2632] pt-12 pb-4 px-4 text-sm">
+    <footer className="bg-[#1A2632] pt-12 pb-4 px-4 text-sm relative overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-[1fr_2fr_1fr_1fr_1.5fr] gap-4 items-start">
             <div className="flex flex-col items-center h-full gap-4 col-span-2 md:col-span-1 relative">
                 <Image src="/images/icons/white-footer-logo.svg" alt="CliniSoft Logo" width={110} height={110} />
@@ -70,6 +70,9 @@ const Footer: React.FC = () => (
             <span className="text-[#d0cfec]">Copyright © {new Date().getFullYear()} CliniSoft. All rights reserved.</span>
             <FooterSocialIcons />
         </div>
+        <span className="hidden md:block absolute bg-linear-90 from-[#163ECB1F] to-[#FFFFFF00] w-[130px] h-[130px] rounded-full -top-10 -right-20 z-0 pointer-events-none" />
+        <span className="hidden md:block absolute -bg-linear-15 from-[#163ECB1F] to-[#FFFFFF00] w-[290px] h-[290px] rounded-full -bottom-30 -left-10 z-0 pointer-events-none" />
+        <span className="hidden md:block absolute bg-linear-135 from-[#163ECB1F] to-[#FFFFFF00] w-[250px] h-[250px] rounded-full -bottom-40 -right-10 z-0 pointer-events-none" />
     </footer>
 );
 

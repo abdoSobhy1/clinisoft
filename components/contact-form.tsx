@@ -71,7 +71,7 @@ export default function ContactForm() {
                 Message: values.message || ''
             });
 
-            const response = await fetch(`https://cswf.azurewebsites.net/Functions/ContactUs?${params.toString()}`, {
+            const response = await fetch(`http://cswf.azurewebsites.net/Functions/ContactUs?${params.toString()}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -102,9 +102,6 @@ export default function ContactForm() {
             <h2 className="text-3xl font-semibold text-[#203e71]">Contact Us</h2>
             <p className="text-2xl text-[#203e71] font-semibold">Please fill this form and we will contact you shortly</p>
         </div>
-
-
-
         <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
@@ -118,16 +115,19 @@ export default function ContactForm() {
                     <label htmlFor="specialties" className="font-bold">Specialty <span className="text-red-500 font-medium">*</span></label>
                     <select
                         {...form.register("specialties")}
-                        className="w-full p-2 bg-white border border-[#94949440] rounded-lg mt-4"
-                        id="specialties"
-                    >
-                        <option value="" className="text-gray-500" hidden>Select a specialty</option>
+                        className={`w-full p-2 bg-white border border-[#94949440] rounded-lg mt-4
+                                  ${form.watch("specialties") === "" ? "text-[#9CA3AF]" : "text-black"}`}
+                        id="specialties" >
+                        <option value="" hidden disabled className="text-[#9CA3AF]">
+                            Select a specialty
+                        </option>
                         {specialties.map((specialty) => (
                             <option key={specialty} value={specialty}>
                                 {specialty}
                             </option>
                         ))}
                     </select>
+
                     {form.formState.errors.specialties && <p className="text-red-500 text-sm">{form.formState.errors.specialties.message}</p>}
                 </div>
             </div>
@@ -166,7 +166,7 @@ export default function ContactForm() {
                 <textarea
                     {...form.register("message")}
                     id="message"
-                    className="w-full p-2 bg-white border border-[#94949440] rounded-lg mt-4"
+                    className="w-full p-2 bg-white border border-[#94949440] rounded-lg mt-4 placeholder:text-[#e9e9e9]"
                     rows={4}
                     placeholder="Enter your message here..."
                 />
