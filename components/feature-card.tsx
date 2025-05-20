@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Accordion from "@/components/accordion";
 import { ChevronsDown } from "lucide-react";
-import { useAutoOpenOnView } from "@/hooks/useAutoOpenOnView";
+// import { useAutoOpenOnView } from "@/hooks/useAutoOpenOnView";
 
 type FeatureCardProps = {
     description: string;
