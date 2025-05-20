@@ -231,10 +231,10 @@ function CarouselDots({ className, ...props }: React.ComponentProps<"div">) {
         <button
           key={index}
           className={cn(
-            "size-2 rounded-full transition-all duration-300",
+            "w-6 md:w-10 h-2 md:h-3 rounded-full transition-all duration-300",
             selectedScrollSnap === index
-              ? "bg-[#1A6D74] scale-125"
-              : "bg-[#1A6D74]/30 hover:bg-[#1A6D74]/50"
+              ? "bg-[#257981]/80 "
+              : "bg-[#ABD1D4]/30 hover:bg-[#1A6D74]/50"
           )}
           onClick={() => api?.scrollTo(index)}
           aria-label={`Go to slide ${index + 1}`}

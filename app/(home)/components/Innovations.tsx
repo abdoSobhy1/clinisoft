@@ -4,7 +4,7 @@ const innovations = [
     {
         title: "Queue Management (QTV)",
         description: "Experience the future of queue management with our innovative screens, powered by Samsung. Our cutting-edge technology combines the latest advancements in display technology with intelligent queue management algorithms to deliver a superior experience for both businesses and customers.",
-        image: "/images/qtv.png",
+        image: "/images/qtv.webp",
         link: "/innovations/queue-management"
     },
     {

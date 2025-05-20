@@ -82,7 +82,7 @@ export default function SpecialtiesCaroussel() {
                 </CarouselContent>
             </Carousel>
             <div className="flex flex-col items-center gap-4">
-                <h2 className="text-[2rem] text-[#1A6D74] font-semibold">
+                <h2 className="text-[2rem] text-[#1A6D74] text-center font-semibold">
                     More Medical Specialties
                 </h2>
                 <p className="font-semibold text-[#1A6D74] max-w-[500px] text-center"> &quot;Discover our specialized medical software solutions tailored for various healthcare fields.&quot;</p>

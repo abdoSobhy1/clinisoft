@@ -10,9 +10,9 @@ const partners = [[
 ], [
     { partner: "mastercard", logo: "/images/partners/mastercard.webp" },
     { partner: "visa", logo: "/images/partners/visa.webp" },
-    { partner: "cib", logo: "/images/partners/cib.webp", w: "105px" },
+    { partner: "cib", logo: "/images/partners/cib.webp" },
     { partner: "nbe", logo: "/images/partners/nbe.webp", w: "105px" },
-    { partner: "banque-misr", logo: "/images/partners/banque-misr.webp" },
+    { partner: "banque-misr", logo: "/images/partners/banque-misr.webp", w: "105px" },
     { partner: "paymob", logo: "/images/partners/paymob.webp" },
 ]]
 
@@ -24,7 +24,7 @@ export default function SuccessPartners() {
                 {partners.map((item, index) => (
                     <div key={index} className="flex flex-wrap gap-10 justify-center items-center">
                         {item.map((partner) => (
-                            <div key={partner.partner} className={`relative ${partner.w ? `w-[105px]` : "w-40"} h-20`}>
+                            <div key={partner.partner} className={`relative ${partner.w ? `w-[105px]` : "w-[105px] md:w-40"} h-20`}>
                                 <Image src={partner.logo} alt={partner.partner} fill className="object-contain" />
                             </div>
                         ))}
