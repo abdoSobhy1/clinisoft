@@ -74,6 +74,7 @@ export function useAccordionRows({
         [rowKey]: !prev[rowKey],
       };
       onRowStateChange?.(newStates);
+      console.log({ newStates });
       return newStates;
     });
   };
@@ -105,3 +106,4 @@ export function useAccordionRows({
     updateRowStates,
   };
 }
+

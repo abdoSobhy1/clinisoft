@@ -3,7 +3,7 @@ import Image from "next/image";
 import Accordion from "./accordion";
 import { cn } from "@/lib/utils";
 import { ChevronsDown } from "lucide-react";
-// import { useAutoOpenOnView } from "@/hooks/useAutoOpenOnView";
+import { useAutoOpenOnView } from "@/hooks/useAutoOpenOnView";
 
 type ValueCardProps = {
     stat: number;
@@ -21,7 +21,7 @@ export default function ValueCard({ stat, title, description, icon, shouldCount,
     const count = useCountUp(shouldCount ? stat : 0, 1500);
 
     return (
-        <div className={cn("rounded-3xl bg-white p-4 shadow-md h-full text-center flex flex-col justify-between", className)}>
+        <div className={cn("rounded-3xl bg-white p-4 shadow-md h-full text-center flex flex-col", className)}>
             <div className="md:mb-8 flex justify-between items-center md:block">
                 <Image src={icon} alt={title} width={60} height={60} className="md:mx-auto md:mb-4" />
                 <div>

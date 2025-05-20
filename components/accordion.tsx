@@ -37,9 +37,9 @@ export default function Accordion({ children, initialHeight = 0, className, isOp
         <>
             <div
                 ref={contentRef}
-                className={cn(`transition-all duration-300 ease-in-out overflow-hidden relative`, className)}
+                className={cn(`transition-all duration-300 ease-in-out overflow-hidden relative grow-1`, className)}
                 style={{
-                    maxHeight: isOpen ? `${height}px` : `${initialHeight}px`,
+                    height: isOpen ? `${height}px` : `${initialHeight}px`,
                     opacity: !initialHeight ? isOpen ? 1 : 0 : 1,
                 }}
             >

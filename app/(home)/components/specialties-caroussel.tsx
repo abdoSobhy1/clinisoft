@@ -61,7 +61,7 @@ const specialties = [
 
 export default function SpecialtiesCaroussel() {
     const plugin = useRef(
-        Autoplay({ delay: 2000, })
+        Autoplay({ delay: 5000, })
     )
     return (
         <section className="py-6 px-4 ">

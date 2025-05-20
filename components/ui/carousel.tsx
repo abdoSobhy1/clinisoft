@@ -27,6 +27,8 @@ type CarouselContextProps = {
   scrollNext: () => void
   canScrollPrev: boolean
   canScrollNext: boolean
+  scrollSnaps: number[]
+  selectedScrollSnap: number
 } & CarouselProps
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
@@ -59,11 +61,14 @@ function Carousel({
   )
   const [canScrollPrev, setCanScrollPrev] = React.useState(false)
   const [canScrollNext, setCanScrollNext] = React.useState(false)
+  const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([])
+  const [selectedScrollSnap, setSelectedScrollSnap] = React.useState(0)
 
   const onSelect = React.useCallback((api: CarouselApi) => {
     if (!api) return
     setCanScrollPrev(api.canScrollPrev())
     setCanScrollNext(api.canScrollNext())
+    setSelectedScrollSnap(api.selectedScrollSnap())
   }, [])
 
   const scrollPrev = React.useCallback(() => {
@@ -95,6 +100,7 @@ function Carousel({
   React.useEffect(() => {
     if (!api) return
     onSelect(api)
+    setScrollSnaps(api.scrollSnapList())
     api.on("reInit", onSelect)
     api.on("select", onSelect)
 
@@ -115,6 +121,8 @@ function Carousel({
         scrollNext,
         canScrollPrev,
         canScrollNext,
+        scrollSnaps,
+        selectedScrollSnap,
       }}
     >
       <div
@@ -170,15 +178,16 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CarouselPrevious() {
+function CarouselPrevious({ className, ...props }: React.ComponentProps<"button">) {
   const { scrollPrev, canScrollPrev } = useCarousel()
 
   return (
     <button
       data-slot="carousel-previous"
-      className={
-        "inline-flex items-center justify-center absolute size-10 text-xl rounded-full top-1/2 left-0 -translate-y-1/2 z-20 bg-[rgba(0,0,0,0.25)] hover:bg-[rgba(0,0,0,0.50)] transition-all duration-300 text-white cursor-pointer"
-      }
+      className={cn(
+        "inline-flex items-center justify-center absolute size-10 text-xl rounded-full top-1/2 left-0 -translate-y-1/2 z-20 bg-[rgba(0,0,0,0.25)] hover:bg-[rgba(0,0,0,0.50)] transition-all duration-300 text-white cursor-pointer",
+        className
+      )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
     >
@@ -188,22 +197,50 @@ function CarouselPrevious() {
   )
 }
 
-function CarouselNext() {
+function CarouselNext({ className, ...props }: React.ComponentProps<"button">) {
   const { scrollNext, canScrollNext } = useCarousel()
 
   return (
 
     <button
       data-slot="carousel-next"
-      className={
-        "inline-flex items-center justify-center absolute size-10 text-xl rounded-full top-1/2 right-0 -translate-y-1/2 z-20 bg-[rgba(0,0,0,0.25)] hover:bg-[rgba(0,0,0,0.50)] transition-all duration-300 text-white cursor-pointer"
-      }
+      className={cn(
+        "inline-flex items-center justify-center absolute size-10 text-xl rounded-full top-1/2 right-0 -translate-y-1/2 z-20 bg-[rgba(0,0,0,0.25)] hover:bg-[rgba(0,0,0,0.50)] transition-all duration-300 text-white cursor-pointer",
+        className
+      )}
       disabled={!canScrollNext}
       onClick={scrollNext}
+      {...props}
     >
       <ChevronRight />
       <span className="sr-only">Next slide</span>
     </button>
+  )
+}
+
+function CarouselDots({ className, ...props }: React.ComponentProps<"div">) {
+  const { api, scrollSnaps, selectedScrollSnap } = useCarousel()
+
+  return (
+    <div
+      data-slot="carousel-dots"
+      className={cn("flex items-center justify-center gap-2 mt-4", className)}
+      {...props}
+    >
+      {scrollSnaps.map((_, index: number) => (
+        <button
+          key={index}
+          className={cn(
+            "size-2 rounded-full transition-all duration-300",
+            selectedScrollSnap === index
+              ? "bg-[#1A6D74] scale-125"
+              : "bg-[#1A6D74]/30 hover:bg-[#1A6D74]/50"
+          )}
+          onClick={() => api?.scrollTo(index)}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))}
+    </div>
   )
 }
 
@@ -214,4 +251,5 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  CarouselDots,
 }

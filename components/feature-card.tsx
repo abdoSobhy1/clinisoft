@@ -16,10 +16,10 @@ type FeatureCardProps = {
 
 export default function FeatureCard({ description, icon, isWide, title, isOpen, onToggle, className }: FeatureCardProps) {
     const imageAlt = icon.split("/").pop()?.split(".")[0].toString() ?? "";
-    const cardRef = useAutoOpenOnView(isOpen, onToggle);
+    // const cardRef = useAutoOpenOnView(isOpen, onToggle);
 
     return (
-        <div ref={cardRef} className={cn(
+        <div className={cn(
             "rounded-3xl bg-linear-45 md:-bg-linear-135 from-[#c4fef0] via-[#d7e4f2] to-[rgba(255,255,255,0.5)] p-4 shadow-lg shadow-[#c9f1f4] h-full flex flex-col justify-between stroke-1 stroke-[#D7E4F2]",
             isWide ? "lg:col-span-3 lg:items-center lg:text-center" : "",
             className
