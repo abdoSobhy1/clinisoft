@@ -1,6 +1,6 @@
 'use client'
 import HeroSlide from "@/components/hero-slide";
-import { Carousel, CarouselNext, CarouselPrevious, CarouselContent, CarouselItem, CarouselDots } from "@/components/ui/carousel";
+import { Carousel, CarouselNext, CarouselPrevious, CarouselContent, CarouselDots } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 
