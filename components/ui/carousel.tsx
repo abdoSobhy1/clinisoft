@@ -160,7 +160,7 @@ function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function CarouselItem({ className }: React.ComponentProps<"div">) {
+function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
   const { orientation } = useCarousel()
 
   return (
@@ -173,6 +173,7 @@ function CarouselItem({ className }: React.ComponentProps<"div">) {
         orientation === "horizontal" ? "pl-4" : "pt-4",
         className
       )}
+      {...props}
     />
   )
 }
