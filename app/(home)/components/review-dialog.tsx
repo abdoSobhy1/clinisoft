@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, memo } from 'react'
 import { createPortal } from 'react-dom'
 import Image from 'next/image'
-import { motion, AnimatePresence, PanInfo, useAnimation } from 'framer-motion'
+import { motion, AnimatePresence, PanInfo } from 'framer-motion'
 import { XIcon } from 'lucide-react'
 
 type Review = {
@@ -32,7 +32,6 @@ const ReviewDialog = memo(function ReviewDialog({
 }: ReviewDialogProps) {
     const currentReview = reviews[currentIndex]
     const [direction, setDirection] = useState(0)
-    const controls = useAnimation()
 
     const variants = {
         enter: (direction: number) => ({
