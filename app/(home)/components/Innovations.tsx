@@ -31,7 +31,7 @@ const innovations = [
 export default function Innovations() {
     return (
         <section>
-            <h2 className="py-12 px-4 text-center text-2xl md:text-5xl font-semibold text-teal">Unique Innovativations</h2>
+            <h2 className="py-12 px-4 text-center text-2xl md:text-5xl font-semibold text-teal">Unique Innovations</h2>
             <div className="max-w-7xl mx-auto space-y-6">
                 {
                     innovations.map((innovation, index) => (

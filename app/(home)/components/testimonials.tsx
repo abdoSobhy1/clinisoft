@@ -1,12 +1,9 @@
 'use client'
 import ReviewCard from "@/components/review-card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { Dialog } from "@/components/ui/dialog";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef, useState, useCallback } from "react";
-import Image from "next/image";
-
+import { useRef, useState, useCallback, useEffect } from "react";
+import { ReviewDialog } from "./review-dialog";
 import reviews from '@/public/reviews.json'
 
 type Review = {
@@ -18,65 +15,86 @@ type Review = {
 
 export default function Testimonials() {
     const [isOpen, setIsOpen] = useState(false)
-    const [selectedReview, setSelectedReview] = useState<Review | null>(null)
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const [isHovered, setIsHovered] = useState(false)
 
     const autoplayRef = useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: false })
+        Autoplay({ delay: 2000 })
     )
 
-    const handleReviewClick = (review: Review) => {
-        setSelectedReview(review)
+    // Stop carousel when dialog is open
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (isOpen) {
+                autoplayRef.current?.stop()
+            } else if (!isHovered) {
+                autoplayRef.current?.play()
+            }
+        }, 100) // Small delay to ensure carousel is initialized
+
+        return () => clearTimeout(timer)
+    }, [isOpen, isHovered])
+
+    const handleReviewClick = (review: Review, index: number) => {
+        setCurrentIndex(index)
         setIsOpen(true)
-        autoplayRef.current.stop()
     }
 
-    const handleDialogClose = useCallback((isOpen: boolean) => {
-        setIsOpen(isOpen)
-        if (!isOpen) {
-            autoplayRef.current.play()
-        }
+    const handleDialogClose = useCallback((open: boolean) => {
+        setIsOpen(open)
     }, [])
 
+    const handlePreviousReview = () => {
+        setCurrentIndex((prev) => {
+            if (prev === 0) {
+                return reviews.length - 1
+            }
+            return prev - 1
+        })
+    }
+
+    const handleNextReview = () => {
+        setCurrentIndex((prev) => {
+            if (prev === reviews.length - 1) {
+                return 0
+            }
+            return prev + 1
+        })
+    }
+
     return (
-        <section className="py-6 px-4 ">
+        <section className="py-6 px-4">
             <h2 className="py-12 text-center text-2xl md:text-5xl font-semibold text-teal">Loved & Recommended by Physicians</h2>
             <Carousel
                 plugins={[autoplayRef.current]}
                 className="w-full"
                 onMouseEnter={() => {
-                    autoplayRef.current.stop()
+                    setIsHovered(true)
                 }}
                 onMouseLeave={() => {
-                    if (!isOpen) {
-                        autoplayRef.current.play()
-                    }
+                    setIsHovered(false)
                 }}
                 opts={{ loop: true }}
             >
                 <CarouselNext />
                 <CarouselPrevious />
-                <CarouselContent >
-                    {reviews.map((review) => (
+                <CarouselContent>
+                    {reviews.map((review, index) => (
                         <CarouselItem key={review.doctor} className="min-w-[350px] basis-1 md:basis-1/3 lg:basis-1/5 mb-6">
-                            <ReviewCard doctor={review.doctor} review={review.review} image={review.image} onClick={() => handleReviewClick(review)} />
+                            <ReviewCard doctor={review.doctor} review={review.review} image={review.image} onClick={() => handleReviewClick(review, index)} />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
             </Carousel>
-            <Dialog open={isOpen} onOpenChange={handleDialogClose}>
-                {
-                    selectedReview &&
-                    <DialogContent className="bg-white">
-                        <DialogTitle className="sr-only">Testimonial</DialogTitle>
-                        <div className="text-center">
-                            <Image src={selectedReview?.image} alt={selectedReview?.doctor} width={100} height={100} className="mx-auto rounded-full mb-4" />
-                            <p className="text-lg font-semibold mb-1">{selectedReview?.doctor}</p>
-                            <p className="text-sm font-semibold text-gray-500 mb-2">{selectedReview?.specialty}</p>
-                            <p className="text-lg text-gray-500" >{selectedReview?.review}</p>
-                        </div>
-                    </DialogContent>
-                }
-            </Dialog>
+
+            <ReviewDialog
+                isOpen={isOpen}
+                onClose={handleDialogClose}
+                reviews={reviews}
+                currentIndex={currentIndex}
+                onPrevious={handlePreviousReview}
+                onNext={handleNextReview}
+            />
         </section>
     );
 }
