@@ -54,7 +54,7 @@ export default function SpecialtiesCaroussel() {
                 <h2 className="text-5xl font-semibold leading-[67px]">
                     Specialties we serve                 </h2>
                 <p className="text-4xl font-medium leading-[48px]">
-                    Each specialty interface is uniquely built for the doctor's workflow
+                    Each specialty interface is uniquely built for the doctor&apos;s workflow
                 </p>
                 <p className="text-[#ea7f70] text-4xl font-bold leading-[48px]">No generic Layouts!</p>
             </div>

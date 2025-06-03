@@ -36,7 +36,7 @@ export default function Innovations() {
             <Title className="py-8">Built-in Tools that Truly Make a Difference</Title>
             <div className="text-center justify-center text-textTeal text-4xl font-medium leading-loose mb-16">
                 <p>These are not just features</p>
-                <p>they're operational game-changers.</p>
+                <p>they&apos;re operational game-changers.</p>
             </div>
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(600px,1fr))] gap-8">
                 {
