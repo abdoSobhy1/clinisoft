@@ -64,15 +64,17 @@ export default function Testimonials() {
 
     return (
         <section className="py-6 px-4">
-            <h2 className="py-12 text-center text-2xl md:text-5xl font-semibold text-teal">Loved & Recommended by Physicians</h2>
+            <h2 className="max-w-7xl mx-auto py-12 text-center text-textTeal text-3xl font-semibold leading-[48px]">Doctors across specialties share their real-world experiences with CliniSoft</h2>
             <Carousel
                 plugins={[autoplayRef.current]}
                 className="w-full"
                 onMouseEnter={() => {
                     setIsHovered(true)
+                    autoplayRef.current?.stop()
                 }}
                 onMouseLeave={() => {
                     setIsHovered(false)
+                    autoplayRef.current?.play()
                 }}
                 opts={{ loop: true }}
             >

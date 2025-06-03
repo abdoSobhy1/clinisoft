@@ -14,13 +14,13 @@ export default function StatCounter({ stat, shouldCount }: { stat: Stat; shouldC
 
     return (
         <div className="flex justify-center items-center gap-4">
-            <Image src={stat.icon} alt={stat.label} width={60} height={60} />
+            <Image src={stat.icon} alt={stat.label} width={90} height={90} />
             <div>
-                <p className="text-4xl font-semibold min-w-[120px]">
+                <p className="text-6xl font-semibold min-w-[200px]">
                     {count}
                     {stat.suffix}
                 </p>
-                <div className="text-lg font-medium">{stat.label}</div>
+                <div className="text-3xl font-medium">{stat.label}</div>
             </div>
         </div>
     );

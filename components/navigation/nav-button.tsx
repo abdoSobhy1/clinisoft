@@ -9,7 +9,7 @@ type Props = {
 
 export default function NavButton(props: Props) {
     return (
-        <Link href={props.href} className={`flex items-center gap-2 text-teal text-sm opacity-70 font-medium relative px-2 transition duration-300 uppercase after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:transition after:duration-300 hover:opacity-100 hover:after:bg-teal ${props.isActive ? 'after:bg-teal opacity-100' : ''}`}>
+        <Link href={props.href} className={`flex items-center gap-2 text-teal text-base opacity-70 font-medium relative px-2 transition duration-300 uppercase after:content-[""] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:transition after:duration-300 hover:opacity-100 hover:after:bg-teal ${props.isActive ? 'after:bg-teal opacity-100' : ''}`}>
             {props.label}
             {props.isSubMenu && <ChevronDown size={14} />}
         </Link>

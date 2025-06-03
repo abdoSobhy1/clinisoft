@@ -12,14 +12,14 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Intro />
+      <Features />
+      {/* <Intro /> */}
       <StatsSection />
       <SpecialtiesCaroussel />
-      <Features />
       <Innovations />
       <ValueSection />
-      <SuccessPartners />
       <Testimonials />
+      <SuccessPartners />
       <ContactUs />
     </main>
   );

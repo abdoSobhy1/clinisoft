@@ -10,7 +10,7 @@ export default function Header() {
 
 
     return (
-        <header className="py-4 px-6 w-full max-w-screen-xl mx-auto bg-[#FFFFFFCC] border-white border-1 backdrop-blur-xs rounded-full fixed top-8 left-1/2 -translate-x-1/2 z-50 shadow-md">
+        <header className="py-4 px-6 w-[calc(100%-2rem)] md:w-full max-w-screen-xl mx-auto bg-[#FFFFFFCC] border-white border-1 backdrop-blur-xs rounded-full fixed top-8 left-1/2 -translate-x-1/2 z-50 shadow-md">
             <div className="flex justify-between items-center  mx-auto">
                 <div className="flex items-center space-x-2 order-2 md:order-1">
                     <Link href="/">

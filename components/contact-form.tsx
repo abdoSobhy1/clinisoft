@@ -101,8 +101,8 @@ export default function ContactForm() {
 
     return (<div className="bg-white rounded-[20px] p-8 border-2 border-white">
         <div className="mb-4 space-y-3">
-            <h2 className="text-3xl font-semibold text-[#203e71]">Contact Us</h2>
-            <p className="text-2xl text-[#203e71] font-semibold">Please fill this form and we will contact you shortly</p>
+            <h2 className="text-3xl font-semibold text-textTeal">Let Us Help You Run a Smarter Clinic</h2>
+            <p className="text-2xl text-textTeal font-semibold">Fill in your details and our team will contact you within 24 hours.</p>
         </div>
         <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

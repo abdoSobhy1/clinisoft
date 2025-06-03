@@ -1,31 +1,38 @@
 @echo off
 setlocal
 
-REM === Set project directory ===
+REM === Get current date in YYMMDD format ===
+for /f %%a in ('powershell -NoProfile -Command "Get-Date -Format yyMMdd"') do set "TODAY=%%a"
+
+REM === Set variables ===
 set "PROJECT_DIR=%cd%"
-set "ARCHIVE_NAME=nextjs-project.zip"
+set "PROJECT_NAME=clinisoft"
+set "ARCHIVE_NAME=%PROJECT_NAME%-%TODAY%.7z"
 set "ARCHIVE_PATH=%PROJECT_DIR%\.."
+set "OUTPUT_FILE=%ARCHIVE_PATH%\%ARCHIVE_NAME%"
 
-REM === Temporary working folder for clean copy ===
-set "TEMP_COPY=%TEMP%\nextjs_temp_%RANDOM%"
+REM === Set the full path to 7z.exe ===
+REM Replace this with the correct path if yours is different
+set "SEVENZIP_PATH=C:\Program Files\7-Zip\7z.exe"
 
-REM === Files/folders to exclude ===
-set "EXCLUDES=node_modules .next .git out .vscode .idea *.log .DS_Store .env .env.*"
+REM === Change to project root ===
+cd /d "%PROJECT_DIR%"
 
-REM === Clean old temp and create fresh copy ===
-if exist "%TEMP_COPY%" rmdir /s /q "%TEMP_COPY%"
-mkdir "%TEMP_COPY%"
+REM === Create archive using 7-Zip with max compression (-mx=9) and exclusions ===
+"%SEVENZIP_PATH%" a -t7z "%OUTPUT_FILE%" * ^
+ -xr!node_modules ^
+ -xr!.next ^
+ -xr!.git ^
+ -xr!out ^
+ -xr!.vscode ^
+ -xr!.idea ^
+ -xr!*.log ^
+ -xr!.env ^
+ -xr!.env.* ^
+ -xr!.DS_Store ^
+ -mx=9
 
-echo Copying files (excluding unneeded ones)...
-xcopy "%PROJECT_DIR%\*" "%TEMP_COPY%\" /E /I /H /Y /EXCLUDE:%~f0.excludes.txt
-
-REM === Use PowerShell's Compress-Archive ===
-echo Compressing to archive...
-powershell -NoLogo -NoProfile -Command ^
-    "Compress-Archive -Path '%TEMP_COPY%\*' -DestinationPath '%ARCHIVE_PATH%\%ARCHIVE_NAME%' -Force"
-
-REM === Cleanup temp copy ===
-rmdir /s /q "%TEMP_COPY%"
-
-echo Done! Archive created: %ARCHIVE_PATH%\%ARCHIVE_NAME%"
+echo.
+echo ✅ Done! Archive created:
+echo %OUTPUT_FILE%
 pause

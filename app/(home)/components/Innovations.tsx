@@ -1,26 +1,28 @@
 import InnovationCard from "@/components/innovation-card/innovation-card"
+import Title from "@/components/title"
 
 const innovations = [
     {
-        title: "Queue Management (QTV)",
-        description: "Experience the future of queue management with our innovative screens, powered by Samsung. Our cutting-edge technology combines the latest advancements in display technology with intelligent queue management algorithms to deliver a superior experience for both businesses and customers.",
+        title: "QTV Display",
+        description: "Queue management on top of satellite channels for better waiting experience.",
         image: "/images/qtv.webp",
         link: "/innovations/queue-management"
     },
     {
+        title: "PVC Smart Card",
+        description: "QR-BarCode patient identification & loyalty enhancement.",
+        image: "/images/smart-card.webp",
+        link: "/innovations/smart-card"
+    },
+    {
         title: "Security Key",
-        description: "Protect your sensitive data and ensure authorized access with our advanced security features. Robust encryption: Safeguard your patient records and financial information with industry-leading encryption standards. Granular access controls: Restrict access to specific files, features, and functionalities based on user roles and permissions. Experience the peace of mind that comes with knowing your data is protected. Sign up for a free demo today and discover the difference.",
+        description: "Prevent staff misuse and trace all activity securely.",
         image: "/images/Security-Key.webp",
         link: "/innovations/security-key"
     },
     {
-        title: "Smart Card",
-        description: "Our innovative barcode clinic card offers a comprehensive solution to enhance patient loyalty and improve your practice’s efficiency. Made from durable PVC, our cards elevate your clinic’s image while providing practical benefits. Packed with features, it includes all clinic data, a QR code, and secure patient information. By providing a personalized and convenient experience, our clinic card fosters stronger patient engagement, simplifies appointment booking, and increases efficiency. Additionally, our clinic card allows you to easily recall patient files from your clinic computer, saving you time and improving the patient experience.",
-        image: "/images/smart-card.webp",
-        link: "/innovations/smart-card"
-    }, {
-        title: "Children Coloring book",
-        description: "Keep young patients entertained and engaged with our fun and educational coloring books. Featuring over 90 unique designs, our printable coloring books are perfect for children of all ages. Key Benefits: Reduce anxiety: Help children relax and feel more comfortable in the waiting room. Stimulate creativity: Encourage imagination and artistic expression. Educational value: Incorporate educational elements into the designs, making learning fun. Enhanced patient experience: Create a positive and memorable experience for young patients and their families.",
+        title: "Coloring Book (Pediatrics)",
+        description: "Unique engagement tool for child patients.",
         image: "/images/children-coloring-book.webp",
         link: "/innovations/children-coloring-book"
     }
@@ -31,11 +33,15 @@ const innovations = [
 export default function Innovations() {
     return (
         <section>
-            <h2 className="py-12 px-4 text-center text-2xl md:text-5xl font-semibold text-teal">Unique Innovations</h2>
-            <div className="max-w-7xl mx-auto space-y-6">
+            <Title className="py-8">Built-in Tools that Truly Make a Difference</Title>
+            <div className="text-center justify-center text-textTeal text-4xl font-medium leading-loose mb-16">
+                <p>These are not just features</p>
+                <p>they're operational game-changers.</p>
+            </div>
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(600px,1fr))] gap-8">
                 {
                     innovations.map((innovation, index) => (
-                        <InnovationCard key={index} title={innovation.title} description={innovation.description} image={innovation.image} isEven={index % 2 === 0} link={innovation.link} />
+                        <InnovationCard key={index} title={innovation.title} description={innovation.description} image={innovation.image} link={innovation.link} />
                     ))
                 }
             </div>
