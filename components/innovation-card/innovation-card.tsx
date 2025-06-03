@@ -1,7 +1,6 @@
 import Image from "next/image";
 import DemoButton from "../demo-button";
 import Link from "next/link";
-import InnovationDescription from "./innovation-description";
 type InnovationCardProps = {
     title: string;
     description: string;

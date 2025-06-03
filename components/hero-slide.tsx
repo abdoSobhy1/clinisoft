@@ -1,5 +1,3 @@
-import { ArrowRightIcon } from "lucide-react";
-import MainButton from "./main-button";
 import { CarouselItem } from "./ui/carousel";
 import DemoButton from "./demo-button";
 
