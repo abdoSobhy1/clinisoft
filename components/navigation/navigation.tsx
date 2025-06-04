@@ -54,12 +54,12 @@ export default function Navigation() {
 
 
     if (isMobile) {
-        return (<Sheet open={isOpen} onOpenChange={setIsOpen} >
+        return (<Sheet open={isOpen} onOpenChange={setIsOpen}  >
             <SheetTrigger className='cursor-pointer'>
                 <Image src="/images/ham-menu.svg" alt="Menu" width={24} height={24} />
             </SheetTrigger>
 
-            <SheetContent side="left" title='Menu' className="[&>button.absolute]:text-teal [&>button.absolute:hover]:text-teal">
+            <SheetContent side="top" title='Menu' className="[&>button.absolute]:text-teal [&>button.absolute:hover]:text-teal">
                 <SheetTitle className="sr-only">
                     menu
                 </SheetTitle>

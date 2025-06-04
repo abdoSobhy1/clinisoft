@@ -16,9 +16,9 @@ export default function HeroSlide({
                 className="w-full pl-2 md:pl-0 h-dvh flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat relative"
                 style={{ backgroundImage: `url(${image})` }}
             >
-                <div className="before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-t before:from-[#F0FFFF] before:from-10% before:to-[#F0FFFF00] before:to-50% before:z-2 before:pointer-events-none after:content-[''] after:absolute after:inset-0 after:bg-linear-135 after:from-[#29858de6] after:to-[#29858d4d] after:z-1 after:pointer-events-none" />
+                <div className="before:content-[''] before:absolute before:inset-0 before:bg-linear-0 before:from-[#F0FFFF] before:from-10% before:to-[#F0FFFF00] before:to-50% before:z-2 before:pointer-events-none after:content-[''] after:absolute after:inset-0 after:bg-linear-135 after:from-[#29858de6] after:to-[#29858d4d] after:z-1 after:pointer-events-none" />
                 <div className="relative z-5 text-center px-4">
-                    <h1 className="leading-[96px] text-3xl md:text-5xl lg:text-7xl font-bold relative text-[#A2E2E9] bg-gradient-to-t from-[#A2E2E9] to-[#FFFFFF] supports-[background-clip:text]:text-transparent supports-[background-clip:text]:bg-clip-text">
+                    <h1 className="leading-[96px] text-3xl md:text-5xl lg:text-7xl font-bold relative text-[#A2E2E9] bg-linear-0 from-[#A2E2E9] to-[#FFFFFF] supports-[background-clip:text]:text-transparent supports-[background-clip:text]:bg-clip-text">
                         {title}
                     </h1>
                     <h1 className="absolute leading-[96px] inset-0 text-3xl md:text-5xl lg:text-7xl font-bold -z-1 [text-shadow:_0px_4px_4px_rgb(0_0_0_/_0.25)] select-none">

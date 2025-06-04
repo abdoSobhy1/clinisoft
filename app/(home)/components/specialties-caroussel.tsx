@@ -73,7 +73,7 @@ export default function SpecialtiesCaroussel() {
                         </CarouselItem>
                     ))}
                     <CarouselItem className="min-w-96 basis-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 mb-6">
-                        <div className="rounded-3xl bg-white p-4 shadow-md h-full flex flex-col justify-center items-center bg-gradient-to-l from-[#1d949e] to-[#12656d]">
+                        <div className="rounded-3xl bg-white p-4 shadow-md h-full flex flex-col justify-center items-center bg-linear-270 from-[#1d949e] to-[#12656d]">
                             <p className="text-white text-6xl font-semibold leading-9">
                                 <Link href="/specialties">View More</Link>
                             </p>
