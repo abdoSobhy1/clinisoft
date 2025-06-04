@@ -7,6 +7,7 @@ import ValueSection from "./components/value-section";
 import Testimonials from "./components/testimonials";
 import ContactUs from "./components/contact-us";
 import SuccessPartners from "./components/scuccess-partners";
+import Trusted from "./components/trusted";
 // import Intro from "./components/intro";
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Features />
       {/* <Intro /> */}
+      <Trusted />
       <StatsSection />
       <SpecialtiesCaroussel />
       <Innovations />

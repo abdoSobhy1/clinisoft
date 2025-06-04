@@ -14,12 +14,13 @@ type ValueCardProps = {
     isOpen?: boolean;
     onToggle?: () => void;
     className?: string;
+    index: number;
 }
 
-export default function ValueCard({ stat, title, description, icon, shouldCount, isOpen, onToggle, className }: ValueCardProps) {
+export default function ValueCard({ stat, title, description, icon, shouldCount, isOpen, onToggle, className, index }: ValueCardProps) {
     // const cardRef = useAutoOpenOnView(isOpen, onToggle);
     const count = useCountUp(shouldCount ? stat : 0, 1500);
-
+    console.log(index);
     return (
         <div className={cn("rounded-3xl bg-white p-4 shadow-md h-full text-center flex flex-col", className)}>
             <div className="md:mb-8 flex justify-between items-center md:block">

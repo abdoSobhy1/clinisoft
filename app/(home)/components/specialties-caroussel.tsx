@@ -5,6 +5,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import Autoplay from "embla-carousel-autoplay";
 import { useRef } from "react";
 import Link from "next/link";
+import Title from "@/components/title";
 
 const specialties = [{
     title: "Dentistry",
@@ -51,8 +52,9 @@ export default function SpecialtiesCaroussel() {
     return (
         <section className="py-6 px-4 ">
             <div className="flex flex-col items-center gap-4 text-textTeal text-center mb-8">
-                <h2 className="text-5xl font-semibold leading-[67px]">
-                    Specialties we serve                 </h2>
+                <Title className="text-3xl leading-[67px]">
+                    Specialties we serve
+                </Title>
                 <p className="text-4xl font-medium leading-[48px]">
                     Each specialty interface is uniquely built for the doctor&apos;s workflow
                 </p>
@@ -74,14 +76,14 @@ export default function SpecialtiesCaroussel() {
                     ))}
                     <CarouselItem className="min-w-96 basis-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 mb-6">
                         <div className="rounded-3xl bg-white p-4 shadow-md h-full flex flex-col justify-center items-center bg-linear-270 from-[#1d949e] to-[#12656d]">
-                            <p className="text-white text-6xl font-semibold leading-9">
-                                <Link href="/specialties">View More</Link>
+                            <p className="text-white text-6xl font-semibold text-center">
+                                <Link href="/specialties">Explore More Specialties</Link>
                             </p>
                         </div>
                     </CarouselItem>
                 </CarouselContent>
             </Carousel>
-            <MainButton href="/specialties" className="block px-[141px] py-3 bg-maroon hover:bg-maroon-500 lg:w-fit mx-auto text-[#f5fffa] text-3xl font-bold mt-4" >Explore More</MainButton>
+            <MainButton href="/specialties" className="block px-[141px] py-3 bg-maroon hover:bg-maroon-500  text-center lg:w-fit mx-auto text-[#f5fffa] text-lg md:text-3xl font-bold mt-4" >Explore More</MainButton>
         </section>
     );
 }

@@ -13,11 +13,13 @@ const slots = [
 
 export default function ContactUsForm() {
     return (
-        <section className="py-12 px-4 grid max-w-7xl mx-auto grid-cols-1 lg:grid-cols-[2.8fr_1fr] gap-16">
+        <section className="py-6 px-4 grid max-w-7xl mx-auto grid-cols-1 lg:grid-cols-[2.8fr_1fr] gap-8">
             <ContactForm />
-            <div className="flex flex-col justify-between gap-4">
-                <div className="bg-white rounded-[20px] p-4 text-center space-y-4 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
-                    <Image src="/images/chat-image.webp" alt="Chat Image" width={300} height={300} className="rounded-20" />
+            <div className="flex flex-col  gap-4">
+                <div className="flex flex-col  bg-white rounded-[20px] p-4 text-center space-y-4 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] flex-1">
+                    <div className="relative flex-1 mx-auto rounded-[20px] w-full overflow-hidden">
+                        <Image src="/images/chat-image.webp" alt="Chat Image" fill className=" object-cover" />
+                    </div>
                     <MainButton href="http://wa.me/+201208123222" className="lg:w-full bg-textTeal hover:bg-textTeal text-center flex items-center justify-center px-4 py-3 gap-2">
                         <span className="text-base">
                             Chat with us on WhatsApp
@@ -26,10 +28,10 @@ export default function ContactUsForm() {
                     </MainButton>
                     <MainButton href="tel:+201204698888" className="lg:w-full bg-maroon hover:bg-maroon-700 text-center py-3">Call Us</MainButton>
                 </div>
-                <div className="space-y-4">{slots.map((slot) => (
+                {slots.map((slot) => (
                     <Slot key={slot.title} title={slot.title} href={slot.href} />
-                ))}</div>
+                ))}
             </div>
-        </section>
+        </section >
     );
 }

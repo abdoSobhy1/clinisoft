@@ -21,8 +21,8 @@ const partners = [[
 
 export default function SuccessPartners() {
     return (
-        <section className="py-12 px-4 grid max-w-7xl mx-auto ">
-            <Title>Success Partners</Title>
+        <section className="py-6 px-4 grid max-w-7xl mx-auto ">
+            <Title className="pb-12">Success Partners</Title>
             <div className="space-y-10">
                 {partners.map((item, index) => (
                     <div key={index} className="flex flex-wrap gap-10 justify-center items-center">

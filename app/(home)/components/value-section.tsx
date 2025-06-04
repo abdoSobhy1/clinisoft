@@ -57,7 +57,7 @@ export default function ValueSection() {
     }, [isAnimated]);
 
     return (
-        <section ref={sectionRef} className="py-12 px-4">
+        <section ref={sectionRef} className="py-6 px-4">
             <h2 className="py-12 text-center text-2xl md:text-5xl font-semibold text-teal">How We Bring Value</h2>
             <div ref={containerRef} className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(min(250px,95%),1fr))] gap-8">
                 {valueCards.map((card, index) => (
@@ -71,6 +71,7 @@ export default function ValueSection() {
                         isOpen={getCardState(index)}
                         onToggle={() => handleCardToggle(index)}
                         className="value-card"
+                        index={index}
                     />
                 ))}
             </div>

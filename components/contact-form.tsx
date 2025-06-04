@@ -99,7 +99,7 @@ export default function ContactForm() {
         }
     }
 
-    return (<div className="bg-white rounded-[20px] p-8 border-2 border-white">
+    return (<div className="bg-white rounded-[20px] p-8 border-2 border-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
         <div className="mb-4 space-y-3">
             <h2 className="text-3xl font-semibold text-textTeal">Let Us Help You Run a Smarter Clinic</h2>
             <p className="text-2xl text-textTeal font-semibold">Fill in your details and our team will contact you within 24 hours.</p>
@@ -175,7 +175,7 @@ export default function ContactForm() {
             <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-teal text-white py-2 px-4 rounded-full cursor-pointer ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
+                className={`w-full bg-teal text-white p-4 rounded-full cursor-pointer ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
                 {isSubmitting ? 'Submitting...' : 'Submit'}
             </button>
         </form>
