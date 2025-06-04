@@ -51,14 +51,14 @@ export default function SpecialtiesCaroussel() {
     )
     return (
         <section className="py-6 px-4 ">
-            <div className="flex flex-col items-center gap-4 text-textTeal text-center mb-8">
-                <Title className="text-3xl leading-[67px]">
+            <div className="flex flex-col items-center text-textTeal text-center mb-8">
+                <Title className="text-3xl leading-[67px] mb-4">
                     Specialties we serve
                 </Title>
-                <p className="text-4xl font-medium leading-[48px]">
+                <p className="text-sm md:text-2xl text-textTeal font-medium leading-normal">
                     Each specialty interface is uniquely built for the doctor&apos;s workflow
                 </p>
-                <p className="text-[#ea7f70] text-4xl font-bold leading-[48px]">No generic Layouts!</p>
+                <p className="text-sm md:text-2xl text-[#ea7f70] font-medium leading-normal">No generic Layouts!</p>
             </div>
             <Carousel plugins={[plugin.current]}
                 className="w-full relative before:content-[''] before:absolute before:inset-0 before:bg-gradient-to-r before:bg-[linear-gradient(to_right,_white,_transparent_10%,_transparent_90%,_white)] md:before:bg-[linear-gradient(to_right,_white,_transparent_20%,_transparent_80%,_white)] before:z-1 before:pointer-events-none"

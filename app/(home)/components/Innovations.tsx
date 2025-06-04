@@ -35,7 +35,7 @@ export default function Innovations() {
     return (
         <section className="max-w-7xl mx-auto py-6">
             <Title className="py-b">Built-in Tools that Truly Make a Difference</Title>
-            <div className="text-center justify-center text-textTeal text-4xl font-medium leading-loose mb-16 overflow-x-hidden">
+            <div className="text-center justify-center text-textTeal text-sm md:text-2xl font-medium leading-loose mb-16 overflow-x-hidden">
                 <SlideIn direction="right" as="p">These are not just features</SlideIn>
                 <SlideIn direction="left" as="p" delay={0.5}>they&apos;re operational game-changers.</SlideIn>
             </div>
