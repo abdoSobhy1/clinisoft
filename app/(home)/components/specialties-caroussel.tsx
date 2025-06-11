@@ -44,14 +44,17 @@ const specialties = [{
 }
 ];
 
+interface SpecialtiesCarousselProps {
+    bgColor?: string;
+}
 
-export default function SpecialtiesCaroussel() {
+export default function SpecialtiesCaroussel({ bgColor = "" }: SpecialtiesCarousselProps) {
     const plugin = useRef(
         Autoplay({ delay: 5000 })
     )
     return (
-        <section className="py-6 px-4 ">
-            <div className="flex flex-col items-center text-textTeal text-center mb-8">
+        <section className={`h-vph py-12 px-4 flex flex-col justify-between ${bgColor}`}>
+            <div className=" flex flex-col items-center text-textTeal text-center mb-8">
                 <Title className="text-3xl leading-[67px] mb-4">
                     Specialties we serve
                 </Title>
@@ -77,13 +80,13 @@ export default function SpecialtiesCaroussel() {
                     <CarouselItem className="min-w-96 basis-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 mb-6">
                         <div className="rounded-3xl bg-white p-4 shadow-md h-full flex flex-col justify-center items-center bg-linear-270 from-[#1d949e] to-[#12656d]">
                             <p className="text-white text-6xl font-semibold text-center">
-                                <Link href="/specialties">Explore More Specialties</Link>
+                                <Link href="/specialties">More Specialties</Link>
                             </p>
                         </div>
                     </CarouselItem>
                 </CarouselContent>
             </Carousel>
-            <MainButton href="/specialties" className="block px-[141px] py-3 bg-maroon hover:bg-maroon-500  text-center lg:w-fit mx-auto text-[#f5fffa] text-lg md:text-3xl font-bold mt-4" >Explore More</MainButton>
+            <MainButton href="/specialties" className="block px-[141px] py-3 bg-maroon hover:bg-maroon-500  text-center lg:w-fit mx-auto text-[#f5fffa] text-lg md:text-3xl font-bold mt-4" >More Specialties</MainButton>
         </section>
     );
 }

@@ -19,9 +19,13 @@ const partners = [[
     { partner: "paymob", logo: "/images/partners/paymob.webp" },
 ]]
 
-export default function SuccessPartners() {
+interface SuccessPartnersProps {
+    bgColor?: string;
+}
+
+export default function SuccessPartners({ bgColor = "" }: SuccessPartnersProps) {
     return (
-        <section className="py-6 px-4 grid max-w-7xl mx-auto ">
+        <section className={`py-12 px-4 grid max-w-7xl mx-auto ${bgColor}`}>
             <Title className="pb-12">Success Partners</Title>
             <div className="space-y-10">
                 {partners.map((item, index) => (

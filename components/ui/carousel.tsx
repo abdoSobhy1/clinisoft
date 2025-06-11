@@ -43,6 +43,9 @@ function useCarousel() {
   return context
 }
 
+// export const { scrollPrev, scrollNext, canScrollPrev, canScrollNext, } = useCarousel()
+
+
 function Carousel({
   orientation = "horizontal",
   opts,
@@ -252,4 +255,5 @@ export {
   CarouselPrevious,
   CarouselNext,
   CarouselDots,
+  useCarousel
 }

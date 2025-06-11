@@ -11,7 +11,7 @@ type Stat = {
 
 export default function StatCounter({ stat, shouldCount, finish }: { stat: Stat; shouldCount: boolean; finish: string }) {
 
-    const [count, isFinished] = useCountUp(shouldCount ? stat.value : 0, 1500);
+    const [count, isFinished] = useCountUp(shouldCount ? stat.value : 0, 4500);
 
     return (
         <div className="flex justify-center items-center gap-4">

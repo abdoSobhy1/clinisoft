@@ -10,10 +10,10 @@ type InnovationCardProps = {
 
 export default function InnovationCard({ title, description, image, link }: InnovationCardProps) {
     return (
-        <div className={`rounded-3xl  bg-linear-135 from-[#1E949E26] via-[#CBCBCB00] to-[#FFFFFFCC] p-5 shadow-lg shadow-[#c9f1f4] h-full flex flex-col justify-between stroke-1 stroke-[#FFFFFF33]`} >
-            <div className={`flex flex-col gap-4 items-center mb-4`}>
-                <div className="flex flex-col gap-4 justify-between text-center md:text-left">
-                    <div className="relative h-80">
+        <div className={`rounded-3xl bg-linear-135 from-[#1E949E26] via-[#CBCBCB00] to-[#FFFFFFCC] p-5 shadow-lg shadow-[#c9f1f4] h-full flex flex-col justify-between stroke-1 stroke-[#FFFFFF33]`} >
+            <div className={`flex flex-col h-full gap-4 items-center mb-4`}>
+                <div className="w-full flex-1 flex flex-col gap-4 justify-between text-center md:text-left items-start">
+                    <div className="relative flex-1 w-full self-center">
                         <Image className="self-center object-contain" src={image} alt={title} fill />
                     </div>
                     <h3 className="text-[#545778] font-semibold text-3xl ">{title}</h3>

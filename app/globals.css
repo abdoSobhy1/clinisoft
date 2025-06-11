@@ -42,6 +42,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --height-vph: calc(100dvh - 118px);
+  --height-vph-2xl: calc(200dvh - 236px);
 }
 
 body {

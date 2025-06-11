@@ -1,6 +1,8 @@
+import Seperator from "@/components/footer/seperator";
 import InnovationCard from "@/components/innovation-card/innovation-card"
-import SlideIn from "@/components/slide-in"
+// import SlideIn from "@/components/slide-in"
 import Title from "@/components/title"
+import Typewriter from "@/components/typewriter"
 
 const innovations = [
     {
@@ -29,22 +31,29 @@ const innovations = [
     }
 ]
 
+interface InnovationsProps {
+    bgColor?: string;
+}
 
+export default function Innovations({ bgColor = "" }: InnovationsProps) {
 
-export default function Innovations() {
     return (
-        <section className="max-w-7xl mx-auto py-6">
-            <Title className="py-b">Built-in Tools that Truly Make a Difference</Title>
-            <div className="text-center justify-center text-textTeal text-sm md:text-2xl font-medium leading-loose mb-16 overflow-x-hidden">
-                <SlideIn direction="right" as="p">These are not just features</SlideIn>
-                <SlideIn direction="left" as="p" delay={0.5}>they&apos;re operational game-changers.</SlideIn>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(600px,1fr))] gap-8">
-                {
-                    innovations.map((innovation, index) => (
-                        <InnovationCard key={index} title={innovation.title} description={innovation.description} image={innovation.image} link={innovation.link} />
-                    ))
-                }
+        <section className={`py-12 relative h-vph-2xl ${bgColor}`}>
+            <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
+            <div className="max-w-7xl mx-auto h-full flex flex-col items-center justify-between">
+
+                <Title className="py-b">Built-in Tools that Truly Make a Difference</Title>
+                <div className="text-center justify-center text-textTeal text-sm md:text-2xl font-medium leading-loose mb-16 overflow-x-hidden">
+                    <Typewriter text="These are not just features" />
+                    <Typewriter text="they&apos;re operational game-changers." />
+                </div>
+                <div className="flex-1 w-full grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(600px,1fr))] gap-8">
+                    {
+                        innovations.map((innovation, index) => (
+                            <InnovationCard key={index} title={innovation.title} description={innovation.description} image={innovation.image} link={innovation.link} />
+                        ))
+                    }
+                </div>
             </div>
         </section >
     )

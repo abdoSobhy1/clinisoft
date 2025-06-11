@@ -5,6 +5,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { useRef, useState, useCallback, useEffect } from "react";
 import { ReviewDialog } from "./review-dialog";
 import reviews from '@/public/reviews.json'
+import Seperator from "@/components/footer/seperator";
 
 type Review = {
     doctor: string;
@@ -13,7 +14,11 @@ type Review = {
     specialty: string;
 }
 
-export default function Testimonials() {
+interface TestimonialsProps {
+    bgColor?: string;
+}
+
+export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
     const [isOpen, setIsOpen] = useState(false)
     const [currentIndex, setCurrentIndex] = useState(0)
     const [isHovered, setIsHovered] = useState(false)
@@ -22,8 +27,11 @@ export default function Testimonials() {
         Autoplay({ delay: 2000 })
     )
 
+    autoplayRef.current?.stop()
+
     // Stop carousel when dialog is open
     useEffect(() => {
+
         const timer = setTimeout(() => {
             if (isOpen) {
                 autoplayRef.current?.stop()
@@ -63,11 +71,12 @@ export default function Testimonials() {
     }
 
     return (
-        <section className="py-6 px-4">
-            <h2 className="max-w-7xl mx-auto py-12 text-center text-textTeal text-3xl font-semibold leading-[48px]">Doctors across specialties share their real-world experiences with CliniSoft</h2>
+        <section className={`py-12 px-4 min-h-vph relative flex flex-col justify-between ${bgColor}`}>
+            <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
+            <h2 className="max-w-7xl mx-auto pb-12 text-center text-textTeal text-3xl font-semibold leading-[48px]">Doctors across specialties share their real-world experiences with CliniSoft</h2>
             <Carousel
                 plugins={[autoplayRef.current]}
-                className="w-full"
+                className="w-full flex-1 [&>*:last-child]:h-full"
                 onMouseEnter={() => {
                     setIsHovered(true)
                     autoplayRef.current?.stop()
@@ -80,9 +89,9 @@ export default function Testimonials() {
             >
                 <CarouselNext />
                 <CarouselPrevious />
-                <CarouselContent>
+                <CarouselContent className="h-full flex-1" >
                     {reviews.map((review, index) => (
-                        <CarouselItem key={review.doctor} className="min-w-[350px] basis-1 md:basis-1/3 lg:basis-1/5 mb-6">
+                        <CarouselItem key={review.doctor} className="min-w-[350px] basis-1 md:basis-1/3 lg:basis-1/5 mb-6 h-full min-h-full">
                             <ReviewCard doctor={review.doctor} review={review.review} image={review.image} onClick={() => handleReviewClick(review, index)} />
                         </CarouselItem>
                     ))}

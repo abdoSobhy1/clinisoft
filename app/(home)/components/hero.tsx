@@ -27,11 +27,15 @@ const slides = [
     },
 ]
 
-export default function HeroSection() {
+interface HeroSectionProps {
+    bgColor?: string;
+}
+
+export default function HeroSection({ bgColor = "" }: HeroSectionProps) {
     const plugin = useRef(
         Autoplay({ delay: 5000, })
     )
-    return (<section>
+    return (<section className={`snap-start h-screen ${bgColor}`}>
         <Carousel plugins={[plugin.current]}
             opts={{ loop: true, }}
         >

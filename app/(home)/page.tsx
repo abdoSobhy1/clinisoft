@@ -1,5 +1,4 @@
 import Hero from "./components/hero";
-import StatsSection from "./components/counters";
 import SpecialtiesCaroussel from "./components/specialties-caroussel";
 import Features from "./components/features";
 import Innovations from "./components/Innovations";
@@ -8,21 +7,20 @@ import Testimonials from "./components/testimonials";
 import ContactUs from "./components/contact-us";
 import SuccessPartners from "./components/scuccess-partners";
 import Trusted from "./components/trusted";
-// import Intro from "./components/intro";
+
 export default function Home() {
+
   return (
-    <main>
+    <main >
       <Hero />
       <Features />
-      {/* <Intro /> */}
-      <Trusted />
-      <StatsSection />
+      <Trusted bgColor="bg-black/1 " />
       <SpecialtiesCaroussel />
-      <Innovations />
-      <ValueSection />
-      <Testimonials />
-      <SuccessPartners />
-      <ContactUs />
+      <Innovations bgColor="bg-black/1 " />
+      <ValueSection bgColor="bg-transparent " />
+      <Testimonials bgColor="bg-black/1 " />
+      <SuccessPartners bgColor="bg-transparent " />
+      <ContactUs bgColor="bg-black/1 " />
     </main>
   );
 }

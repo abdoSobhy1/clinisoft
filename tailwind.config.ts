@@ -13,6 +13,9 @@ const config: Config = {
         teal: "#148089",
         textTeal: "#1a6d74",
       },
+      height: {
+        vph: "calc(100dvh - 118px)",
+      },
     },
   },
   plugins: [],
