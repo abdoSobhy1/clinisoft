@@ -162,77 +162,22 @@ body {
   --spacing-8: 3.478vh; /* 2rem */
   --spacing-10: 4.348vh; /* 2.5rem */
   --spacing-12: 5.217vh; /* 3rem */
+  --spacing-14: 6.087vh; /* 3.5rem */
   --spacing-16: 6.957vh; /* 4rem */
   --spacing-20: 8.696vh; /* 5rem */
+  --spacing-22: 9.565vh; /* 5.5rem */
   --spacing-24: 10.435vh; /* 6rem */
+  --spacing-28: 12.087vh; /* 7rem */
+  --spacing-30: 13.043vh; /* 7.5rem */
+  --spacing-32: 14.565vh; /* 8rem */
+  --spacing-36: 15.652vh; /* 9rem */
+  --spacing-40: 17.391vh; /* 10rem */
+  --spacing-48: 21.739vh; /* 12rem */
+  --spacing-56: 26.087vh; /* 14rem */
+  --spacing-64: 30.435vh; /* 16rem */
+  --spacing-72: 34.783vh; /* 18rem */
 }
 
 @utility fs-var-* {
   font-size: --value(--fs-var- *);
 }
-
-@utility p-var-* {
-  padding: --value(--spacing- *);
-}
-@utility px-var-* {
-  padding-left: --value(--spacing- *);
-  padding-right: --value(--spacing- *);
-}
-@utility py-var-* {
-  padding-top: --value(--spacing- *);
-  padding-bottom: --value(--spacing- *);
-}
-@utility pt-var-* {
-  padding-top: --value(--spacing- *);
-}
-@utility pr-var-* {
-  padding-right: --value(--spacing- *);
-}
-@utility pb-var-* {
-  padding-bottom: --value(--spacing- *);
-}
-@utility pl-var-* {
-  padding-left: --value(--spacing- *);
-}
-
-@utility m-var-* {
-  margin: --value(--spacing- *);
-}
-@utility mx-var-* {
-  margin-left: --value(--spacing- *);
-  margin-right: --value(--spacing- *);
-}
-@utility my-var-* {
-  margin-top: --value(--spacing- *);
-  margin-bottom: --value(--spacing- *);
-}
-@utility mt-var-* {
-  margin-top: --value(--spacing- *);
-}
-@utility mr-var-* {
-  margin-right: --value(--spacing- *);
-}
-@utility mb-var-* {
-  margin-bottom: --value(--spacing- *);
-}
-@utility ml-var-* {
-  margin-left: --value(--spacing- *);
-}
-
-@utility gap-var-* {
-  gap: --value(--spacing- *);
-}
-@utility gap-x-var-* {
-  column-gap: --value(--spacing- *);
-}
-@utility gap-y-var-* {
-  row-gap: --value(--spacing- *);
-}
-
-@utility space-x-var-* {
-  column-gap: --value(--spacing- *);
-} /* for flex layouts */
-@utility space-y-var-* {
-  row-gap: --value(--spacing- *);
-}
-
