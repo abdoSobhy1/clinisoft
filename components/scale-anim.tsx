@@ -1,7 +1,6 @@
 'use client'
 import { motion, useInView } from 'framer-motion';
 import { ReactNode, useRef } from 'react';
-import { useScrollDirection } from './slide-in';
 
 interface ScaleAnimProps {
     children: ReactNode;
@@ -21,7 +20,6 @@ export default function ScaleAnim({
     const ref = useRef<HTMLDivElement>(null);
     const isInView = useInView(ref, { once: true });
 
-    const scrollingDown = useScrollDirection();
 
 
     return (
@@ -29,7 +27,7 @@ export default function ScaleAnim({
             ref={ref}
             initial={{ opacity: 0, scale: initialScale }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: initialScale }}
-            transition={scrollingDown ? { duration, delay } : { duration: 0 }}
+            transition={{ duration, delay }}
             className={className}
             style={{ transformOrigin: 'center' }}
 

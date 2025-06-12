@@ -91,7 +91,7 @@ export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
                 <CarouselPrevious />
                 <CarouselContent className="h-full flex-1" >
                     {reviews.map((review, index) => (
-                        <CarouselItem key={review.doctor} className="min-w-[350px] basis-1 md:basis-1/3 lg:basis-1/5 mb-6 h-full min-h-full">
+                        <CarouselItem key={review.doctor} className="min-w-[350px] basis-1 md:basis-1/3 lg:basis-1/5 mb-6  min-h-full ">
                             <ReviewCard doctor={review.doctor} review={review.review} image={review.image} onClick={() => handleReviewClick(review, index)} />
                         </CarouselItem>
                     ))}

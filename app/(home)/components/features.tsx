@@ -36,8 +36,8 @@ export default function Features({ bgColor = "" }: FeaturesProps) {
     // spearator=before:content-[''] before:absolute before:w-full before:h-0.5  before:bg-linear-to-l before:from-[#1E949E00] before:via-[#1E949E] before:to-[#1E949E00] before:bottom-0 before:left-0
 
     return (
-        <section className={`py-12 px-4 h-vph ${bgColor}`}>
-            <div className="max-w-7xl h-full mx-auto grid grid-cols-1 md:grid-cols-2 justify-center gap-8">
+        <section className={`py-12 px-4 min-h-vph flex flex-col ${bgColor}`}>
+            <div className="max-w-7xl h-full grow-1 mx-auto grid grid-cols-1 md:grid-cols-2 justify-center gap-8">
                 {featuresList.map((feature, index) => (
                     <FeatureCard
                         key={index}

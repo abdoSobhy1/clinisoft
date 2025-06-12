@@ -11,7 +11,7 @@ export default function ReviewCard({ doctor, review, image, onClick }: ReviewCar
 
 
     return (
-        <div className="rounded-2xl bg-white p-4 shadow-md text-center h-full" onClick={() => onClick(review)}>
+        <div className="rounded-2xl bg-white p-4 shadow-md text-center h-full self-stretch" onClick={() => onClick(review)}>
             <div className="flex flex-col justify-between items-stretch h-full">
                 <Image src="/images/icons/quote.svg" alt="quote" width={50} height={35} className="mx-auto mb-8" />
                 <div className="space-y-2 flex flex-col justify-start">

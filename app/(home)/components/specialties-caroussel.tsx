@@ -53,7 +53,7 @@ export default function SpecialtiesCaroussel({ bgColor = "" }: SpecialtiesCarous
         Autoplay({ delay: 5000 })
     )
     return (
-        <section className={`h-vph py-12 px-4 flex flex-col justify-between ${bgColor}`}>
+        <section className={`min-h-vph py-12 px-4 flex flex-col justify-between ${bgColor}`}>
             <div className=" flex flex-col items-center text-textTeal text-center mb-8">
                 <Title className="text-3xl leading-[67px] mb-4">
                     Specialties we serve

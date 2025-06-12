@@ -2,7 +2,7 @@
 import Title from "@/components/title";
 import SlideIn from "../../../components/slide-in";
 import Seperator from "@/components/footer/seperator";
-import StatsSection from "./counters";
+import StatsSection from "./counters"
 interface TrustedProps {
     bgColor?: string;
 }
@@ -16,8 +16,10 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
         "20+ Specialty-Specific Interfaces",
     ];
 
+
+
     return (
-        <section className={`pt-12 overflow-x-hidden relative h-vph flex flex-col justify-between ${bgColor}`}>
+        <section className={`pt-12 overflow-x-hidden relative min-h-vph flex flex-col justify-between ${bgColor}`}>
             <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
             <div className="max-w-7xl mx-auto flex flex-col gap-4">
                 <div className="text-center">

@@ -38,9 +38,9 @@ interface InnovationsProps {
 export default function Innovations({ bgColor = "" }: InnovationsProps) {
 
     return (
-        <section className={`py-12 relative h-vph-2xl ${bgColor}`}>
+        <section className={`py-12 relative min-h-vph-2xl flex flex-col ${bgColor}`}>
             <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
-            <div className="max-w-7xl mx-auto h-full flex flex-col items-center justify-between">
+            <div className="max-w-7xl mx-auto size-full grow-1 flex flex-col items-center justify-between">
 
                 <Title className="py-b">Built-in Tools that Truly Make a Difference</Title>
                 <div className="text-center justify-center text-textTeal text-sm md:text-2xl font-medium leading-loose mb-16 overflow-x-hidden">
