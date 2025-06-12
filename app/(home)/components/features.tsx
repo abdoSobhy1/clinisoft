@@ -37,7 +37,7 @@ export default function Features({ bgColor = "" }: FeaturesProps) {
 
     return (
         <section className={`py-12 px-4 min-h-vph flex flex-col ${bgColor}`}>
-            <div className="max-w-7xl h-full grow-1 mx-auto grid grid-cols-1 md:grid-cols-2 justify-center gap-8">
+            <div className="max-w-7xl w-full h-full grow-1 mx-auto grid grid-cols-1 md:grid-cols-2 justify-center gap-8">
                 {featuresList.map((feature, index) => (
                     <FeatureCard
                         key={index}

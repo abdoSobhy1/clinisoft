@@ -188,7 +188,7 @@ function CarouselPrevious({ className }: React.ComponentProps<"button">) {
     <button
       data-slot="carousel-previous"
       className={cn(
-        "inline-flex items-center justify-center absolute size-10 text-xl rounded-full top-1/2 left-0 -translate-y-1/2 z-20 bg-[rgba(0,0,0,0.25)] hover:bg-[rgba(0,0,0,0.50)] transition-all duration-300 text-white cursor-pointer",
+        "inline-flex items-center justify-center absolute size-10 fs-var-xl rounded-full top-1/2 left-0 -translate-y-1/2 z-20 bg-[rgba(0,0,0,0.25)] hover:bg-[rgba(0,0,0,0.50)] transition-all duration-300 text-white cursor-pointer",
         className
       )}
       disabled={!canScrollPrev}
@@ -208,7 +208,7 @@ function CarouselNext({ className, ...props }: React.ComponentProps<"button">) {
     <button
       data-slot="carousel-next"
       className={cn(
-        "inline-flex items-center justify-center absolute size-10 text-xl rounded-full top-1/2 right-0 -translate-y-1/2 z-20 bg-[rgba(0,0,0,0.25)] hover:bg-[rgba(0,0,0,0.50)] transition-all duration-300 text-white cursor-pointer",
+        "inline-flex items-center justify-center absolute size-10 fs-var-xl rounded-full top-1/2 right-0 -translate-y-1/2 z-20 bg-[rgba(0,0,0,0.25)] hover:bg-[rgba(0,0,0,0.50)] transition-all duration-300 text-white cursor-pointer",
         className
       )}
       disabled={!canScrollNext}

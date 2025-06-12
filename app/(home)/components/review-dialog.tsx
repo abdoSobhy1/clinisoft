@@ -166,9 +166,9 @@ const ReviewDialog = memo(function ReviewDialog({
                                         className="mx-auto rounded-full mb-4"
                                         priority
                                     />
-                                    <p className="text-lg font-semibold mb-1">{currentReview.doctor}</p>
-                                    <p className="text-sm font-semibold text-gray-500 mb-2">{currentReview.specialty}</p>
-                                    <p className="text-lg text-gray-500">{currentReview.review}</p>
+                                    <p className="fs-var-lg font-semibold mb-1">{currentReview.doctor}</p>
+                                    <p className="fs-var-sm font-semibold text-gray-500 mb-2">{currentReview.specialty}</p>
+                                    <p className="fs-var-lg text-gray-500">{currentReview.review}</p>
                                 </div>
                             </div>
                         </motion.div>

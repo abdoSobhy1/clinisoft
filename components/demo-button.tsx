@@ -20,7 +20,7 @@ export default function DemoButton(props: { shortHand?: boolean, className?: str
     }, []);
 
     return (
-        <Link href="/request-a-demo" className={cn(`inline-block uppercase bg-maroon text-white font-semibold py-2 px-6 rounded-full transition`, props.className)}>
+        <Link href="/request-a-demo" className={cn(`inline-block uppercase bg-maroon  font-semibold py-2 px-6 rounded-full transition  text-white fs-var-base`, props.className)}>
             {isMobile && props.shortHand ? "Demo" : "Request a Demo"}
         </Link>
     )

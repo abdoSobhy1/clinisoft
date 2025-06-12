@@ -39,7 +39,7 @@ const contactInfo = [
 ];
 
 const Footer: React.FC = () => (
-    <footer className="bg-[#1A2632] pt-12 pb-4 px-4 text-sm relative overflow-hidden">
+    <footer className="bg-[#1A2632] pt-12 pb-4 px-4 fs-var-sm relative overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-[1fr_2fr_1fr_1fr_1.5fr] gap-4 items-start">
             <div className="flex flex-col items-center h-full gap-4 col-span-2 md:col-span-1 relative">
                 <Image src="/images/icons/white-footer-logo.svg" alt="CliniSoft Logo" width={110} height={110} />

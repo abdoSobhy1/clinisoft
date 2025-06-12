@@ -28,7 +28,7 @@ export default function ContactUsForm({ bgColor = "" }: ContactUsFormProps) {
                             <Image src="/images/chat-image.webp" alt="Chat Image" fill className=" object-cover" />
                         </div>
                         <MainButton href="http://wa.me/+201208123222" className="lg:w-full bg-textTeal hover:bg-textTeal text-center flex items-center justify-center px-4 py-3 gap-2">
-                            <span className="text-base">
+                            <span className="fs-var-base">
                                 Chat with us on WhatsApp
                             </span>
                             <Image src="/images/icons/whatsapp.svg" alt="Phone Call" width={24} height={24} />

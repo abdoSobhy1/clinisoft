@@ -39,8 +39,8 @@ export default function HeroSection({ bgColor = "" }: HeroSectionProps) {
         <Carousel plugins={[plugin.current]}
             opts={{ loop: true, }}
         >
-            <CarouselNext className="w-16 h-16 text-2xl right-10 hidden md:flex" />
-            <CarouselPrevious className="w-16 h-16 text-2xl left-10 hidden md:flex" />
+            <CarouselNext className="w-16 h-16 fs-var-2xl right-10 hidden md:flex text-white" />
+            <CarouselPrevious className="w-16 h-16 fs-var-2xl left-10 hidden md:flex text-white" />
             <CarouselContent>
                 {slides.map((slide) => (
                     <HeroSlide key={slide.title} title={slide.title} description={slide.description} image={slide.image} />

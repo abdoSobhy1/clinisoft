@@ -101,8 +101,8 @@ export default function ContactForm() {
 
     return (<div className="bg-white rounded-[20px] p-8 border-2 border-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
         <div className="mb-4 space-y-3">
-            <h2 className="text-3xl font-semibold text-textTeal">Let Us Help You Run a Smarter Clinic</h2>
-            <p className="text-2xl text-textTeal font-semibold">Fill in your details and our team will contact you within 24 hours.</p>
+            <h2 className="fs-var-3xl font-semibold text-textTeal">Let Us Help You Run a Smarter Clinic</h2>
+            <p className="fs-var-2xl text-textTeal font-semibold">Fill in your details and our team will contact you within 24 hours.</p>
         </div>
         <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -130,7 +130,7 @@ export default function ContactForm() {
                         ))}
                     </select>
 
-                    {form.formState.errors.specialties && <p className="text-red-500 text-sm">{form.formState.errors.specialties.message}</p>}
+                    {form.formState.errors.specialties && <p className="text-red-500 fs-var-sm">{form.formState.errors.specialties.message}</p>}
                 </div>
             </div>
             <Input
@@ -170,7 +170,7 @@ export default function ContactForm() {
                     className="w-full p-2 bg-[#F1F1F180] border-1 border-[#D3D3D3] rounded-2xl mt-2 placeholder:text-[#e9e9e9]"
                     rows={4}
                 />
-                {form.formState.errors.message && <p className="text-red-500 text-sm">{form.formState.errors.message.message}</p>}
+                {form.formState.errors.message && <p className="text-red-500 fs-var-sm">{form.formState.errors.message.message}</p>}
             </div>
             <button
                 type="submit"

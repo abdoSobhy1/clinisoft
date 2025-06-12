@@ -16,11 +16,11 @@ export default function ReviewCard({ doctor, review, image, onClick }: ReviewCar
                 <Image src="/images/icons/quote.svg" alt="quote" width={50} height={35} className="mx-auto mb-8" />
                 <div className="space-y-2 flex flex-col justify-start">
                     <Image src={image} alt={doctor} width={225} height={225} className="mx-auto rounded-full" />
-                    <h4 className="text-[#1e2531] text-xl font-semibold">{doctor}</h4>
+                    <h4 className="text-[#1e2531] fs-var-xl font-semibold">{doctor}</h4>
                     <Image src="/images/icons/stars.svg" alt="stars" width={150} height={20} className="mx-auto" />
                 </div>
-                {/* <p className="text-sm leading-8 mb-8">{review.length > 150 ? review.slice(0, 150) + " ..." : review}</p> */}
-                <p className="text-xl leading-8 mb-8 font-['Tahoma'] grow-1 mt-4">{review.slice(0, 150)}</p>
+                {/* <p className="fs-var-sm leading-8 mb-8">{review.length > 150 ? review.slice(0, 150) + " ..." : review}</p> */}
+                <p className="fs-var-xl leading-8 mb-8 font-['Tahoma'] grow-1 mt-4">{review.slice(0, 150)}</p>
             </div>
         </div>
     )

@@ -22,9 +22,9 @@ export default function FeatureCard({ description, icon, title, index }: Feature
                             <Image src={icon} alt={imageAlt} fill className="object-contain" />
                         </div>
                     </div>
-                    <h3 className="text-black font-medium text-lg md:text-3xl">{title}</h3>
+                    <h3 className="text-black font-medium fs-var-lg md:fs-var-3xl">{title}</h3>
                 </div>
-                <p className="text-[#4d504f] leading-8 mx-auto text-center text-sm md:text-2xl">{description}</p>
+                <p className="text-[#4d504f] leading-8 mx-auto text-center fs-var-sm md:fs-var-2xl">{description}</p>
             </ScaleAnim>
         </div>
     );

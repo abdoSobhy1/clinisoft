@@ -16,7 +16,7 @@ export default function Intro() {
                         height={64}
                         className="mb-4"
                     />
-                    <h1 className="text-2xl md:text-4xl font-bold text-[#464646] mb-6">
+                    <h1 className="fs-var-2xl md:fs-var-4xl font-bold text-[#464646] mb-6">
                         The Pioneers of <br />
                         Clinic Digital Transformation
                     </h1>

@@ -32,11 +32,11 @@ export default function Header() {
 
 
     return (
-        <header className="py-4 px-6 w-[calc(100%-2rem)] lg:w-full max-w-screen-xl mx-auto bg-[#FFFFFFCC] border-white border-1 backdrop-blur-xs rounded-full fixed top-8 left-1/2 -translate-x-1/2 z-52 shadow-md h-[86px]">
-            <div className="flex justify-between items-center  mx-auto">
+        <header className="py-4 px-6 w-[calc(100%-2rem)] lg:w-full max-w-screen-xl mx-auto bg-[#FFFFFFCC] border-white border-1 backdrop-blur-xs rounded-full fixed top-8 left-1/2 -translate-x-1/2 z-52 shadow-md h-[9.34vh] flex">
+            <div className="flex justify-between items-center w-full mx-auto">
                 <div className="flex items-center space-x-2 order-2 md:order-1">
-                    <Link href="/">
-                        <Image src="/images/logo.png" alt="CliniSoft Logo" width={160} height={40} priority />
+                    <Link href="/" className="w-[17.4vh] h-16 relative">
+                        <Image src="/images/logo.png" alt="CliniSoft Logo" fill className="object-contain" />
                     </Link>
                 </div>
                 <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />

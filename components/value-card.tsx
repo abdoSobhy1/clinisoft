@@ -42,8 +42,8 @@ export default function ValueCard({ stat, title, description, icon, shouldCount,
                 <div className="md:mb-8 flex justify-between items-center md:block">
                     <Image src={icon} alt={title} width={100} height={100} className="md:mx-auto md:mb-4" />
                     <div>
-                        <p className="text-teal text-6xl font-semibold">{count} %</p>
-                        <h3 className="text-[24px] font-semibold text-[#1e949e]">{title}</h3>
+                        <p className="text-teal fs-var-6xl font-semibold">{count} %</p>
+                        <h3 className="text-[2.6vh] font-semibold text-[#1e949e]">{title}</h3>
                     </div>
                     <button
                         onClick={onToggle}
@@ -60,7 +60,7 @@ export default function ValueCard({ stat, title, description, icon, shouldCount,
                     hideButton="hidden"
                     animationDuration={0.4}
                 >
-                    <p className="text-[#4d504f] text-lg leading-8">{description}</p>
+                    <p className="text-[#4d504f] fs-var-lg leading-8">{description}</p>
                 </AnimatedAccordion>
             </ScaleAnim>
         </div>

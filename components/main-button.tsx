@@ -5,7 +5,7 @@ export default function MainButton({ children, href, className }: { children: Re
     return (
         <Link
             href={href}
-            className={cn(`inline-block w-full lg:w-auto lg:self-end font-medium px-8 py-2 rounded-full transition cursor-pointer text-white bg-teal hover:bg-teal-700`, className)}>
+            className={cn(`inline-block w-full lg:w-auto lg:self-end font-medium px-8 py-2 rounded-full transition cursor-pointer fs-var-base text-white bg-teal hover:bg-teal-700`, className)}>
             {children}
         </Link>
     );

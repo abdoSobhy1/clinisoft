@@ -16,10 +16,10 @@ export default function InnovationCard({ title, description, image, link }: Inno
                     <div className="relative flex-1 w-full min-h-[340px] self-center">
                         <Image className="self-center object-contain" src={image} alt={title} fill />
                     </div>
-                    <h3 className="text-[#545778] font-semibold text-3xl ">{title}</h3>
+                    <h3 className="text-[#545778] font-semibold fs-var-3xl ">{title}</h3>
                     {/* <InnovationDescription> */}
-                    <p className="text-[#4d504f] text-[20px]  leading-8">{description}</p>
-                    <Link href={link} className="text-textTeal text-[20px] underline  leading-8">Read More</Link>
+                    <p className="text-[#4d504f] text-[2.17vh]  leading-8">{description}</p>
+                    <Link href={link} className="text-textTeal text-[2.17vh] underline  leading-8">Read More</Link>
                     {/* </InnovationDescription> */}
                 </div>
             </div>
