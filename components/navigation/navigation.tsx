@@ -14,24 +14,24 @@ const roboto = Roboto({
 })
 
 const navLinks = [
-    { name: 'Home', path: '/' },
+    { name: 'home', path: '/' },
     {
-        name: 'Specialties', path: '/specialties', subMenu: [
-            { path: "/specialties/dermatology", name: "Dermatology" },
-            { path: "/specialties/dentistry", name: "Dentistry" },
-            { path: "/specialties/e-n-t", name: "E.N.T" },
-            { path: "/specialties/internal-medicine", name: "Internal Medicine" },
-            { path: "/specialties/neuro-surgery", name: "Neuro Surgery" },
-            { path: "/specialties/ophthalmology", name: "Ophthalmology" },
-            { path: "/specialties/orthopedic-surgery", name: "Orthopedic Surgery" },
-            { path: "/specialties/pediatrics", name: "Pediatrics" },
-            { path: "/specialties/physiotherapy", name: "Physiotherapy" },
-            { path: "/specialties/urology", name: "Urology" }
+        name: 'specialties', path: '/specialties', subMenu: [
+            { path: "/specialties/dermatology", name: "specialtyNames.dermatology" },
+            { path: "/specialties/dentistry", name: "specialtyNames.dentistry" },
+            { path: "/specialties/e-n-t", name: "specialtyNames.ENT" },
+            { path: "/specialties/internal-medicine", name: "specialtyNames.internalMedicine" },
+            { path: "/specialties/neuro-surgery", name: "specialtyNames.neuroSurgery" },
+            { path: "/specialties/ophthalmology", name: "specialtyNames.ophthalmology" },
+            { path: "/specialties/orthopedic-surgery", name: "specialtyNames.orthopedicSurgery" },
+            { path: "/specialties/pediatrics", name: "specialtyNames.pediatrics" },
+            { path: "/specialties/physiotherapy", name: "specialtyNames.physiotherapy" },
+            { path: "/specialties/urology", name: "specialtyNames.urology" }
         ]
     },
-    { name: 'About Us', path: '/about' },
-    { name: 'Reviews', path: '/reviews' },
-    { name: 'Customer Care', path: '/customer-care' },
+    { name: 'aboutUs', path: '/about' },
+    { name: 'reviews', path: '/reviews' },
+    { name: 'customerCare', path: '/customer-care' },
 ];
 
 export default function Navigation({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (isOpen: boolean) => void }) {

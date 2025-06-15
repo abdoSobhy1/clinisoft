@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as z from "zod";
 import { useState } from "react";
-
+import { useTranslations } from "next-intl";
 const formSchema = z.object({
     name: z.string().min(3, { message: "Name is required." }),
     specialties: z.string().min(1, { message: "Please select a specialty." }),
@@ -18,24 +18,26 @@ const formSchema = z.object({
 });
 
 const specialties = [
-    "Cardiology",
-    "Chest",
-    "Dermatology",
-    "Dentistry",
-    "Diabetology",
-    "E.N.T.",
-    "Gynecology",
-    "Internal Medicine",
-    "Nutrition",
-    "Ophthalmology",
-    "Orthopedic Surgery",
-    "Physiotherapy",
-    "Pediatrics",
-    "Surgery",
-    "Urology",
+    "cardiology",
+    "chest",
+    "dermatology",
+    "dentistry",
+    "diabetology",
+    "ENT",
+    "gynecology",
+    "internalMedicine",
+    "nutrition",
+    "ophthalmology",
+    "orthopedicSurgery",
+    "physiotherapy",
+    "pediatrics",
+    "surgery",
+    "urology",
+
 ];
 
 export default function ContactForm() {
+    const t = useTranslations();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
     const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -108,24 +110,24 @@ export default function ContactForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                     type="text"
-                    label="Name"
+                    label={t("contactUs.name")}
                     form={form.register("name")}
                     error={form.formState.errors.name?.message}
                     isRequired={true}
                 />
                 <div className="form-group">
-                    <label htmlFor="specialties" className="font-bold">Specialty <span className="text-red-500 font-medium">*</span></label>
+                    <label htmlFor="specialties" className="font-bold">{t("contactUs.specialty")} <span className="text-red-500 font-medium">*</span></label>
                     <select
                         {...form.register("specialties")}
                         className={`w-full p-2 bg-[#F1F1F180] border-1 border-[#D3D3D3] rounded-2xl mt-2
                                   ${form.watch("specialties") === "" ? "text-[#9CA3AF]" : "text-black"}`}
                         id="specialties" >
                         <option value="" hidden disabled className="text-[#9CA3AF]">
-                            Select a specialty
+                            {t("contactUs.selectSpecialty")}
                         </option>
                         {specialties.map((specialty) => (
                             <option key={specialty} value={specialty}>
-                                {specialty}
+                                {t("specialtyNames." + specialty)}
                             </option>
                         ))}
                     </select>
@@ -135,14 +137,14 @@ export default function ContactForm() {
             </div>
             <Input
                 type="text"
-                label="City"
+                label={t("contactUs.city")}
                 form={form.register("city")}
                 error={form.formState.errors.city?.message}
                 isRequired={true}
             />
             <Input
                 type="email"
-                label="Email"
+                label={t("contactUs.email")}
                 form={form.register("email")}
                 error={form.formState.errors.email?.message}
                 isRequired={true}
@@ -150,20 +152,20 @@ export default function ContactForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Input
                     type="text"
-                    label="Mobile Number"
+                    label={t("contactUs.mobileNumber")}
                     form={form.register("mobileNumber")}
                     error={form.formState.errors.mobileNumber?.message}
                     isRequired={true}
                 />
                 <Input
                     type="text"
-                    label="Best Time for Call"
+                    label={t("contactUs.bestTimeForCall")}
                     form={form.register("bestTimeForCall")}
                     error={form.formState.errors.bestTimeForCall?.message}
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="message" className="font-bold">Comment or Message</label>
+                <label htmlFor="message" className="font-bold">{t("contactUs.comment")}</label>
                 <textarea
                     {...form.register("message")}
                     id="message"
@@ -176,7 +178,7 @@ export default function ContactForm() {
                 type="submit"
                 disabled={isSubmitting}
                 className={`w-full bg-teal text-white p-4 rounded-full cursor-pointer ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
-                {isSubmitting ? 'Submitting...' : 'Submit'}
+                {isSubmitting ? t("contactUs.submitting") : t("contactUs.submit")}
             </button>
         </form>
     </div>

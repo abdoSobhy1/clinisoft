@@ -5,30 +5,31 @@ import useAccordionRows from "@/hooks/useAccordionRows";
 import { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 const valueCards = [
     {
         stat: 0,
-        title: "Data Leakage",
-        description: "Our system provides robust data protection through a combination of strong access controls, encryption, regular security assessments, and compliance with data privacy regulations.",
+        title: "dataLeakage",
+        description: "dataLeakageDescription",
         icon: "/images/icons/data-leakage.svg"
     },
     {
         stat: 99,
-        title: "Data Retention",
-        description: "Never lose a byte: our automated, encrypted backups paired with a resilient system design, protecting your data from any eventuality.",
+        title: "dataRetention",
+        description: "dataRetentionDescription",
         icon: "/images/icons/retention.svg"
     },
     {
         stat: 100,
-        title: "Cost Effectiveness",
-        description: "Own premium features and performance with a single and smart investment (one time purchase).",
+        title: "costEffectiveness",
+        description: "costEffectivenessDescription",
         icon: "/images/icons/cost-effectiveness.svg"
     },
     {
         stat: 99,
-        title: "Time saving",
-        description: "Streamlined data entry allows for more eye contact and meaningful interaction, while rapid retrieval and printouts minimize wait times.",
+        title: "timeSaving",
+        description: "timeSavingDescription",
         icon: "/images/icons/time-saving.svg"
     }
 ]
@@ -38,6 +39,7 @@ interface ValueSectionProps {
 }
 
 export default function ValueSection({ bgColor = "" }: ValueSectionProps) {
+    const t = useTranslations("value");
     const sectionRef = useRef<HTMLDivElement>(null);
     const [startCounting, setStartCounting] = useState(false);
     const [isAnimated, setIsAnimated] = useState(false);
@@ -71,15 +73,15 @@ export default function ValueSection({ bgColor = "" }: ValueSectionProps) {
 
     return (
         <section ref={sectionRef} className={`min-h-vph py-12 px-4 flex flex-col justify-between ${bgColor}`}>
-            <Title className="pb-12 ">How We Bring Value</Title>
+            <Title className="pb-12 ">{t("howWeBringValue")}</Title>
             <div ref={containerRef} className="max-w-7xl mx-auto h-full grow-1 grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(min(250px,95%),1fr))] gap-8">
                 {valueCards.map((card, index) => (
                     <ValueCard
                         key={card.title}
                         ref={getItemRef(index)}
                         stat={card.stat}
-                        title={card.title}
-                        description={card.description}
+                        title={t(card.title)}
+                        description={t(card.description)}
                         icon={card.icon}
                         shouldCount={startCounting}
                         isOpen={isOpen(index)}

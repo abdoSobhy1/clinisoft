@@ -1,31 +1,31 @@
 import Seperator from "@/components/footer/seperator";
 import InnovationCard from "@/components/innovation-card/innovation-card"
-// import SlideIn from "@/components/slide-in"
 import Title from "@/components/title"
-import Typewriter from "@/components/typewriter"
+import TypewriterText from "@/components/innovation-card/TypewriterText"
+import { useTranslations } from "next-intl";
 
 const innovations = [
     {
-        title: "QTV Display",
-        description: "Queue management on top of satellite channels for better waiting experience.",
+        title: "qtv",
+        description: "qtvDescription",
         image: "/images/qtv.webp",
         link: "/innovations/queue-management"
     },
     {
-        title: "PVC Smart Card",
-        description: "QR-BarCode patient identification & loyalty enhancement.",
+        title: "pvcSmartCard",
+        description: "smartCardDescription",
         image: "/images/smart-card.webp",
         link: "/innovations/smart-card"
     },
     {
-        title: "Security Key",
-        description: "Prevent staff misuse and trace all activity securely.",
+        title: "securityKey",
+        description: "securityKeyDescription",
         image: "/images/Security-Key.webp",
         link: "/innovations/security-key"
     },
     {
-        title: "Coloring Book (Pediatrics)",
-        description: "Unique engagement tool for child patients.",
+        title: "coloringBook",
+        description: "coloringBookDescription",
         image: "/images/children-coloring-book.webp",
         link: "/innovations/children-coloring-book"
     }
@@ -36,16 +36,14 @@ interface InnovationsProps {
 }
 
 export default function Innovations({ bgColor = "" }: InnovationsProps) {
-
+    const t = useTranslations("innovations");
     return (
         <section className={`py-12 relative min-h-vph-2xl flex flex-col ${bgColor}`}>
             <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
             <div className="max-w-7xl mx-auto size-full grow-1 flex flex-col items-center justify-between">
-
-                <Title className="py-b">Built-in Tools that Truly Make a Difference</Title>
-                <div className="text-center justify-center text-textTeal fs-var-sm md:fs-var-2xl font-medium leading-loose mb-16 overflow-x-hidden">
-                    <Typewriter text="These are not just features" />
-                    <Typewriter text="they&apos;re operational game-changers." />
+                <div className="w-fit mb-16">
+                    <Title className="py-b">{t("builtInTools")}</Title>
+                    <TypewriterText />
                 </div>
                 <div className="flex-1 w-full grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(600px,1fr))] gap-8">
                     {

@@ -11,9 +11,9 @@ type Stat = {
 };
 
 const stats: Stat[] = [
-  { icon: "/images/clinics.svg", value: 2000, finish: "2,000", suffix: "+", label: "Clinics" },
-  { icon: "/images/devices.svg", value: 5752, finish: "5,752", suffix: "+", label: "Active Devices" },
-  { icon: "/images/patients.svg", value: 16, finish: "16", suffix: "M+", label: "Patients" },
+  { icon: "/images/clinics.svg", value: 2000, finish: "2,000", suffix: "+", label: "clinics" },
+  { icon: "/images/devices.svg", value: 5752, finish: "5,752", suffix: "+", label: "devices" },
+  { icon: "/images/patients.svg", value: 16, finish: "16", suffix: "M+", label: "patients" },
 ];
 
 export default function StatsSection() {

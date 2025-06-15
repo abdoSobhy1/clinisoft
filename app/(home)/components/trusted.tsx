@@ -3,17 +3,19 @@ import Title from "@/components/title";
 import SlideIn from "../../../components/slide-in";
 import Seperator from "@/components/footer/seperator";
 import StatsSection from "./counters"
+import { useTranslations } from "next-intl";
 interface TrustedProps {
     bgColor?: string;
 }
 
 export default function Trusted({ bgColor = "" }: TrustedProps) {
+    const t = useTranslations("trusted");
     const trustPoints = [
-        "100% Offline Operation",
-        "One-Time Purchase Model",
-        "Role-Based Security Access",
-        "Reliable and durable",
-        "20+ Specialty-Specific Interfaces",
+        "offlineOperation",
+        "oneTimePurchase",
+        "roleBasedSecurity",
+        "reliableAndDurable",
+        "twentyPlusSpecialty",
     ];
 
 
@@ -24,11 +26,10 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
             <div className="max-w-7xl mx-auto flex flex-col gap-4 mb-4">
                 <div className="text-center">
                     <Title className="py-0 fs-var-3xl mb-2 text-textTeal">
-                        Why Thousands of Clinics Trust CliniSoft
+                        {t("whyTrust")}
                     </Title>
                     <p className="fs-var-sm md:fs-var-2xl text-textTeal font-medium leading-normal">
-                        With over 19 years of expertise, CliniSoft supports thousands of doctors
-                        across Egypt, the Gulf, and beyond.
+                        {t("over19Years")}
                     </p>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4 mt-auto">
@@ -40,7 +41,7 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
                             delay={index * 0.8}
                             as="p"
                         >
-                            {point}
+                            {t(point)}
                         </SlideIn>
                     ))}
                 </div>

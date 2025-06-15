@@ -1,6 +1,6 @@
 import Image from "next/image";
 import ScaleAnim from "./scale-anim";
-
+import { useTranslations } from "next-intl";
 type FeatureCardProps = {
     description: string;
     icon: string;
@@ -11,7 +11,7 @@ type FeatureCardProps = {
 
 export default function FeatureCard({ description, icon, title, index }: FeatureCardProps) {
     const imageAlt = icon.split("/").pop()?.split(".")[0].toString() ?? "";
-
+    const t = useTranslations("features");
     return (
         <div className="md:min-w-60">
             <ScaleAnim delay={index * 0.3} className="h-full rounded-3xl bg-linear-45 md:-bg-linear-135 from-[#c4fef0] via-[#d7e4f2] to-[rgba(255,255,255,0.5)] p-8 shadow-lg shadow-[#c9f1f4] flex flex-col items-start md:items-center justify-between stroke-1 stroke-[#D7E4F2] text-center ">
@@ -22,9 +22,9 @@ export default function FeatureCard({ description, icon, title, index }: Feature
                             <Image src={icon} alt={imageAlt} fill className="object-contain" />
                         </div>
                     </div>
-                    <h3 className="text-black font-medium fs-var-lg md:fs-var-3xl">{title}</h3>
+                    <h3 className="text-black font-medium fs-var-lg md:fs-var-3xl">{t(title)}</h3>
                 </div>
-                <p className="text-[#4d504f] leading-8 mx-auto text-center fs-var-sm md:fs-var-2xl">{description}</p>
+                <p className="text-[#4d504f] leading-8 mx-auto text-center fs-var-sm md:fs-var-2xl">{t(description)}</p>
             </ScaleAnim>
         </div>
     );

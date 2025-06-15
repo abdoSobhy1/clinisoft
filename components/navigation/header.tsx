@@ -3,7 +3,7 @@ import Image from "next/image";
 import Navigation from "./navigation";
 import DemoButton from "../demo-button";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 
@@ -11,6 +11,16 @@ import { AnimatePresence, motion } from "framer-motion";
 export default function Header() {
 
     const [isOpen, setIsOpen] = useState(false);
+
+    const [isFirstLoad, setIsFirstLoad] = useState(true);
+
+    useEffect(() => {
+        console.log("isFirstLoad", isFirstLoad);
+        if (isFirstLoad) {
+            setIsFirstLoad(false);
+        }
+        console.log("isFirstLoad", isFirstLoad);
+    }, []);
 
     const demoButtonVariants = {
         hidden: {
@@ -41,14 +51,13 @@ export default function Header() {
                 </div>
                 <Navigation isOpen={isOpen} setIsOpen={setIsOpen} />
                 <AnimatePresence mode="sync">
-                    {!isOpen && <motion.div className="order-3 md:order-3 origin-right block sm:hidden" variants={demoButtonVariants} initial="hidden" animate="visible" exit="hidden">
+                    {!isOpen && <motion.div className="order-3 md:order-3 origin-right block" variants={demoButtonVariants} initial={isFirstLoad ? "visible" : "hidden"} animate="visible" exit="hidden">
                         <DemoButton shortHand={true} />
                     </motion.div>}
                     {isOpen && <motion.button className="order-3 md:order-3" onClick={() => setIsOpen(false)} variants={closeButtonVariants} initial="hidden" animate="visible" exit="hidden">
                         <Image src="/images/icons/close.svg" alt="Close" width={24} height={24} />
                     </motion.button>}
                 </AnimatePresence>
-                <DemoButton shortHand={true} className="order-3 md:order-3 hidden sm:block" />
             </div>
         </header>
     )

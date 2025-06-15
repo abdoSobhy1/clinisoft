@@ -42,8 +42,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --height-vph: calc(100vh - 118px);
-  --height-vph-2xl: calc(200vh - 236px);
+  --height-vph: calc(100vh - 12.8vh);
+  --height-vph-2xl: calc(200vh - 23.6vh);
 }
 
 body {
@@ -173,6 +173,7 @@ body {
   --spacing-36: 15.652vh; /* 9rem */
   --spacing-40: 17.391vh; /* 10rem */
   --spacing-48: 21.739vh; /* 12rem */
+  --spacing-52: 23.478vh; /* 13rem */
   --spacing-56: 26.087vh; /* 14rem */
   --spacing-64: 30.435vh; /* 16rem */
   --spacing-72: 34.783vh; /* 18rem */
@@ -181,3 +182,4 @@ body {
 @utility fs-var-* {
   font-size: --value(--fs-var- *);
 }
+

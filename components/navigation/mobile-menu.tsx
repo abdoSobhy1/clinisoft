@@ -102,11 +102,13 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }: MobileMenuPr
                                         <SubMenu isMobile={true} isOpen={isSubMenuOpen}>
                                             {link.subMenu?.map((subItem) => (
                                                 <MobileNavButton
+                                                    specialtyKey="specialtyNames"
                                                     key={subItem.name}
                                                     href={subItem.path}
                                                     label={subItem.name}
                                                     isActive={pathname === subItem.path}
                                                     onClick={() => setIsSubMenuOpen(false)}
+                                                    className='text-left fs-var-xl'
                                                 />
                                             ))}
                                         </SubMenu>

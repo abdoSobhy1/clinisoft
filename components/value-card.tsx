@@ -40,7 +40,9 @@ export default function ValueCard({ stat, title, description, icon, shouldCount,
         <div ref={ref} >
             <ScaleAnim delay={index * 0.3} className={cn("rounded-3xl bg-white p-4 shadow-md h-full text-center flex flex-col ", className)} >
                 <div className="md:mb-8 flex justify-between items-center md:block">
-                    <Image src={icon} alt={title} width={100} height={100} className="md:mx-auto md:mb-4" />
+                    <div className="relative size-24 mx-auto">
+                        <Image src={icon} alt={title} fill className="object-contain" />
+                    </div>
                     <div>
                         <p className="text-teal fs-var-6xl font-semibold">{count} %</p>
                         <h3 className="text-[2.6vh] font-semibold text-[#1e949e]">{title}</h3>

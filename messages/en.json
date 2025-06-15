@@ -1,0 +1,129 @@
+{
+  "navMenu": {
+    "home": "Home",
+    "specialties": "Specialties",
+    "aboutUs": "About Us",
+    "reviews": "Reviews",
+    "customerCare": "Customer Care"
+  },
+  "specialtyNames": {
+    "dentistry": "Dentistry",
+    "physiotherapy": "Physiotherapy",
+    "dermatology": "Dermatology",
+    "ophthalmology": "Ophthalmology",
+    "internalMedicine": "Internal Medicine",
+    "ENT": "E.N.T",
+    "pediatrics": "Pediatrics",
+    "neuroSurgery": "Neuro Surgery",
+    "orthopedicSurgery": "Orthopedic Surgery",
+    "urology": "Urology",
+    "cardiology": "Cardiology",
+    "chest": "Chest",
+    "gynecology": "Gynecology",
+    "nutrition": "Nutrition",
+    "diabetology": "Diabetology",
+    "surgery": "Surgery"
+  },
+  "hero": {
+    "slides": {
+      "title01": "Smart Medical Software Built for Doctors, Clinics, and Patients",
+      "description01": "All-in-one digital solutions for over 20 medical specialties from patient records to queue management and barcode systems.",
+      "title02": "Streamline Your Practice with Advanced EMR Solutions",
+      "description02": "Experience seamless electronic medical records management with intuitive interfaces designed specifically for your specialty.",
+      "title03": "Enhance Patient Care with Integrated Healthcare Tools",
+      "description03": "From appointment scheduling to treatment planning, our comprehensive suite of tools helps you deliver better patient outcomes.",
+      "title04": "Transform Your Clinic with Digital Innovation",
+      "description04": "Join thousands of healthcare providers who have revolutionized their practice with our cutting-edge medical software solutions.",
+      "trusted": "Trusted by Thousands of clinics across Egypt and the Middle East."
+    }
+  },
+  "other": {
+    "demo": "Demo",
+    "requestDemo": "Request a Demo"
+  },
+  "features": {
+    "offline": "Offline & Fully Functional",
+    "offlineDescription": "Use the software even without internet",
+    "payOnce": "Pay Once, No Monthly Fees",
+    "payOnceDescription": "No recurring charges or hidden costs",
+    "secure": " Secure & Private by Design",
+    "secureDescription": "Full control over your clinic's data",
+    "tailoredModules": "Tailored Modules per Specialty",
+    "tailoredModulesDescription": "Designed with real doctors in each field"
+  },
+  "trusted": {
+    "whyTrust": "Why Thousands of Clinics Trust CliniSoft",
+    "over19Years": "With over 19 years of expertise, CliniSoft supports thousands of doctors across Egypt, the Gulf, and beyond.",
+    "offlineOperation": "100% Offline Operation",
+    "oneTimePurchase": "One-Time Purchase Model",
+    "roleBasedSecurity": "Role-Based Security Access",
+    "reliableAndDurable": "Reliable and durable",
+    "twentyPlusSpecialty": "20+ Specialty-Specific Interfaces"
+  },
+  "counters": {
+    "clinics": "Clinics",
+    "devices": "Active Devices",
+    "patients": "Patients"
+  },
+  "specialties": {
+    "specialtiesWeServe": "Specialties we serve",
+    "specialInterface": "Each specialty interface is uniquely built for the doctor's workflow",
+    "noGenericLayouts": "No generic Layouts!",
+    "moreSpecialties": "More Specialties",
+    "specialtiesInfo": {
+      "dentistryDescription": "We offer Dental Clinic Management Software in addition to Medical Software for Diagnosing & Treating Dental Conditions.",
+      "physiotherapyDescription": "We offer Physiotherapy Center Management Software in addition to Medical Software for Diagnosing & Treating Physical Rehabilitations.",
+      "dermatologyDescription": "We offer Dermatology Clinic Management Software in addition to Medical Software for Diagnosing & Treating Skin Conditions.",
+      "ophthalmologyDescription": "We offer Eye Clinic Management Software in addition to Medical Software for Diagnosing & Treating Vision Disorders.",
+      "internalMedicineDescription": "We offer Internal Medicine Clinic Management Software in addition to Medical Software for Diagnosing & Treating Internal Diseases.",
+      "ENTDescription": "We offer ENT Clinic Management Software in addition to Medical Software for Diagnosing & Treating ENT Conditions.",
+      "pediatricsDescription": "We offer Pediatric Clinic Management Software in addition to Medical Software for Diagnosing & Treating Children's Health Conditions.",
+      "exploreMore": "Explore More"
+    }
+  },
+  "innovations": {
+    "builtInTools": "Built-in Tools that Truly Make a Difference",
+    "notJustFeatures": "These are not just features",
+    "gameChangers": "They're operational game-changers.",
+    "readMore": "Read More",
+    "qtv": "QTv Display",
+    "qtvDescription": "Queue management on top of satellite channels for better waiting experience.",
+    "pvcSmartCard": "PVC Smart Card",
+    "smartCardDescription": "QR-BarCode patient identification & loyalty enhancement.",
+    "securityKey": "Security Key",
+    "securityKeyDescription": "Prevent staff misuse and trace all activity securely.",
+    "coloringBook": "Coloring Book (Pediatrics)",
+    "coloringBookDescription": "Unique engagement tool for child patients."
+  },
+  "value": {
+    "howWeBringValue": "How We Bring Value",
+    "dataLeakage": "Data Leakage",
+    "dataLeakageDescription": "Our system provides robust data protection through a combination of strong access controls, encryption, regular security assessments, and compliance with data privacy regulations.",
+    "dataRetention": "Data Retention",
+    "dataRetentionDescription": "Never lose a byte: our automated, encrypted backups paired with a resilient system design, protecting your data from any eventuality.",
+    "costEffectiveness": "Cost Effectiveness",
+    "costEffectivenessDescription": "Own premium features and performance with a single and smart investment (one time purchase).",
+    "timeSaving": "Time Saving",
+    "timeSavingDescription": "Streamlined data entry allows for more eye contact and meaningful interaction, while rapid retrieval and printouts minimize wait times."
+  },
+  "testimonials": {
+    "doctorsAcrossSpecialties": "Doctors across specialties share their real-world experiences with CliniSoft"
+  },
+  "partners": {
+    "successPartners": "Success Partners"
+  },
+  "contactUs": {
+    "chatOnWhatsApp": "Chat with us on WhatsApp",
+    "callUs": "Call Us",
+    "name": "Name",
+    "specialty": "Specialty",
+    "selectSpecialty": "Select a specialty",
+    "city": "City",
+    "email": "Email",
+    "mobileNumber": "Mobile Number",
+    "bestTimeForCall": "Best Time for Call",
+    "comment": "Comment or Message",
+    "submitting": "Submitting...",
+    "submit": "Submit"
+  }
+}

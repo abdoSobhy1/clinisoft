@@ -3,26 +3,24 @@ import FeatureCard from "@/components/feature-card"
 
 const featuresList = [
     {
-        title:
-            "Offline & Fully Functional"
-        ,
-        description: "Use the software even without internet",
+        title: "offline",
+        description: "offlineDescription",
         icon: "/images/icons/offline.svg"
     },
     {
-        title: "Pay Once, No Monthly Fees",
-        description: "No recurring charges or hidden costs",
+        title: "payOnce",
+        description: "payOnceDescription",
         icon: "/images/icons/wallet.svg"
     },
     {
-        title: " Secure & Private by Design",
-        description: "Full control over your clinic's data",
+        title: "secure",
+        description: "secureDescription",
         icon: "/images/icons/patient-privacy.svg"
     },
 
     {
-        title: "Tailored Modules per Specialty",
-        description: "Designed with real doctors in each field",
+        title: "tailoredModules",
+        description: "tailoredModulesDescription",
         icon: "/images/icons/modules.svg"
     }
 ];

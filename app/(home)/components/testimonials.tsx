@@ -6,7 +6,7 @@ import { useRef, useState, useCallback, useEffect } from "react";
 import { ReviewDialog } from "./review-dialog";
 import reviews from '@/public/reviews.json'
 import Seperator from "@/components/footer/seperator";
-
+import { useTranslations } from "next-intl";
 type Review = {
     doctor: string;
     review: string;
@@ -19,6 +19,7 @@ interface TestimonialsProps {
 }
 
 export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
+    const t = useTranslations("testimonials");
     const [isOpen, setIsOpen] = useState(false)
     const [currentIndex, setCurrentIndex] = useState(0)
     const [isHovered, setIsHovered] = useState(false)
@@ -73,7 +74,7 @@ export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
     return (
         <section className={`py-12 px-4 min-h-vph relative flex flex-col justify-between ${bgColor}`}>
             <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
-            <h2 className="max-w-7xl mx-auto pb-12 text-center text-textTeal fs-var-3xl font-semibold leading-[48px]">Doctors across specialties share their real-world experiences with CliniSoft</h2>
+            <h2 className="max-w-7xl mx-auto pb-12 text-center text-textTeal fs-var-3xl font-semibold leading-[48px]">{t("doctorsAcrossSpecialties")}</h2>
             <Carousel
                 plugins={[autoplayRef.current]}
                 className="w-full flex-1 [&>*:last-child]:h-full"

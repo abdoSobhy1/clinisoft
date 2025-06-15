@@ -6,23 +6,23 @@ import { useRef } from "react";
 
 const slides = [
     {
-        title: "Smart Medical Software Built for Doctors, Clinics, and Patients",
-        description: "All-in-one digital solutions for over 20 medical specialties from patient records to queue management and barcode systems.",
+        title: "title01",
+        description: "description01",
         image: '/images/hero/hero-1.webp'
     },
     {
-        title: "Streamline Your Practice with Advanced EMR Solutions",
-        description: "Experience seamless electronic medical records management with intuitive interfaces designed specifically for your specialty.",
+        title: "title02",
+        description: "description02",
         image: '/images/hero/hero-2.webp'
     },
     {
-        title: "Enhance Patient Care with Integrated Healthcare Tools",
-        description: "From appointment scheduling to treatment planning, our comprehensive suite of tools helps you deliver better patient outcomes.",
+        title: "title03",
+        description: "description03",
         image: '/images/hero/hero-3.webp'
     },
     {
-        title: "Transform Your Clinic with Digital Innovation",
-        description: "Join thousands of healthcare providers who have revolutionized their practice with our cutting-edge medical software solutions.",
+        title: "title04",
+        description: "description04",
         image: '/images/hero/hero-4.webp'
     },
 ]

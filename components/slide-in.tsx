@@ -1,13 +1,13 @@
-'use client'
-import { motion } from 'framer-motion';
-import { ElementType, ReactNode } from 'react';
+'use client';
+
+import { motion, useAnimate, useInView } from 'framer-motion';
+import { ReactNode, useEffect, useState } from 'react';
 
 type Direction = 'left' | 'right' | 'top';
 
 interface SlideInProps {
     children: ReactNode;
     direction: Direction;
-    as?: ElementType;
     className?: string;
     delay?: number;
     duration?: number;
@@ -30,25 +30,55 @@ const getInitialPosition = (direction: Direction) => {
 export default function SlideIn({
     children,
     direction,
-    as: Component = 'div',
     className = '',
     delay = 0.3,
     duration = 0.5,
     shouldAnimate = true
 }: SlideInProps) {
+    const [scope, animate] = useAnimate();
+    const [shouldSkip, setShouldSkip] = useState(false);
+
+    const inView = useInView(scope, {
+        once: true,
+        margin: '0px 0px -20% 0px',
+    });
+
     const initial = getInitialPosition(direction);
 
-    const MotionComponent = motion.create(Component);
+    useEffect(() => {
+        if (!scope.current) {
+            return;
+        }
+
+        // If animation is explicitly disabled via prop, set to final state immediately and exit
+        if (!shouldAnimate) {
+            animate(scope.current, { x: 0, y: 0, opacity: 1 }, { duration: 0 })
+            return;
+        }
+
+        const rect = scope.current.getBoundingClientRect();
+        const isScrolledPast = (rect.top + rect.height) < 0;
+
+        if (isScrolledPast && !shouldSkip) {
+            setShouldSkip(true);
+            animate(scope.current, { x: 0, y: 0, opacity: 1 }, { duration: 0 })
+        } else if (inView || shouldSkip) {
+            const animationDuration = shouldSkip ? 0 : duration;
+            const animationDelay = shouldSkip ? 0 : delay;
+            animate(scope.current,
+                { x: 0, y: 0, opacity: 1 },
+                { duration: animationDuration, delay: animationDelay }
+            )
+        }
+    }, [inView, animate, scope, shouldSkip, duration, delay, shouldAnimate]);
 
     return (
-        <MotionComponent
-            initial={shouldAnimate ? { ...initial, opacity: 0 } : false}
-            whileInView={shouldAnimate ? { x: 0, y: 0, opacity: 1 } : undefined}
-            viewport={{ once: true }}
-            transition={shouldAnimate ? { duration, delay } : undefined}
+        <motion.p
+            ref={scope}
+            initial={shouldAnimate ? { ...initial, opacity: 0 } : { x: 0, y: 0, opacity: 1 }}
             className={className}
         >
             {children}
-        </MotionComponent>
+        </motion.p>
     );
 }

@@ -5,11 +5,12 @@ import Slot from "@/components/slot";
 import ContactForm from "../../../components/contact-form";
 import Image from "next/image";
 import Seperator from "@/components/footer/seperator";
+import { useTranslations } from "next-intl";
 
 const slots = [
-    { title: "About Us", href: "/about-us" },
-    { title: "Technical Support", href: "/contact-us" },
-    { title: "Customer Support", href: "/contact-us" }
+    { title: "aboutUs", href: "/about-us" },
+    { title: "technicalSupport", href: "/contact-us" },
+    { title: "customerSupport", href: "/contact-us" }
 ];
 
 interface ContactUsFormProps {
@@ -17,6 +18,7 @@ interface ContactUsFormProps {
 }
 
 export default function ContactUsForm({ bgColor = "" }: ContactUsFormProps) {
+    const t = useTranslations("contactUs");
     return (
         <section className={`py-6 px-4 relative ${bgColor}`}>
             <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
@@ -29,11 +31,11 @@ export default function ContactUsForm({ bgColor = "" }: ContactUsFormProps) {
                         </div>
                         <MainButton href="http://wa.me/+201208123222" className="lg:w-full bg-textTeal hover:bg-textTeal text-center flex items-center justify-center px-4 py-3 gap-2">
                             <span className="fs-var-base">
-                                Chat with us on WhatsApp
+                                {t("chatOnWhatsApp")}
                             </span>
                             <Image src="/images/icons/whatsapp.svg" alt="Phone Call" width={24} height={24} />
                         </MainButton>
-                        <MainButton href="tel:+201204698888" className="lg:w-full bg-maroon hover:bg-maroon-700 text-center py-3">Call Us</MainButton>
+                        <MainButton href="tel:+201204698888" className="lg:w-full bg-maroon hover:bg-maroon-700 text-center py-3">{t("callUs")}</MainButton>
                     </div>
                     {slots.map((slot) => (
                         <Slot key={slot.title} title={slot.title} href={slot.href} />
