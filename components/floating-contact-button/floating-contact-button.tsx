@@ -81,7 +81,7 @@ const FloatingContactButton = () => {
 
       <motion.button
         onClick={() => setOpen(!open)}
-        className="w-14 h-14 rounded-full bg-teal-600 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform -order-1 outline-0"
+        className="w-14 h-14 rounded-full bg-teal flex items-center justify-center text-white shadow-lg hover:scale-110 transition-transform -order-1 outline-0"
         whileTap={{ scale: 0.9 }}
         animate={{ scale: open ? [1] : [1, 0.85, 1] }}
         transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
