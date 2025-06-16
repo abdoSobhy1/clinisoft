@@ -15,7 +15,8 @@ const ContactOption = ({ icon, label, link, bgColor }: ContactOptionProps) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center justify-center space-x-2 p-2 rounded-full text-white ${bgColor} size-14 hover:scale-105 transition-transform`}
+            className={`flex items-center justify-center space-x-2 p-2 rounded-full text-white size-14 hover:scale-105 transition-transform`}
+            style={{ backgroundColor: bgColor }}
         >
             <div className="relative group">
                 <div className="relative w-8 h-8">

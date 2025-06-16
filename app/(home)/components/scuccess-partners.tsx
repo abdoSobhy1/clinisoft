@@ -1,22 +1,21 @@
 import Title from "@/components/title"
 import Image from "next/image"
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 const partners = [[
-    { partner: "orange", logo: "/images/partners/orange.webp" },
-    { partner: "microsoft", logo: "/images/partners/microsoft.webp" },
-    { partner: "teamViewer", logo: "/images/partners/teamviewer.webp" },
-    { partner: "millensys", logo: "/images/partners/millensys.webp" },
-    { partner: "reporty", logo: "/images/partners/reporty.webp" },
-    { partner: "samsung", logo: "/images/partners/samsung.webp" },
-    { partner: "meta", logo: "/images/partners/meta.webp" },
-    { partner: "google", logo: "/images/partners/google.webp" },
+    { partner: "orange", logo: "/images/partners/orange.webp", link: "https://www.orange.com" },
+    { partner: "microsoft", logo: "/images/partners/microsoft.webp", link: "https://www.microsoft.com" },
+    { partner: "teamViewer", logo: "/images/partners/teamviewer.webp", link: "https://www.teamviewer.com" },
+    { partner: "millensys", logo: "/images/partners/millensys.webp", link: "https://www.millensys.com" },
+    { partner: "reporty", logo: "/images/partners/reporty.webp", link: "https://www.reporty.sa" },
+    { partner: "samsung", logo: "/images/partners/samsung.webp", link: "https://www.samsung.com" },
+    { partner: "meta", logo: "/images/partners/meta.webp", link: "https://www.meta.com" },
+    { partner: "google", logo: "/images/partners/google.webp", link: "https://www.google.com" },
 ], [
-    { partner: "mastercard", logo: "/images/partners/mastercard.webp" },
-    { partner: "visa", logo: "/images/partners/visa.webp" },
-    { partner: "cib", logo: "/images/partners/cib.webp" },
-    { partner: "nbe", logo: "/images/partners/nbe.webp", w: "105px" },
-    { partner: "banque-misr", logo: "/images/partners/banque-misr.webp", w: "105px" },
-    { partner: "paymob", logo: "/images/partners/paymob.webp" },
+    { partner: "mastercard", logo: "/images/partners/mastercard.webp", link: "https://www.mastercard.com" },
+    { partner: "visa", logo: "/images/partners/visa.webp", link: "https://www.visa.com" },
+    { partner: "banque-misr", logo: "/images/partners/banque-misr.webp", link: "https://www.banquemisr.com" },
+    { partner: "paymob", logo: "/images/partners/paymob.webp", link: "https://www.paymob.com" },
 ]]
 
 interface SuccessPartnersProps {
@@ -33,7 +32,9 @@ export default function SuccessPartners({ bgColor = "" }: SuccessPartnersProps) 
                     <div key={index} className="flex flex-wrap gap-10 justify-center items-center">
                         {item.map((partner) => (
                             <div key={partner.partner} className={`relative max-w-30 w-16 md:w-40 h-20`}>
-                                <Image src={partner.logo} alt={partner.partner} fill className="object-contain" />
+                                <Link href={partner.link} target="_blank">
+                                    <Image src={partner.logo} alt={partner.partner} fill className="object-contain" />
+                                </Link>
                             </div>
                         ))}
                     </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Tajawal } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/navigation/header";
 import Footer from "@/components/footer/Footer";
@@ -10,6 +10,12 @@ import { NextIntlClientProvider } from "next-intl";
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
+  display: "swap",
+});
+
+const tajawal = Tajawal({
+  weight: ["200", "300", "400", "500", "700", "800", "900"],
+  subsets: ["arabic"],
   display: "swap",
 });
 
@@ -29,7 +35,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${poppins.className} antialiased bg-[#F1FFFF]`}
+        className={`${locale === "ar" ? tajawal.className : poppins.className} antialiased bg-[#F1FFFF]`}
         dir={locale === "ar" ? "rtl" : "ltr"}
       >
         <NextIntlClientProvider>
@@ -39,6 +45,6 @@ export default async function RootLayout({
           <FloatingContactButton />
         </NextIntlClientProvider>
       </body>
-    </html>
+    </html >
   );
 }

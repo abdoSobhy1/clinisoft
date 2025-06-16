@@ -22,6 +22,7 @@ const icons = [
 ];
 
 const FooterSocialIcons: React.FC = () => (
+
     <div className="flex gap-4 mt-2">
         {icons.map((icon) => (
             <a

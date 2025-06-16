@@ -115,6 +115,13 @@
   "contactUs": {
     "chatOnWhatsApp": "Chat with us on WhatsApp",
     "callUs": "Call Us",
+    "slots": {
+      "aboutUs": "About Us",
+      "technicalSupport": "Technical Support",
+      "customerSupport": "Customer Support"
+    },
+    "letUsHelpYou": "Let Us Help You Run a Smarter Clinic",
+    "fillInYourDetails": "Fill in your details and our team will contact you within 24 hours.",
     "name": "Name",
     "specialty": "Specialty",
     "selectSpecialty": "Select a specialty",
@@ -125,5 +132,27 @@
     "comment": "Comment or Message",
     "submitting": "Submitting...",
     "submit": "Submit"
+  },
+  "footer": {
+    "links": {
+      "home": "Home",
+      "aboutUs": "About Us",
+      "blogs": "Blogs",
+      "reviews": "Reviews",
+      "customerCare": "Customer Care",
+      "specialties": "Specialties",
+      "otherLinks": "Other Links",
+      "contactUs": "Contact Us"
+    },
+    "contactInfo": {
+      "address": "5th Yathreb Towers, Acid City, Smouha, Alexandria"
+    },
+    "contactCard": {
+      "hiThere": "Hi there",
+      "anyQuestions": "Do you have any questions?",
+      "needHelp": "Do you need help or have an inquiry?",
+      "contactUs": "Contact Us"
+    },
+    "copyright": "Copyright © {year} CliniSoft. All rights reserved."
   }
 }

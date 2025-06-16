@@ -49,8 +49,8 @@ export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
         setIsOpen(true)
     }
 
-    const handleDialogClose = useCallback((open: boolean) => {
-        setIsOpen(open)
+    const handleDialogClose = useCallback((bool: boolean) => {
+        setIsOpen(bool)
     }, [])
 
     const handlePreviousReview = () => {

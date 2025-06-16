@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useAnimate, useInView } from 'framer-motion';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 type Direction = 'left' | 'right' | 'top';
 
@@ -11,7 +11,6 @@ interface SlideInProps {
     className?: string;
     delay?: number;
     duration?: number;
-    shouldAnimate?: boolean;
 }
 
 const getInitialPosition = (direction: Direction) => {
@@ -33,49 +32,52 @@ export default function SlideIn({
     className = '',
     delay = 0.3,
     duration = 0.5,
-    shouldAnimate = true
 }: SlideInProps) {
     const [scope, animate] = useAnimate();
-    const [shouldSkip, setShouldSkip] = useState(false);
 
     const inView = useInView(scope, {
         once: true,
         margin: '0px 0px -20% 0px',
     });
 
+    const stillInView = useInView(scope, {
+        once: false,
+        margin: '0px 0px -20% 0px',
+    });
+
+    useEffect(() => {
+        if (!stillInView && inView) {
+            animate(scope.current, { x: 0, y: 0, opacity: 1 }, { duration: 0 })
+        }
+    }, [stillInView]);
+
     const initial = getInitialPosition(direction);
 
     useEffect(() => {
+        console.log({ inView })
         if (!scope.current) {
             return;
         }
 
-        // If animation is explicitly disabled via prop, set to final state immediately and exit
-        if (!shouldAnimate) {
-            animate(scope.current, { x: 0, y: 0, opacity: 1 }, { duration: 0 })
-            return;
-        }
+        const { top, height } = scope.current.getBoundingClientRect();
+        const isScrolledPast = (top + height) < 0;
 
-        const rect = scope.current.getBoundingClientRect();
-        const isScrolledPast = (rect.top + rect.height) < 0;
-
-        if (isScrolledPast && !shouldSkip) {
-            setShouldSkip(true);
+        if (isScrolledPast) {
             animate(scope.current, { x: 0, y: 0, opacity: 1 }, { duration: 0 })
-        } else if (inView || shouldSkip) {
-            const animationDuration = shouldSkip ? 0 : duration;
-            const animationDelay = shouldSkip ? 0 : delay;
+        } else if (inView && !isScrolledPast) {
+            const animationDuration = duration;
+            const animationDelay = delay;
             animate(scope.current,
                 { x: 0, y: 0, opacity: 1 },
                 { duration: animationDuration, delay: animationDelay }
             )
         }
-    }, [inView, animate, scope, shouldSkip, duration, delay, shouldAnimate]);
+    }, [inView, animate, scope, duration, delay]);
 
     return (
         <motion.p
             ref={scope}
-            initial={shouldAnimate ? { ...initial, opacity: 0 } : { x: 0, y: 0, opacity: 1 }}
+            initial={{ ...initial, opacity: 0 }}
             className={className}
         >
             {children}

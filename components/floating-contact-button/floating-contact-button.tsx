@@ -9,31 +9,31 @@ const contactOptions = [
     icon: "/images/icons/messenger.svg",
     label: "Messenger",
     link: "https://m.me/CliniSoft",
-    bgColor: "bg-blue-500",
+    bgColor: "#168AFF",
   },
   {
     icon: "/images/icons/whatsapp.svg",
     label: "WhatsApp",
     link: "https://wa.me/+201204698888",
-    bgColor: "bg-green-500",
+    bgColor: "#25D366",
   },
   {
     icon: "/images/icons/phone-call.svg",
     label: "Call",
     link: "tel:+201204698888",
-    bgColor: "bg-emerald-500",
+    bgColor: "#00bc7d",
   },
   {
     icon: "/images/icons/mail.svg",
     label: "Email",
     link: "mailto:info@clinisoft.com.eg",
-    bgColor: "bg-red-500",
+    bgColor: "#fb2c36",
   },
   {
     icon: "/images/icons/demo.svg",
     label: "Request a Demo",
     link: "/request-a-demo",
-    bgColor: "bg-maroon",
+    bgColor: "#ea7f70",
   },
 
 ];

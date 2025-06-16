@@ -8,9 +8,9 @@ import Seperator from "@/components/footer/seperator";
 import { useTranslations } from "next-intl";
 
 const slots = [
-    { title: "aboutUs", href: "/about-us" },
-    { title: "technicalSupport", href: "/contact-us" },
-    { title: "customerSupport", href: "/contact-us" }
+    { title: "slots.aboutUs", href: "/about-us" },
+    { title: "slots.technicalSupport", href: "/contact-us" },
+    { title: "slots.customerSupport", href: "/contact-us" }
 ];
 
 interface ContactUsFormProps {
@@ -38,7 +38,7 @@ export default function ContactUsForm({ bgColor = "" }: ContactUsFormProps) {
                         <MainButton href="tel:+201204698888" className="lg:w-full bg-maroon hover:bg-maroon-700 text-center py-3">{t("callUs")}</MainButton>
                     </div>
                     {slots.map((slot) => (
-                        <Slot key={slot.title} title={slot.title} href={slot.href} />
+                        <Slot key={slot.title} title={t(slot.title)} href={slot.href} />
                     ))}
                 </div>
             </div>

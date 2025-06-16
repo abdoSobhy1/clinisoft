@@ -103,8 +103,8 @@ export default function ContactForm() {
 
     return (<div className="bg-white rounded-[20px] p-8 border-2 border-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
         <div className="mb-4 space-y-3">
-            <h2 className="fs-var-3xl font-semibold text-textTeal">Let Us Help You Run a Smarter Clinic</h2>
-            <p className="fs-var-2xl text-textTeal font-semibold">Fill in your details and our team will contact you within 24 hours.</p>
+            <h2 className="fs-var-3xl font-semibold text-textTeal">{t("contactUs.letUsHelpYou")}</h2>
+            <p className="fs-var-2xl text-textTeal font-semibold">{t("contactUs.fillInYourDetails")}</p>
         </div>
         <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

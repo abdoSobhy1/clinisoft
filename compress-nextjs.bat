@@ -22,7 +22,6 @@ REM === Create archive using 7-Zip with max compression (-mx=9) and exclusions =
 "%SEVENZIP_PATH%" a -t7z "%OUTPUT_FILE%" * ^
  -xr!node_modules ^
  -xr!.next ^
- -xr!.git ^
  -xr!out ^
  -xr!.vscode ^
  -xr!.idea ^

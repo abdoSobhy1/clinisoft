@@ -7,6 +7,7 @@ import useEmblaCarousel, {
 import { ChevronRight, ChevronLeft } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { useLocale } from "next-intl"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -55,10 +56,12 @@ function Carousel({
   children,
   ...props
 }: React.ComponentProps<"div"> & CarouselProps) {
+  const locale = useLocale();
   const [carouselRef, api] = useEmblaCarousel(
     {
       ...opts,
       axis: orientation === "horizontal" ? "x" : "y",
+      direction: locale === "ar" ? "rtl" : "ltr"
     },
     plugins
   )

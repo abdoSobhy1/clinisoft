@@ -88,6 +88,19 @@ const ReviewDialog = memo(function ReviewDialog({
         onClose(false)
     }, [onClose])
 
+    useEffect(() => {
+        const handleEscapeKey = (event: KeyboardEvent) => {
+            if (event.key === 'Escape' && isOpen) {
+                handleClose()
+            }
+        }
+
+        document.addEventListener('keydown', handleEscapeKey)
+        return () => {
+            document.removeEventListener('keydown', handleEscapeKey)
+        }
+    }, [isOpen, handleClose])
+
     if (!isOpen) return null
 
     return createPortal(
@@ -158,17 +171,12 @@ const ReviewDialog = memo(function ReviewDialog({
 
                             <div className="relative p-6">
                                 <div className="text-center">
-                                    <Image
-                                        src={currentReview.image}
-                                        alt={currentReview.doctor}
-                                        width={100}
-                                        height={100}
-                                        className="mx-auto rounded-full mb-4"
-                                        priority
-                                    />
+                                    <div className="relative size-52 mx-auto">
+                                        <Image src={currentReview.image} alt={currentReview.doctor} fill className="object-contain rounded-full" priority />
+                                    </div>
                                     <p className="fs-var-lg font-semibold mb-1">{currentReview.doctor}</p>
                                     <p className="fs-var-sm font-semibold text-gray-500 mb-2">{currentReview.specialty}</p>
-                                    <p className="fs-var-lg text-gray-500">{currentReview.review}</p>
+                                    <p className="fs-var-xl leading-8 mb-8 font-['Tahoma'] grow-1 mt-4">{currentReview.review}</p>
                                 </div>
                             </div>
                         </motion.div>
