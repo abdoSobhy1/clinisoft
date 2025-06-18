@@ -29,7 +29,7 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }: MobileMenuPr
             history.pushState({ menu: true }, "", "");
         }
 
-        const handlePopState = (event: PopStateEvent) => {
+        const handlePopState = () => {
             if (isOpen) {
                 setIsOpen(false);
             }
