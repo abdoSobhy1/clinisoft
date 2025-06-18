@@ -15,7 +15,7 @@ export default function ScaleAnim({
     className = '',
     delay = 0.3,
     duration = 0.5,
-    initialScale = 1.2,
+    initialScale = 1.1,
 }: ScaleAnimProps) {
     const [scope, animate] = useAnimate();
     const [shouldSkip, setShouldSkip] = useState(false);

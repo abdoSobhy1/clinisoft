@@ -88,8 +88,8 @@ export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
                 }}
                 opts={{ loop: true }}
             >
-                <CarouselNext />
-                <CarouselPrevious />
+                <CarouselNext className="w-16 h-16 fs-var-2xl right-10 hidden md:flex text-white" />
+                <CarouselPrevious className="w-16 h-16 fs-var-2xl left-10 hidden md:flex text-white" />
                 <CarouselContent className="h-full flex-1" >
                     {reviews.map((review, index) => (
                         <CarouselItem key={review.doctor} className="min-w-[350px] basis-1 md:basis-1/3 lg:basis-1/5 mb-6  min-h-full ">

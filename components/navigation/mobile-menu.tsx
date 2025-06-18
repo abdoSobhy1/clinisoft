@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import MobileNavButton from './mobile-nav-button';
 import DemoButton from '../demo-button';
 import SubMenu from '../sub-menu';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -13,7 +13,7 @@ interface MobileMenuProps {
     navLinks: {
         name: string;
         path: string;
-        subMenu?: { path: string; name: string; }[];
+        subMenu?: { path: string; name: string; icon?: string }[];
     }[];
 }
 
@@ -21,6 +21,27 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }: MobileMenuPr
     const pathname = usePathname();
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
     const screen = typeof window !== 'undefined' ? window.innerHeight : 0;
+
+    // Handle back button press when mobile menu is open
+
+    useEffect(() => {
+        if (isOpen) {
+            history.pushState({ menu: true }, "", "");
+        }
+
+        const handlePopState = (event: PopStateEvent) => {
+            if (isOpen) {
+                setIsOpen(false);
+            }
+        };
+
+        window.addEventListener("popstate", handlePopState);
+
+        return () => {
+            window.removeEventListener("popstate", handlePopState);
+        };
+    }, [isOpen]);
+
 
     const menuVariants = {
         initial: { maxHeight: 0, opacity: 0.5 },
@@ -109,6 +130,7 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }: MobileMenuPr
                                                     isActive={pathname === subItem.path}
                                                     onClick={() => setIsSubMenuOpen(false)}
                                                     className='text-left fs-var-xl'
+                                                    icon={subItem.icon}
                                                 />
                                             ))}
                                         </SubMenu>

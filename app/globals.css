@@ -136,47 +136,47 @@ body {
 }
 
 @theme {
-  --fs-var-xs: 1.304vh; /* 0.75rem = 12px */
-  --fs-var-sm: 1.522vh; /* 0.875rem = 14px */
-  --fs-var-base: 1.739vh; /* 1rem = 16px */
-  --fs-var-lg: 1.957vh; /* 1.125rem = 18px */
-  --fs-var-xl: 2.174vh; /* 1.25rem = 20px */
-  --fs-var-2xl: 2.609vh; /* 1.5rem = 24px */
-  --fs-var-3xl: 3.261vh; /* 1.875rem = 30px */
-  --fs-var-4xl: 3.913vh; /* 2.25rem = 36px */
-  --fs-var-5xl: 5.217vh; /* 3rem = 48px */
-  --fs-var-6xl: 6.522vh; /* 3.75rem = 60px */
-  --fs-var-7xl: 7.826vh; /* 4.5rem = 72px */
-  --fs-var-8xl: 10.435vh; /* 6rem = 96px */
-  --fs-var-9xl: 13.913vh; /* 8rem = 128px */
-  --spacing-0.5: 0.217vh; /* 0.125rem */
-  --spacing-1: 0.435vh; /* 0.25rem */
-  --spacing-1.5: 0.652vh; /* 0.375rem */
-  --spacing-2: 0.87vh; /* 0.5rem */
-  --spacing-2.5: 1.087vh; /* 0.625rem */
-  --spacing-3: 1.304vh; /* 0.75rem */
-  --spacing-3.5: 1.522vh; /* 0.875rem */
-  --spacing-4: 1.739vh; /* 1rem */
-  --spacing-5: 2.174vh; /* 1.25rem */
-  --spacing-6: 2.609vh; /* 1.5rem */
-  --spacing-8: 3.478vh; /* 2rem */
-  --spacing-10: 4.348vh; /* 2.5rem */
-  --spacing-12: 5.217vh; /* 3rem */
-  --spacing-14: 6.087vh; /* 3.5rem */
-  --spacing-16: 6.957vh; /* 4rem */
-  --spacing-20: 8.696vh; /* 5rem */
-  --spacing-22: 9.565vh; /* 5.5rem */
-  --spacing-24: 10.435vh; /* 6rem */
-  --spacing-28: 12.087vh; /* 7rem */
-  --spacing-30: 13.043vh; /* 7.5rem */
-  --spacing-32: 14.565vh; /* 8rem */
-  --spacing-36: 15.652vh; /* 9rem */
-  --spacing-40: 17.391vh; /* 10rem */
-  --spacing-48: 21.739vh; /* 12rem */
-  --spacing-52: 23.478vh; /* 13rem */
-  --spacing-56: 26.087vh; /* 14rem */
-  --spacing-64: 30.435vh; /* 16rem */
-  --spacing-72: 34.783vh; /* 18rem */
+  --fs-var-xs: 1.304lvh; /* 0.75rem = 12px */
+  --fs-var-sm: 1.522lvh; /* 0.875rem = 14px */
+  --fs-var-base: 1.739lvh; /* 1rem = 16px */
+  --fs-var-lg: 1.957lvh; /* 1.125rem = 18px */
+  --fs-var-xl: 2.174lvh; /* 1.25rem = 20px */
+  --fs-var-2xl: 2.609lvh; /* 1.5rem = 24px */
+  --fs-var-3xl: 3.261lvh; /* 1.875rem = 30px */
+  --fs-var-4xl: 3.913lvh; /* 2.25rem = 36px */
+  --fs-var-5xl: 5.217lvh; /* 3rem = 48px */
+  --fs-var-6xl: 6.522lvh; /* 3.75rem = 60px */
+  --fs-var-7xl: 7.826lvh; /* 4.5rem = 72px */
+  --fs-var-8xl: 10.435lvh; /* 6rem = 96px */
+  --fs-var-9xl: 13.913lvh; /* 8rem = 128px */
+  --spacing-0.5: 0.217lvh; /* 0.125rem */
+  --spacing-1: 0.435lvh; /* 0.25rem */
+  --spacing-1.5: 0.652lvh; /* 0.375rem */
+  --spacing-2: 0.87lvh; /* 0.5rem */
+  --spacing-2.5: 1.087lvh; /* 0.625rem */
+  --spacing-3: 1.304lvh; /* 0.75rem */
+  --spacing-3.5: 1.522lvh; /* 0.875rem */
+  --spacing-4: 1.739lvh; /* 1rem */
+  --spacing-5: 2.174lvh; /* 1.25rem */
+  --spacing-6: 2.609lvh; /* 1.5rem */
+  --spacing-8: 3.478lvh; /* 2rem */
+  --spacing-10: 4.348lvh; /* 2.5rem */
+  --spacing-12: 5.217lvh; /* 3rem */
+  --spacing-14: 6.087lvh; /* 3.5rem */
+  --spacing-16: 6.957lvh; /* 4rem */
+  --spacing-20: 8.696lvh; /* 5rem */
+  --spacing-22: 9.565lvh; /* 5.5rem */
+  --spacing-24: 10.435lvh; /* 6rem */
+  --spacing-28: 12.087lvh; /* 7rem */
+  --spacing-30: 13.043lvh; /* 7.5rem */
+  --spacing-32: 14.565lvh; /* 8rem */
+  --spacing-36: 15.652lvh; /* 9rem */
+  --spacing-40: 17.391lvh; /* 10rem */
+  --spacing-48: 21.739lvh; /* 12rem */
+  --spacing-52: 23.478lvh; /* 13rem */
+  --spacing-56: 26.087lvh; /* 14rem */
+  --spacing-64: 30.435lvh; /* 16rem */
+  --spacing-72: 34.783lvh; /* 18rem */
 }
 
 @utility fs-var-* {

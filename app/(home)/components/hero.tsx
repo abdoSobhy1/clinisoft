@@ -35,18 +35,18 @@ export default function HeroSection({ bgColor = "" }: HeroSectionProps) {
     const plugin = useRef(
         Autoplay({ delay: 5000, })
     )
-    return (<section className={`snap-start h-screen ${bgColor}`}>
+    return (<section className={`h-svh ${bgColor}`}>
         <Carousel plugins={[plugin.current]}
             opts={{ loop: true, }}
         >
-            <CarouselNext className="w-16 h-16 fs-var-2xl right-10 hidden md:flex text-white" />
-            <CarouselPrevious className="w-16 h-16 fs-var-2xl left-10 hidden md:flex text-white" />
+            <CarouselNext className="size-16 fs-var-2xl right-10 hidden md:flex text-white" />
+            <CarouselPrevious className="size-16 fs-var-2xl left-10 hidden md:flex text-white" />
             <CarouselContent>
                 {slides.map((slide) => (
                     <HeroSlide key={slide.title} title={slide.title} description={slide.description} image={slide.image} />
                 ))}
             </CarouselContent>
-            <CarouselDots className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10" />
+            <CarouselDots className="absolute bottom-20 md:bottom-8 left-1/2 -translate-x-1/2 z-10" />
         </Carousel>
     </section>)
 }

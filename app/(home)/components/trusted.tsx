@@ -23,7 +23,7 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
     return (
         <section className={`pt-12 overflow-x-hidden relative min-h-vph flex flex-col justify-between ${bgColor}`}>
             <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
-            <div className="max-w-7xl mx-auto flex flex-col gap-4 mb-4">
+            <div className="max-w-7xl px-4 mx-auto flex flex-col gap-4 mb-4">
                 <div className="text-center">
                     <Title className="py-0 fs-var-3xl mb-2 text-textTeal">
                         {t("whyTrust")}

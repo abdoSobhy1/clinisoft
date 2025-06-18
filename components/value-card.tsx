@@ -40,8 +40,8 @@ export default function ValueCard({ stat, title, description, icon, shouldCount,
         <div ref={ref} >
             <ScaleAnim delay={index * 0.3} className={cn("rounded-3xl bg-white p-4 shadow-md h-full text-center flex flex-col ", className)} >
                 <div className="md:mb-8 flex justify-between items-center md:block">
-                    <div className="relative size-24 mx-auto">
-                        <Image src={icon} alt={title} fill className="object-contain" />
+                    <div className="relative size-24 mx-auto  flex-1">
+                        <Image src={icon} alt={title} fill className="object-contain object-left md:object-center" />
                     </div>
                     <div>
                         <p className="text-teal fs-var-6xl font-semibold">{count} %</p>
@@ -62,7 +62,7 @@ export default function ValueCard({ stat, title, description, icon, shouldCount,
                     hideButton="hidden"
                     animationDuration={0.4}
                 >
-                    <p className="text-[#4d504f] fs-var-lg leading-8">{description}</p>
+                    <p className="text-[#4d504f] fs-var-lg leading-8 text-left md:text-center">{description}</p>
                 </AnimatedAccordion>
             </ScaleAnim>
         </div>

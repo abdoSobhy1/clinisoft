@@ -2,7 +2,7 @@
 
 import { useMobile } from "@/hooks/useMobile";
 
-import SpecialtiesCaroussel from "../../../components/specialties/specialties-caroussel";
+import SpecialtiesCaroussel from "../../../components/specialties/specialties-caroussel-mobile";
 import SpecialtiesCarousselDesktop from "../../../components/specialties/specialties-caroussel-desktop";
 import { useEffect, useState } from "react";
 

@@ -15,7 +15,7 @@ export default function HeroSlide({
     return (
         <CarouselItem className="p-0">
             <div
-                className="w-full pl-2 md:pl-0 h-dvh flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat relative"
+                className="w-full pl-2 md:pl-0 h-lvh flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat relative"
                 style={{ backgroundImage: `url(${image})` }}
             >
                 <div className="before:content-[''] before:absolute before:inset-0 before:bg-linear-0 before:from-[#F0FFFF] before:from-10% before:to-[#F0FFFF00] before:to-50% before:z-2 before:pointer-events-none after:content-[''] after:absolute after:inset-0 after:bg-linear-135 after:from-[#29858de6] after:to-[#29858d4d] after:z-1 after:pointer-events-none" />

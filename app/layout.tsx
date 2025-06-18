@@ -35,7 +35,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${locale === "ar" ? tajawal.className : poppins.className} antialiased bg-[#F1FFFF] overflow-x-hidden`}
+        className={`${locale === "ar" ? tajawal.className : poppins.className} antialiased bg-[#F1FFFF] w-full`}
         dir={locale === "ar" ? "rtl" : "ltr"}
       >
         <NextIntlClientProvider>

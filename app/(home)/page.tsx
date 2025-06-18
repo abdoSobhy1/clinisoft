@@ -11,7 +11,7 @@ import Specialties from "./components/specialties";
 export default function Home() {
 
   return (
-    <main >
+    <main className="overflow-x-hidden">
       <Hero />
       <Features />
       <Trusted bgColor="bg-black/1 " />

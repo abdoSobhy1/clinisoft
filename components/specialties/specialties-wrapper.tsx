@@ -27,7 +27,7 @@ export default function SpecialtiesWrapper({ children, didAnimate, setDidAnimate
                 }
             </div >
             {children}
-            <MainButton href="/specialties" className="block px-[141px] py-3 bg-maroon hover:bg-maroon-500  text-center lg:w-fit mx-auto fs-var-lg md:fs-var-3xl font-bold mt-4 text-[#f5fffa] " >{t("moreSpecialties")}</MainButton>
+            <MainButton href="/specialties" className="block  md:px-[141px] py-3 bg-maroon hover:bg-maroon-500  text-center lg:w-fit mx-auto fs-var-lg md:fs-var-3xl font-bold mt-4 text-[#f5fffa] " >{t("moreSpecialties")}</MainButton>
         </>
     )
 }

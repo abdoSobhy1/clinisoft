@@ -64,8 +64,8 @@ export default function SpecialtiesCaroussel({ bgColor = "", didAnimate, setDidA
                     onMouseLeave={() => plugin.current.play()}
                     opts={{ loop: true, align: "start", startIndex: 0 }}
                 >
-                    <CarouselNext />
-                    <CarouselPrevious />
+                    <CarouselNext className="w-16 h-16 fs-var-2xl right-10 hidden md:flex text-white" />
+                    <CarouselPrevious className="w-16 h-16 fs-var-2xl left-10 hidden md:flex text-white" />
                     <CarouselContent >
                         {specialties.map((specialty) => (
                             <CarouselItem key={specialty.title} className="min-w-96 basis-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 mb-6">

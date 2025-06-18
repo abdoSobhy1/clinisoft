@@ -7,6 +7,7 @@ import SubNav from '../submenu-button';
 import SubMenu from '../sub-menu';
 import MobileMenu from './mobile-menu';
 import { useMobile } from '@/hooks/useMobile';
+import { useState, useEffect } from 'react';
 
 const roboto = Roboto({
     weight: ["500"],
@@ -17,16 +18,16 @@ const navLinks = [
     { name: 'home', path: '/' },
     {
         name: 'specialties', path: '/specialties', subMenu: [
-            { path: "/specialties/dermatology", name: "specialtyNames.dermatology" },
-            { path: "/specialties/dentistry", name: "specialtyNames.dentistry" },
-            { path: "/specialties/e-n-t", name: "specialtyNames.ENT" },
-            { path: "/specialties/internal-medicine", name: "specialtyNames.internalMedicine" },
-            { path: "/specialties/neuro-surgery", name: "specialtyNames.neuroSurgery" },
-            { path: "/specialties/ophthalmology", name: "specialtyNames.ophthalmology" },
-            { path: "/specialties/orthopedic-surgery", name: "specialtyNames.orthopedicSurgery" },
-            { path: "/specialties/pediatrics", name: "specialtyNames.pediatrics" },
-            { path: "/specialties/physiotherapy", name: "specialtyNames.physiotherapy" },
-            { path: "/specialties/urology", name: "specialtyNames.urology" }
+            { path: "/specialties/dermatology", name: "specialtyNames.dermatology", icon: "/images/icons/dermatology.svg" },
+            { path: "/specialties/dentistry", name: "specialtyNames.dentistry", icon: "/images/icons/dentistry.svg" },
+            { path: "/specialties/e-n-t", name: "specialtyNames.ENT", icon: "/images/icons/ent.svg" },
+            { path: "/specialties/internal-medicine", name: "specialtyNames.internalMedicine", icon: "/images/icons/internal medicine.svg" },
+            { path: "/specialties/neuro-surgery", name: "specialtyNames.neuroSurgery", icon: "/images/icons/neuro surgery.svg" },
+            { path: "/specialties/ophthalmology", name: "specialtyNames.ophthalmology", icon: "/images/icons/ophthalmology.svg" },
+            { path: "/specialties/orthopedic-surgery", name: "specialtyNames.orthopedicSurgery", icon: "/images/icons/orthopedic surgery.svg" },
+            { path: "/specialties/pediatrics", name: "specialtyNames.pediatrics", icon: "/images/icons/pediatrics.svg" },
+            { path: "/specialties/physiotherapy", name: "specialtyNames.physiotherapy", icon: "/images/icons/physiotherapy.svg" },
+            { path: "/specialties/urology", name: "specialtyNames.urology", icon: "/images/icons/urology.svg" }
         ]
     },
     { name: 'aboutUs', path: '/about' },
@@ -34,13 +35,9 @@ const navLinks = [
     { name: 'customerCare', path: '/customer-care' },
 ];
 
-export default function Navigation({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (isOpen: boolean) => void }) {
+// Desktop Navigation Component
+function DesktopNav() {
     const pathname = usePathname();
-    const isMobile = useMobile(setIsOpen);
-
-    if (isMobile) {
-        return <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} />;
-    }
 
     return (
         <nav className={`${roboto.className} hidden lg:flex md:order-2`}>
@@ -67,4 +64,33 @@ export default function Navigation({ isOpen, setIsOpen }: { isOpen: boolean, set
             </div>
         </nav>
     );
+}
+
+export default function Navigation({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (isOpen: boolean) => void }) {
+    const isMobile = useMobile(setIsOpen);
+    const [isHydrated, setIsHydrated] = useState(false);
+
+    // Mark as hydrated after initial render
+    useEffect(() => {
+        setIsHydrated(true);
+    }, []);
+
+    // Before hydration, render both menus with CSS hiding
+    if (!isHydrated) {
+        return (
+            <>
+                <DesktopNav />
+                <div className="lg:hidden">
+                    <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} />
+                </div>
+            </>
+        );
+    }
+
+    // After hydration, unmount unused menu for better performance
+    if (isMobile) {
+        return <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} />;
+    }
+
+    return <DesktopNav />;
 }
