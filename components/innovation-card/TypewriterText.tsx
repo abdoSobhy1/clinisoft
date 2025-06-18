@@ -1,5 +1,5 @@
 "use client"
-import Typewriter from "./typewriter"
+import Typewriter from "../typewriter"
 import { useState } from "react"
 import { useTranslations } from "next-intl";
 

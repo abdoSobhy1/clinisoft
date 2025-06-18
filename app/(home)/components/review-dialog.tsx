@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback, memo } from 'react'
+import { useState, useEffect, useCallback, memo, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import { motion, AnimatePresence, PanInfo } from 'framer-motion'
@@ -31,7 +31,14 @@ const ReviewDialog = memo(function ReviewDialog({
     onNext
 }: ReviewDialogProps) {
     const currentReview = reviews[currentIndex]
-    const [direction, setDirection] = useState(0)
+    const [direction, setDirection] = useState<number>(0)
+    const reviewRef = useRef<HTMLParagraphElement>(null)
+
+    useEffect(() => {
+        if (reviewRef.current) {
+            reviewRef.current.focus()
+        }
+    }, [currentReview, isOpen])
 
     const variants = {
         enter: (direction: number) => ({
@@ -121,7 +128,7 @@ const ReviewDialog = memo(function ReviewDialog({
                     onClick={handleClose}
                 />
 
-                <div className="absolute w-full max-w-[min(95vw,800px)] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-between px-4">
+                <div className="absolute w-full max-w-[min(95vw,1000px)] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden md:flex items-center justify-between px-4">
                     <button
                         onClick={handlePrevious}
                         aria-label="Previous review"
@@ -138,7 +145,7 @@ const ReviewDialog = memo(function ReviewDialog({
                     </button>
                 </div>
 
-                <div className="fixed max-w-[min(95%,600px)] w-full overflow-hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-4">
+                <div className="fixed max-w-[min(95%,800px)] w-full overflow-hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center p-4">
                     <AnimatePresence mode="popLayout" custom={direction}>
                         <motion.div
                             key={currentIndex}
@@ -176,7 +183,7 @@ const ReviewDialog = memo(function ReviewDialog({
                                     </div>
                                     <p className="fs-var-lg font-semibold mb-1">{currentReview.doctor}</p>
                                     <p className="fs-var-sm font-semibold text-gray-500 mb-2">{currentReview.specialty}</p>
-                                    <p className="fs-var-xl leading-8 mb-8 font-['Tahoma'] grow-1 mt-4">{currentReview.review}</p>
+                                    <p ref={reviewRef} className="fs-var-2xl leading-8 mb-8 font-['Tahoma'] grow-1 mt-4 max-h-96 overflow-y-auto focus:outline-none">{currentReview.review}</p>
                                 </div>
                             </div>
                         </motion.div>

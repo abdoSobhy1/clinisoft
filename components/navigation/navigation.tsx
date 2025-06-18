@@ -3,10 +3,10 @@
 import { Roboto } from 'next/font/google';
 import { usePathname } from 'next/navigation';
 import NavButton from '@/components/navigation/nav-button';
-import { useEffect, useState } from 'react';
 import SubNav from '../submenu-button';
 import SubMenu from '../sub-menu';
 import MobileMenu from './mobile-menu';
+import { useMobile } from '@/hooks/useMobile';
 
 const roboto = Roboto({
     weight: ["500"],
@@ -36,20 +36,7 @@ const navLinks = [
 
 export default function Navigation({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (isOpen: boolean) => void }) {
     const pathname = usePathname();
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        setIsMobile(window.innerWidth < 1024);
-        window.addEventListener('resize', () => {
-            setIsMobile(window.innerWidth < 1024);
-            if (window.innerWidth > 1024) {
-                setIsOpen(false);
-            }
-        });
-        return () => {
-            window.removeEventListener('resize', () => { });
-        }
-    }, [setIsOpen]);
+    const isMobile = useMobile(setIsOpen);
 
     if (isMobile) {
         return <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} />;

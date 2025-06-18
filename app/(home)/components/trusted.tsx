@@ -38,7 +38,8 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
                             key={index}
                             direction={index % 2 === 0 ? 'left' : 'right'}
                             className={`content-center bg-[#d7fff6] px-4 py-1.5 md:py-6 border border-[#9fe5d5] rounded-full max-w-m text-textTeal text-center fs-var-lg md:text-[4.347vh] font-medium ${index === trustPoints.length - 1 ? 'col-span-1 lg:col-span-2' : 'col-span-1'}`}
-                            delay={index * 0.8}
+                            delay={index * 0.6}
+                            duration={0.3}
                         >
                             {t(point)}
                         </SlideIn>

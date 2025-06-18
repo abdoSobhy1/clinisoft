@@ -31,11 +31,9 @@ export default function SuccessPartners({ bgColor = "" }: SuccessPartnersProps) 
                 {partners.map((item, index) => (
                     <div key={index} className="flex flex-wrap gap-10 justify-center items-center">
                         {item.map((partner) => (
-                            <div key={partner.partner} className={`relative max-w-30 w-16 md:w-40 h-20`}>
-                                <Link href={partner.link} target="_blank">
-                                    <Image src={partner.logo} alt={partner.partner} fill className="object-contain" />
-                                </Link>
-                            </div>
+                            <Link key={partner.partner} href={partner.link} target="_blank" className={` inline-block relative max-w-30 w-16 md:w-40 h-20`}>
+                                <Image src={partner.logo} alt={partner.partner} fill className="object-contain" />
+                            </Link>
                         ))}
                     </div>
                 ))}

@@ -72,9 +72,9 @@ export default function ValueSection({ bgColor = "" }: ValueSectionProps) {
     }
 
     return (
-        <section ref={sectionRef} className={`min-h-vph py-12 px-4 flex flex-col justify-between ${bgColor}`}>
+        <section ref={sectionRef} className={`min-h-vph py-12 px-4 flex flex-col justify-between ${bgColor}overflow-x-hidden`}>
             <Title className="pb-12 ">{t("howWeBringValue")}</Title>
-            <div ref={containerRef} className="max-w-7xl mx-auto h-full grow-1 grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(min(250px,95%),1fr))] gap-8">
+            <div ref={containerRef} className="max-w-7xl mx-auto h-full grow-1 grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(min(250px,95%),1fr))] gap-8 ">
                 {valueCards.map((card, index) => (
                     <ValueCard
                         key={card.title}
