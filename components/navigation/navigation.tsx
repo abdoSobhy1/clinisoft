@@ -8,6 +8,7 @@ import SubMenu from '../sub-menu';
 import MobileMenu from './mobile-menu';
 import { useMobile } from '@/hooks/useMobile';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const roboto = Roboto({
     weight: ["500"],
@@ -80,8 +81,14 @@ export default function Navigation({ isOpen, setIsOpen }: { isOpen: boolean, set
         return (
             <>
                 <DesktopNav />
-                <div className="lg:hidden">
-                    <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} />
+                <div className="md:hidden">
+                    <button
+                        className={`cursor-pointer z-50 relative ${isOpen ? 'opacity-0' : ''} transition-opacity duration-300`}
+                        onClick={() => setIsOpen(true)}
+                    >
+                        <Image src="/images/ham-menu.svg" alt="Menu" width={24} height={24} />
+                    </button>
+
                 </div>
             </>
         );
