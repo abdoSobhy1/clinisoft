@@ -45,7 +45,7 @@ const HorizontalScrollCarousel = ({ didAnimate, setDidAnimate }: { didAnimate: b
 
 
     return (
-        <section ref={targetRef} className={`relative h-vph-2xl py-12 px-4 `}>
+        <section ref={targetRef} className={`relative h-vph-2xl px-4 `}>
             <div className="sticky top-[12.8vh] h-vph py-12 flex flex-col justify-between overflow-hidden">
                 <SpecialtiesWrapper didAnimate={didAnimate} setDidAnimate={setDidAnimate}>
                     <motion.div

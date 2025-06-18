@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import { motion, AnimatePresence, PanInfo } from 'framer-motion'
 import { XIcon } from 'lucide-react'
+import { isArabic } from '@/lib/utils'
 
 type Review = {
     doctor: string
@@ -34,9 +35,11 @@ const ReviewDialog = memo(function ReviewDialog({
     const [direction, setDirection] = useState<number>(0)
     const reviewRef = useRef<HTMLParagraphElement>(null)
 
+
     useEffect(() => {
         if (reviewRef.current) {
             reviewRef.current.focus()
+            console.log(document.activeElement)
         }
     }, [currentReview, isOpen])
 
@@ -99,6 +102,12 @@ const ReviewDialog = memo(function ReviewDialog({
         const handleEscapeKey = (event: KeyboardEvent) => {
             if (event.key === 'Escape' && isOpen) {
                 handleClose()
+            }
+            if (event.key === 'ArrowLeft' && isOpen) {
+                handlePrevious()
+            }
+            if (event.key === 'ArrowRight' && isOpen) {
+                handleNext()
             }
         }
 
@@ -176,14 +185,14 @@ const ReviewDialog = memo(function ReviewDialog({
                                 <XIcon className="w-5 h-5" />
                             </button>
 
-                            <div className="relative p-6">
+                            <div className="relative p-6" autoFocus>
                                 <div className="text-center">
                                     <div className="relative size-52 mx-auto">
                                         <Image src={currentReview.image} alt={currentReview.doctor} fill className="object-contain rounded-full" priority />
                                     </div>
                                     <p className="fs-var-lg font-semibold mb-1">{currentReview.doctor}</p>
                                     <p className="fs-var-sm font-semibold text-gray-500 mb-2">{currentReview.specialty}</p>
-                                    <p ref={reviewRef} className="fs-var-2xl leading-8 mb-8 font-['Tahoma'] grow-1 mt-4 max-h-96 overflow-y-auto focus:outline-none">{currentReview.review}</p>
+                                    <p ref={reviewRef} tabIndex={0} dir={isArabic(currentReview.review) ? "rtl" : "ltr"} className="fs-var-2xl leading-8 mb-8 font-['Tahoma'] grow-1 mt-4 max-h-96 overflow-y-auto focus:outline-none">{currentReview.review}</p>
                                 </div>
                             </div>
                         </motion.div>

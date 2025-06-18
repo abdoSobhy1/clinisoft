@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, X } from "lucide-react";
 import ContactOption from "./contact-option";
@@ -60,10 +60,28 @@ const itemVariants = {
 
 const FloatingContactButton = () => {
   const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+
+      // Cleanup function to remove event listener when popup closes
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
+  }, [open]);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col-reverse items-end space-y-2">
-      <AnimatePresence mode="wait">
+    <div ref={containerRef} className="fixed bottom-6 right-6 z-50 flex flex-col-reverse items-end space-y-2">
+      <AnimatePresence mode="sync">
         {open &&
           contactOptions.map((option, index) => (
             <motion.div

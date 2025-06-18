@@ -33,7 +33,9 @@ export default function ContactUsForm({ bgColor = "" }: ContactUsFormProps) {
                             <span className="fs-var-base">
                                 {t("chatOnWhatsApp")}
                             </span>
-                            <Image src="/images/icons/whatsapp.svg" alt="Phone Call" width={24} height={24} />
+                            <div className="relative size-6">
+                                <Image src="/images/icons/whatsapp.svg" alt="Phone Call" fill className="object-contain" />
+                            </div>
                         </MainButton>
                         <MainButton href="tel:+201204698888" className="lg:w-full bg-maroon hover:bg-maroon-700 text-center py-3">{t("callUs")}</MainButton>
                     </div>

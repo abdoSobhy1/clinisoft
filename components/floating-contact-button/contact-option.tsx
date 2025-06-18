@@ -22,7 +22,7 @@ const ContactOption = ({ icon, label, link, bgColor }: ContactOptionProps) => {
                 <div className="relative w-8 h-8">
                     <Image src={icon} alt={label} fill className="object-contain" priority />
                 </div>
-                <span className="absolute right-full top-1/2 -translate-y-1/2 mr-4 whitespace-nowrap bg-white text-black text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
+                <span className="absolute right-full top-1/2 -translate-y-1/2 scale-x-0 mr-4 whitespace-nowrap bg-white text-black text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-x-100">
                     {label}
                 </span>
             </div>
