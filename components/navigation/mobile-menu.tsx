@@ -6,7 +6,6 @@ import MobileNavButton from './mobile-nav-button';
 import DemoButton from '../demo-button';
 import SubMenu from '../sub-menu';
 import { useState, useEffect } from 'react';
-import { useLockBodyScroll } from '@/hooks/useLockBodyScroll';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -23,7 +22,7 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }: MobileMenuPr
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
     const screen = typeof window !== 'undefined' ? window.innerHeight : 0;
 
-
+    // Handle back button press when mobile menu is open
 
     useEffect(() => {
         if (isOpen) {
@@ -33,7 +32,6 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }: MobileMenuPr
         const handlePopState = () => {
             if (isOpen) {
                 setIsOpen(false);
-
             }
         };
 
@@ -44,7 +42,6 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }: MobileMenuPr
         };
     }, [isOpen]);
 
-    useLockBodyScroll(isOpen)
 
     const menuVariants = {
         initial: { maxHeight: 0, opacity: 0.5 },
@@ -102,7 +99,7 @@ export default function MobileMenu({ isOpen, setIsOpen, navLinks }: MobileMenuPr
                 <AnimatePresence mode='wait'>
                     {isOpen && (
                         <motion.div
-                            className="fixed top-0 left-0 h-dvh w-full bg-linear-135 [background-size:100%_300%] from-[#27838e] via-[#56bf95] to-[#82e8ed] z-50 shadow-lg transform transition-transform duration-300 ease-in-out origin-top overflow-hidden"
+                            className="fixed top-0 left-0 h-full w-full bg-linear-135 [background-size:100%_300%] from-[#27838e] via-[#56bf95] to-[#82e8ed] z-50 shadow-lg transform transition-transform duration-300 ease-in-out origin-top overflow-hidden"
                             variants={menuVariants}
                             initial="initial"
                             animate="animate"

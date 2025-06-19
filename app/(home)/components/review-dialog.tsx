@@ -177,11 +177,11 @@ const ReviewDialog = memo(function ReviewDialog({
                             </button>
 
                             <div className="relative p-6 text-center" autoFocus>
-                                <div className="absolute w-[70%]  left-1/2 -translate-x-1/2 translate-y-1/2 flex md:hidden items-center justify-between px-4">
+                                <div className="absolute w-[90%]  left-1/2 -translate-x-1/2 translate-y-1/2 flex md:hidden items-center justify-between px-4">
                                     <button
                                         onClick={handlePrevious}
                                         aria-label="Previous review"
-                                        className="transition-opacity size-[100px]"
+                                        className="transition-opacity h-[100px] w-[50px]"
                                         style={{
                                             backgroundColor: 'black',
                                             opacity: 0.7,
@@ -194,7 +194,7 @@ const ReviewDialog = memo(function ReviewDialog({
                                     <button
                                         onClick={handleNext}
                                         aria-label="Next review"
-                                        className="transition-opacity size-[100px]"
+                                        className="transition-opacity h-[100px] w-[50px]"
                                         style={{
                                             backgroundColor: 'black',
                                             opacity: 0.7,

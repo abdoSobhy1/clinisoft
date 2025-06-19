@@ -35,7 +35,7 @@ export default function HeroSection({ bgColor = "" }: HeroSectionProps) {
     const plugin = useRef(
         Autoplay({ delay: 5000, })
     )
-    return (<section className={`h-lvh ${bgColor}`}>
+    return (<section className={`h-svh ${bgColor}`}>
         <Carousel plugins={[plugin.current]}
             opts={{ loop: true, }}
         >
