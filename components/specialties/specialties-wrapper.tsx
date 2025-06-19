@@ -17,13 +17,13 @@ export default function SpecialtiesWrapper({ children, didAnimate, setDidAnimate
                 <Title className="fs-var-3xl leading-[67px] mb-4">
                     {t("specialtiesWeServe")}
                 </Title>
-                <p className=" md:fs-var-3xl text-textTeal font-medium leading-normal">
+                <p className="md:fs-var-3xl text-textTeal font-medium leading-normal">
                     {t("specialInterface")}
                 </p>
                 {didAnimate ?
-                    <p className=" md:fs-var-3xl text-[#ea7f70] font-medium leading-normal">{t("noGenericLayouts")}</p>
+                    <p className="fs-var-base md:fs-var-3xl text-[#ea7f70] font-medium leading-normal">{t("noGenericLayouts")}</p>
                     :
-                    <Typewriter text={t("noGenericLayouts")} className=" md:fs-var-3xl text-[#ea7f70] font-medium leading-normal translate-x-0" setIsFirstLineFinished={setDidAnimate} />
+                    <Typewriter text={t("noGenericLayouts")} className="fs-var-base md:fs-var-3xl text-[#ea7f70] font-medium leading-normal translate-x-0" setIsFirstLineFinished={setDidAnimate} />
                 }
             </div >
             {children}

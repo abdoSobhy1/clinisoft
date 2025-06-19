@@ -28,7 +28,7 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
                     <Title className="py-0 fs-var-3xl mb-2 text-textTeal">
                         {t("whyTrust")}
                     </Title>
-                    <p className="fs-var-sm md:fs-var-2xl text-textTeal font-medium leading-normal">
+                    <p className="fs-var-base md:fs-var-2xl text-textTeal font-medium leading-normal">
                         {t("over19Years")}
                     </p>
                 </div>
