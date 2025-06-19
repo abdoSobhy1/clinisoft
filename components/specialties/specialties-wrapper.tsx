@@ -23,7 +23,7 @@ export default function SpecialtiesWrapper({ children, didAnimate, setDidAnimate
                 {didAnimate ?
                     <p className="fs-var-base md:fs-var-3xl text-[#ea7f70] font-medium leading-normal">{t("noGenericLayouts")}</p>
                     :
-                    <Typewriter text={t("noGenericLayouts")} className="fs-var-base md:fs-var-3xl text-[#ea7f70] font-medium leading-normal translate-x-0" setIsFirstLineFinished={setDidAnimate} />
+                    <Typewriter text={t("noGenericLayouts")} className="fs-var-base md:fs-var-3xl text-[#ea7f70] font-medium leading-normal md:translate-x-0" setIsFirstLineFinished={setDidAnimate} />
                 }
             </div >
             {children}

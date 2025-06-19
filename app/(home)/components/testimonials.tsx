@@ -7,6 +7,7 @@ import { ReviewDialog } from "./review-dialog";
 import reviews from '@/public/reviews.json'
 import Seperator from "@/components/footer/seperator";
 import { useTranslations } from "next-intl";
+import { useInView } from "framer-motion";
 type Review = {
     doctor: string;
     review: string;
@@ -23,14 +24,17 @@ export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
     const [isOpen, setIsOpen] = useState(false)
     const [currentIndex, setCurrentIndex] = useState(0)
     const [isHovered, setIsHovered] = useState(false)
-
+    const carouselRef = useRef<HTMLDivElement>(null)
     const autoplayRef = useRef(
         Autoplay({ delay: 2000 })
     )
 
     autoplayRef.current?.stop()
 
-    // Stop carousel when dialog is open
+    const carousselInView = useInView(carouselRef, {
+        amount: 0.5
+    })
+
     useEffect(() => {
 
         const timer = setTimeout(() => {
@@ -71,6 +75,12 @@ export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
         })
     }
 
+    useEffect(() => {
+        if (carousselInView && !isOpen) {
+            carouselRef.current?.focus()
+        }
+    }, [isOpen, carousselInView])
+
     return (
         <section className={`py-12 px-4 min-h-vph relative flex flex-col justify-between ${bgColor}`}>
             <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
@@ -87,9 +97,12 @@ export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
                     autoplayRef.current?.play()
                 }}
                 opts={{ loop: true }}
+                autoFocus={true}
             >
-                <CarouselNext className="w-16 h-16 fs-var-2xl right-10 hidden md:flex text-white" />
-                <CarouselPrevious className="w-16 h-16 fs-var-2xl left-10 hidden md:flex text-white" />
+                <div ref={carouselRef} tabIndex={0} className="w-full h-full flex justify-between items-center">
+                    <CarouselNext className="w-16 h-16 fs-var-2xl right-10 hidden md:flex text-white" />
+                    <CarouselPrevious className="w-16 h-16 fs-var-2xl left-10 hidden md:flex text-white" />
+                </div>
                 <CarouselContent className="h-full flex-1" >
                     {reviews.map((review, index) => (
                         <CarouselItem key={review.doctor} className="min-w-[350px] basis-1 md:basis-1/3 lg:basis-1/5 mb-6  min-h-full ">

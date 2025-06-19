@@ -81,7 +81,7 @@ export default function Navigation({ isOpen, setIsOpen }: { isOpen: boolean, set
         return (
             <>
                 <DesktopNav />
-                <div className="md:hidden">
+                <div className="lg:hidden">
                     <Image src="/images/ham-menu.svg" alt="Menu" width={24} height={24} />
                 </div>
             </>
@@ -90,7 +90,7 @@ export default function Navigation({ isOpen, setIsOpen }: { isOpen: boolean, set
 
     // After hydration, unmount unused menu for better performance
     if (isMobile) {
-        return <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} navLinks={navLinks} />;
+        return <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />;
     }
 
     return <DesktopNav />;

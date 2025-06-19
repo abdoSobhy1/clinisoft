@@ -9,7 +9,7 @@ import SpecialtiesWrapper from "@/components/specialties/specialties-wrapper";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 
-const HorizontalScrollCarousel = ({ didAnimate, setDidAnimate }: { didAnimate: boolean, setDidAnimate: (didAnimate: boolean) => void }) => {
+const HorizontalScrollCarousel = ({ didAnimate, setDidAnimate, specialties }: { didAnimate: boolean, setDidAnimate: (didAnimate: boolean) => void, specialties: { title: string, description: string, icon: React.ElementType }[] }) => {
     const t = useTranslations("specialties");
     const targetRef = useRef<HTMLDivElement | null>(null);
     const { scrollYProgress } = useScroll({
@@ -49,7 +49,7 @@ const HorizontalScrollCarousel = ({ didAnimate, setDidAnimate }: { didAnimate: b
                             dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
                         >
                             {specialties.map((card, index) => {
-                                return <SpecialtyCard key={index} className={commonClasses} title={card.title} description={card.description} icon={card.icon} />
+                                return <SpecialtyCard key={index} className={commonClasses} title={card.title} description={card.description} Icon={card.icon} />
                             })}
                             <div className={cn("rounded-3xl bg-white p-4 shadow-md h-full flex flex-col justify-center items-center bg-linear-270 from-[#1d949e] to-[#12656d]", commonClasses)}>
                                 <p className="text-white fs-var-6xl font-semibold text-center">
@@ -57,7 +57,7 @@ const HorizontalScrollCarousel = ({ didAnimate, setDidAnimate }: { didAnimate: b
                                 </p>
                             </div>
                             {specialties.slice(0, 1).map((card, index) => {
-                                return <SpecialtyCard key={index} className={commonClasses} title={card.title} description={card.description} icon={card.icon} />
+                                return <SpecialtyCard key={index} className={commonClasses} title={card.title} description={card.description} Icon={card.icon} />
                             })}
                         </motion.div>
                     </div>
@@ -69,40 +69,3 @@ const HorizontalScrollCarousel = ({ didAnimate, setDidAnimate }: { didAnimate: b
 
 
 export default HorizontalScrollCarousel;
-
-const specialties = [{
-    title: "dentistry",
-    description: "dentistryDescription",
-    icon: "/images/icons/dentistry.svg"
-},
-{
-    title: "physiotherapy",
-    description: "physiotherapyDescription",
-    icon: "/images/icons/physiotherapy.svg"
-},
-{
-    title: "dermatology",
-    description: "dermatologyDescription",
-    icon: "/images/icons/dermatology.svg"
-},
-{
-    title: "ophthalmology",
-    description: "ophthalmologyDescription",
-    icon: "/images/icons/ophthalmology.svg"
-},
-{
-    title: "internalMedicine",
-    description: "internalMedicineDescription",
-    icon: "/images/icons/internal medicine.svg"
-},
-{
-    title: "ENT",
-    description: "ENTDescription",
-    icon: "/images/icons/ent.svg"
-},
-{
-    title: "pediatrics",
-    description: "pediatricsDescription",
-    icon: "/images/icons/pediatrics.svg"
-}
-];

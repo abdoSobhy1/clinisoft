@@ -7,50 +7,15 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import SpecialtiesWrapper from "@/components/specialties/specialties-wrapper";
 
-const specialties = [{
-    title: "dentistry",
-    description: "dentistryDescription",
-    icon: "/images/icons/dentistry.svg"
-},
-{
-    title: "physiotherapy",
-    description: "physiotherapyDescription",
-    icon: "/images/icons/physiotherapy.svg"
-},
-{
-    title: "dermatology",
-    description: "dermatologyDescription",
-    icon: "/images/icons/dermatology.svg"
-},
-{
-    title: "ophthalmology",
-    description: "ophthalmologyDescription",
-    icon: "/images/icons/ophthalmology.svg"
-},
-{
-    title: "internalMedicine",
-    description: "internalMedicineDescription",
-    icon: "/images/icons/internal medicine.svg"
-},
-{
-    title: "ENT",
-    description: "ENTDescription",
-    icon: "/images/icons/ent.svg"
-},
-{
-    title: "pediatrics",
-    description: "pediatricsDescription",
-    icon: "/images/icons/pediatrics.svg"
-}
-];
 
 interface SpecialtiesCarousselProps {
     bgColor?: string;
     didAnimate: boolean;
     setDidAnimate: (didAnimate: boolean) => void;
+    specialties: { title: string, description: string, icon: React.ElementType }[];
 }
 
-export default function SpecialtiesCaroussel({ bgColor = "", didAnimate, setDidAnimate }: SpecialtiesCarousselProps) {
+export default function SpecialtiesCaroussel({ bgColor = "", didAnimate, setDidAnimate, specialties }: SpecialtiesCarousselProps) {
     const t = useTranslations("specialties");
     const plugin = useRef(
         Autoplay({ delay: 5000 })
@@ -69,7 +34,7 @@ export default function SpecialtiesCaroussel({ bgColor = "", didAnimate, setDidA
                     <CarouselContent >
                         {specialties.map((specialty) => (
                             <CarouselItem key={specialty.title} className="min-w-96 basis-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 mb-6">
-                                <SpecialtyCard title={specialty.title} description={specialty.description} icon={specialty.icon} />
+                                <SpecialtyCard title={specialty.title} description={specialty.description} Icon={specialty.icon} />
                             </CarouselItem>
                         ))}
                         <CarouselItem className="min-w-96 basis-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 mb-6">

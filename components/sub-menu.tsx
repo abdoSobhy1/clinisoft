@@ -9,7 +9,7 @@ export default function SubMenu(props: Props) {
     if (props.isMobile) {
         return (
             <div className={`max-h-0 opacity-0 overflow-hidden transition-all duration-300 ${props.isOpen ? 'max-h-[100%] opacity-100' : ''}`}>
-                <ul className="pl-4 py-2  flex flex-col items-start">
+                <ul className="pl-4 py-2  grid grid-cols-2 place-items-center gap-4">
                     {props.children}
                 </ul>
             </div>

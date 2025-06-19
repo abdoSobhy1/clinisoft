@@ -25,7 +25,7 @@ const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
                     trigger={animate}
                 >
                     <div className="relative h-full max-w-12 md:max-w-full w-full md:mb-8">
-                        <Image src={icon} alt={imageAlt} fill className="object-contain" />
+                        <Image src={icon} alt={imageAlt} fill className="object-contain" priority />
                     </div>
                     <div className="md:mx-auto">
                         <h3 className="text-black font-medium fs-var-lg md:fs-var-3xl">{t(title)}</h3>
