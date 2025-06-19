@@ -14,6 +14,7 @@ type FeatureCardProps = {
 
 const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
     ({ description, icon, title, index, animate }, ref) => {
+        console.log({ index })
         const t = useTranslations("features");
         const imageAlt = t(title) + " icon";
         if (!useMobile()) animate = true;
