@@ -20,7 +20,7 @@ const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
         return (
             <div className="md:min-w-60" ref={ref}>
                 <ScaleAnim
-                    delay={index * 0.3}
+                    // delay={index * 0.3}
                     className="h-full rounded-3xl bg-linear-45 md:-bg-linear-135 from-[#c4fef0] via-[#d7e4f2] to-[rgba(255,255,255,0.5)] p-8 shadow-lg shadow-[#c9f1f4] flex flex-row md:flex-col items-center gap-4 md:items-center md:justify-between stroke-1 stroke-[#D7E4F2] md:text-center "
                     trigger={animate}
                 >

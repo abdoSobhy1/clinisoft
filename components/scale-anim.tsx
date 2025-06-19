@@ -14,7 +14,7 @@ interface ScaleAnimProps {
 export default function ScaleAnim({
     children,
     className = '',
-    delay = 0.3,
+    delay = 0,
     duration = 0.5,
     initialScale = 1.1,
     trigger = true,
