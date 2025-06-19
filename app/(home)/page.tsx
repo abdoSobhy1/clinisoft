@@ -11,13 +11,17 @@ import Specialties from "./components/specialties";
 export default function Home() {
 
   return (
-    <main className="overflow-x-hidden">
+    <main>
       <Hero />
-      <Features />
+      <div className="overflow-x-hidden">
+        <Features />
+      </div>
       <Trusted bgColor="bg-black/1 " />
       <Specialties />
       <Innovations bgColor="bg-black/1 " />
-      <ValueSection bgColor="bg-transparent " />
+      <div className="overflow-x-hidden">
+        <ValueSection bgColor="bg-transparent " />
+      </div>
       <Testimonials bgColor="bg-black/1 " />
       <SuccessPartners bgColor="bg-transparent " />
       <ContactUs bgColor="bg-black/1 " />

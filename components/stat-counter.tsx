@@ -14,11 +14,11 @@ export default function StatCounter({ stat, shouldCount, finish }: { stat: Stat;
     const [count, isFinished] = useCountUp(shouldCount ? stat.value : 0, 4500);
 
     return (
-        <div className="flex justify-center items-center gap-4">
+        <div className="flex justify-center items-end gap-4">
             <div className="relative w-24 h-24">
                 <Image src={stat.icon} alt={stat.label} fill className="object-contain" />
             </div>
-            <div>
+            <div className="leading-none">
                 <p className="fs-var-6xl font-semibold min-w-[200px]">
                     {!isFinished ? count : finish}
                     {stat.suffix}

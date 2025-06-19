@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { motion, AnimatePresence, PanInfo } from 'framer-motion'
 import { XIcon } from 'lucide-react'
 import { isArabic } from '@/lib/utils'
+import { useLockBodyScroll } from '@/hooks/useLockBodyScroll'
 
 type Review = {
     doctor: string
@@ -35,6 +36,7 @@ const ReviewDialog = memo(function ReviewDialog({
     const [direction, setDirection] = useState<number>(0)
     const reviewRef = useRef<HTMLParagraphElement>(null)
 
+    useLockBodyScroll(isOpen)
 
     useEffect(() => {
         if (reviewRef.current) {
@@ -60,17 +62,6 @@ const ReviewDialog = memo(function ReviewDialog({
             opacity: 0
         })
     }
-
-    useEffect(() => {
-        if (isOpen) {
-            document.body.style.overflow = 'hidden'
-        } else {
-            document.body.style.overflow = 'unset'
-        }
-        return () => {
-            document.body.style.overflow = 'unset'
-        }
-    }, [isOpen])
 
     const handleDragEnd = useCallback((event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
         const swipeThreshold = 50
@@ -185,15 +176,42 @@ const ReviewDialog = memo(function ReviewDialog({
                                 <XIcon className="w-5 h-5" />
                             </button>
 
-                            <div className="relative p-6" autoFocus>
-                                <div className="text-center">
-                                    <div className="relative size-52 mx-auto">
-                                        <Image src={currentReview.image} alt={currentReview.doctor} fill className="object-contain rounded-full" priority />
-                                    </div>
-                                    <p className="fs-var-lg font-semibold mb-1">{currentReview.doctor}</p>
-                                    <p className="fs-var-sm font-semibold text-gray-500 mb-2">{currentReview.specialty}</p>
-                                    <p ref={reviewRef} tabIndex={0} dir={isArabic(currentReview.review) ? "rtl" : "ltr"} className="fs-var-2xl leading-8 mb-8 font-['Tahoma'] grow-1 mt-4 max-h-96 overflow-y-auto focus:outline-none">{currentReview.review}</p>
+                            <div className="relative p-6 text-center" autoFocus>
+                                <div className="absolute w-[70%]  left-1/2 -translate-x-1/2 translate-y-1/2 flex md:hidden items-center justify-between px-4">
+                                    <button
+                                        onClick={handlePrevious}
+                                        aria-label="Previous review"
+                                        className="transition-opacity size-[100px]"
+                                        style={{
+                                            backgroundColor: 'black',
+                                            opacity: 0.7,
+                                            cursor: 'pointer',
+                                            mask: 'url(/images/icons/chevron-left.svg) no-repeat center center',
+                                            maskSize: 'contain',
+                                        }}
+                                    >
+                                    </button>
+                                    <button
+                                        onClick={handleNext}
+                                        aria-label="Next review"
+                                        className="transition-opacity size-[100px]"
+                                        style={{
+                                            backgroundColor: 'black',
+                                            opacity: 0.7,
+                                            cursor: 'pointer',
+                                            mask: 'url(/images/icons/chevron-right.svg) no-repeat center center',
+                                            maskSize: 'contain',
+                                        }}
+                                    >
+                                    </button>
                                 </div>
+                                <div className="relative size-52 mx-auto">
+                                    <Image src={currentReview.image} alt={currentReview.doctor} fill className="object-contain rounded-full" priority />
+                                </div>
+                                <p className="fs-var-lg font-semibold mb-1">{currentReview.doctor}</p>
+                                <p className="fs-var-sm font-semibold text-gray-500 mb-2">{currentReview.specialty}</p>
+                                <p ref={reviewRef} tabIndex={0} dir={isArabic(currentReview.review) ? "rtl" : "ltr"} className="fs-var-2xl leading-8 mb-8 font-['Tahoma'] grow-1 mt-4 max-h-96 overflow-y-auto focus:outline-none">{currentReview.review}</p>
+
                             </div>
                         </motion.div>
                     </AnimatePresence>

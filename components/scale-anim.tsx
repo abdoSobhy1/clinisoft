@@ -1,6 +1,6 @@
 'use client'
 import { motion, useAnimate, useInView } from 'framer-motion';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect } from 'react';
 
 interface ScaleAnimProps {
     children: ReactNode;
@@ -8,6 +8,7 @@ interface ScaleAnimProps {
     delay?: number;
     duration?: number;
     initialScale?: number;
+    trigger?: boolean;
 }
 
 export default function ScaleAnim({
@@ -16,29 +17,20 @@ export default function ScaleAnim({
     delay = 0.3,
     duration = 0.5,
     initialScale = 1.1,
+    trigger = true,
 }: ScaleAnimProps) {
     const [scope, animate] = useAnimate();
-    const [shouldSkip, setShouldSkip] = useState(false);
     const isInView = useInView(scope, { once: true });
 
     useEffect(() => {
         if (!scope.current) return;
-
-        const rect = scope.current.getBoundingClientRect();
-        const isScrolledPast = (rect.top + rect.height) < 0;
-
-        if (isScrolledPast && !shouldSkip) {
-            setShouldSkip(true);
-            animate(scope.current, { opacity: 1, scale: 1 }, { duration: 0 });
-        } else if (isInView || shouldSkip) {
-            const animationDuration = shouldSkip ? 0 : duration;
-            const animationDelay = shouldSkip ? 0 : delay;
+        if (trigger && isInView) {
             animate(scope.current,
                 { opacity: 1, scale: 1 },
-                { duration: animationDuration, delay: animationDelay }
+                { duration, delay }
             );
         }
-    }, [isInView, animate, scope, shouldSkip, duration, delay]);
+    }, [animate, scope, duration, delay, trigger, isInView]);
 
     return (
         <motion.div

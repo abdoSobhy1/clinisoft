@@ -82,13 +82,7 @@ export default function Navigation({ isOpen, setIsOpen }: { isOpen: boolean, set
             <>
                 <DesktopNav />
                 <div className="md:hidden">
-                    <button
-                        className={`cursor-pointer z-50 relative ${isOpen ? 'opacity-0' : ''} transition-opacity duration-300`}
-                        onClick={() => setIsOpen(true)}
-                    >
-                        <Image src="/images/ham-menu.svg" alt="Menu" width={24} height={24} />
-                    </button>
-
+                    <Image src="/images/ham-menu.svg" alt="Menu" width={24} height={24} />
                 </div>
             </>
         );

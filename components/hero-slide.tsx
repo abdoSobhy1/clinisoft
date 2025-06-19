@@ -19,7 +19,7 @@ export default function HeroSlide({
                 style={{ backgroundImage: `url(${image})` }}
             >
                 <div className="before:content-[''] before:absolute before:inset-0 before:bg-linear-0 before:from-[#F0FFFF] before:from-10% before:to-[#F0FFFF00] before:to-50% before:z-2 before:pointer-events-none after:content-[''] after:absolute after:inset-0 after:bg-linear-135 after:from-[#29858de6] after:to-[#29858d4d] after:z-1 after:pointer-events-none" />
-                <div className="relative z-5 text-center px-4">
+                <div className="relative z-5 text-center px-4 -translate-y-1/2 md:translate-y-0">
                     <h1 className="leading-10 md:leading-[96px] fs-var-2xl md:fs-var-5xl lg:fs-var-7xl font-bold relative text-[#A2E2E9] bg-linear-0 from-[#A2E2E9] to-[#FFFFFF] supports-[background-clip:text]:text-transparent supports-[background-clip:text]:bg-clip-text">
                         {t(title)}
                     </h1>
