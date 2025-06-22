@@ -45,5 +45,5 @@ export function useSequentialCardAnimation({ length }: { length: number }) {
     };
   }, [isMobile, isInView, length]);
 
-  return { cardRefs, containerRef, animatedIndexes };
+  return { cardRefs, containerRef, animatedIndexes, isMobile };
 }

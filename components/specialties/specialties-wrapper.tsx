@@ -2,6 +2,7 @@ import Title from "../title";
 import { useTranslations } from "next-intl";
 import Typewriter from "../typewriter";
 import MainButton from "../main-button";
+import Paragraph from "../paragraph";
 
 interface SpecialtiesWrapperProps {
     children: React.ReactNode;
@@ -17,11 +18,11 @@ export default function SpecialtiesWrapper({ children, didAnimate, setDidAnimate
                 <Title className="fs-var-3xl leading-[67px] mb-4">
                     {t("specialtiesWeServe")}
                 </Title>
-                <p className="md:fs-var-3xl text-textTeal font-medium leading-normal">
+                <Paragraph className="md:fs-var-3xl text-textTeal font-medium leading-normal">
                     {t("specialInterface")}
-                </p>
+                </Paragraph>
                 {didAnimate ?
-                    <p className="fs-var-base md:fs-var-3xl text-[#ea7f70] font-medium leading-normal">{t("noGenericLayouts")}</p>
+                    <Paragraph className="fs-var-base md:fs-var-3xl text-[#ea7f70] font-medium leading-normal">{t("noGenericLayouts")}</Paragraph>
                     :
                     <Typewriter text={t("noGenericLayouts")} className="fs-var-base md:fs-var-3xl text-[#ea7f70] font-medium leading-normal md:translate-x-0" setIsFirstLineFinished={setDidAnimate} />
                 }

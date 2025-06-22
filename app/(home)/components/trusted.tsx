@@ -5,6 +5,8 @@ import Seperator from "@/components/footer/seperator";
 import StatsSection from "./counters"
 import { useTranslations } from "next-intl";
 import { useSequentialCardAnimation } from "@/hooks/useSequentialCardAnimation";
+import Paragraph from "@/components/paragraph";
+import { useCallback } from "react";
 interface TrustedProps {
     bgColor?: string;
 }
@@ -19,10 +21,19 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
         "twentyPlusSpecialty",
     ];
 
-    const { cardRefs, containerRef, animatedIndexes } = useSequentialCardAnimation({
+    const { cardRefs, containerRef, animatedIndexes, isMobile } = useSequentialCardAnimation({
         length: trustPoints.length,
     });
 
+
+    const trigger = useCallback((index: number) => {
+        if (isMobile) {
+            return animatedIndexes.includes(index);
+        } else {
+            console.log("we're in the else now");
+            return true;
+        }
+    }, [animatedIndexes, isMobile]);
 
     return (
         <section ref={containerRef} className={`pt-12 overflow-x-hidden relative min-h-vph flex flex-col justify-between ${bgColor}`}>
@@ -32,19 +43,20 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
                     <Title className="py-0 fs-var-3xl mb-2 text-textTeal">
                         {t("whyTrust")}
                     </Title>
-                    <p className="fs-var-base md:fs-var-2xl text-textTeal font-medium leading-normal">
+                    <Paragraph>
                         {t("over19Years")}
-                    </p>
+                    </Paragraph>
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4 mt-auto">
                     {trustPoints.map((point, index) => (
-                        <div ref={el => { cardRefs.current[index] = el; }} key={index}>
+                        <div ref={el => { cardRefs.current[index] = el; }} key={index}
+                            className={`${index === trustPoints.length - 1 ? 'col-span-1 lg:col-span-2' : 'col-span-1'}`}>
                             <SlideIn
                                 direction={index % 2 === 0 ? 'left' : 'right'}
-                                className={`content-center bg-[#d7fff6] px-4 py-1.5 md:py-6 border border-[#9fe5d5] rounded-full max-w-m text-textTeal text-center fs-var-lg md:text-[4.347vh] font-medium ${index === trustPoints.length - 1 ? 'col-span-1 lg:col-span-2' : 'col-span-1'}`}
-                                // delay={index * 0.6}
+                                className="content-center bg-[#d7fff6] px-4 py-1.5 md:py-6 border border-[#9fe5d5] rounded-full max-w-m text-textTeal text-center fs-var-lg md:text-[4.347vh] font-medium"
+                                delay={isMobile ? 0 : index * 0.6}
                                 duration={0.3}
-                                trigger={animatedIndexes.includes(index)}
+                                trigger={trigger(index)}
                             >
                                 {t(point)}
                             </SlideIn>

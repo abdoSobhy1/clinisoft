@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
+import Paragraph from "./paragraph";
 
 interface TypewriterProps {
     text: string;
@@ -40,7 +41,7 @@ export default function Typewriter({ text, speed = 0.05, className = "", setIsFi
 
     return (
         <>
-            <p ref={ref} className={cn(`relative text-center text-textTeal fs-var-base md:fs-var-3xl font-medium leading-loose w-fit translate-x-1/4 md:translate-x-1/3 ${className}`)}>
+            <Paragraph ref={ref} className={cn(`relative text-center text-textTeal fs-var-base md:fs-var-3xl font-medium leading-loose w-fit translate-x-1/4 md:translate-x-1/3 ${className}`)}>
                 {animatedText.length === 0 && <motion.span initial={{ width: "100%" }} animate={{ width: animatedText.length > 0 ? 0 : "100%", height: animatedText.length > 0 ? "0" : "100%" }} transition={{ duration: 0.5 }} className=" opacity-0 overflow-hidden">p</motion.span>}
                 {animatedText}
                 {!animationComplete && shouldStart && <motion.span className="absolute bottom-0 right-0 translate-x-full"
@@ -54,7 +55,7 @@ export default function Typewriter({ text, speed = 0.05, className = "", setIsFi
                 >
                     _
                 </motion.span>}
-            </p>
+            </Paragraph>
         </>
     )
 } 
