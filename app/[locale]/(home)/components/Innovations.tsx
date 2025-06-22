@@ -1,3 +1,4 @@
+'use client'
 import Seperator from "@/components/footer/seperator";
 import InnovationCard from "@/components/innovation-card/innovation-card"
 import Title from "@/components/title"

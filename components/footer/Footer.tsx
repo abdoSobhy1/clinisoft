@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import FooterSection from "./FooterSection";
 import FooterList from "./FooterList";

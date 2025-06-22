@@ -2,7 +2,7 @@
 
 import MainButton from "@/components/main-button";
 import Slot from "@/components/slot";
-import ContactForm from "../../../components/contact-form";
+import ContactForm from "@/components/contact-form";
 import Image from "next/image";
 import Seperator from "@/components/footer/seperator";
 import { useTranslations } from "next-intl";

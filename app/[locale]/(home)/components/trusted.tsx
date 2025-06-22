@@ -1,18 +1,20 @@
 'use client'
 import Title from "@/components/title";
-import SlideIn from "../../../components/slide-in";
+import SlideIn from "@/components/slide-in";
 import Seperator from "@/components/footer/seperator";
 import StatsSection from "./counters"
 import { useTranslations } from "next-intl";
 import { useSequentialCardAnimation } from "@/hooks/useSequentialCardAnimation";
 import Paragraph from "@/components/paragraph";
 import { useCallback } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 interface TrustedProps {
     bgColor?: string;
 }
 
 export default function Trusted({ bgColor = "" }: TrustedProps) {
     const t = useTranslations("trusted");
+    const { currentLanguage } = useLanguage();
     const trustPoints = [
         "offlineOperation",
         "oneTimePurchase",
@@ -30,10 +32,12 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
         if (isMobile) {
             return animatedIndexes.includes(index);
         } else {
-            console.log("we're in the else now");
             return true;
         }
     }, [animatedIndexes, isMobile]);
+
+    const oddDirection = currentLanguage === 'ar' ? 'right' : 'left';
+    const evenDirection = currentLanguage === 'ar' ? 'left' : 'right';
 
     return (
         <section ref={containerRef} className={`pt-12 overflow-x-hidden relative min-h-vph flex flex-col justify-between ${bgColor}`}>
@@ -52,7 +56,7 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
                         <div ref={el => { cardRefs.current[index] = el; }} key={index}
                             className={`${index === trustPoints.length - 1 ? 'col-span-1 lg:col-span-2' : 'col-span-1'}`}>
                             <SlideIn
-                                direction={index % 2 === 0 ? 'left' : 'right'}
+                                direction={index % 2 === 0 ? evenDirection : oddDirection}
                                 className="content-center bg-[#d7fff6] px-4 py-1.5 md:py-6 border border-[#9fe5d5] rounded-full max-w-m text-textTeal text-center fs-var-lg md:text-[4.347vh] font-medium"
                                 delay={isMobile ? 0 : index * 0.6}
                                 duration={0.3}

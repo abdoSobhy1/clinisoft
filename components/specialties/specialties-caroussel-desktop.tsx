@@ -7,9 +7,11 @@ import { useRef } from "react";
 import { cn } from "@/lib/utils";
 import SpecialtiesWrapper from "@/components/specialties/specialties-wrapper";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 
 const HorizontalScrollCarousel = ({ didAnimate, setDidAnimate, specialties }: { didAnimate: boolean, setDidAnimate: (didAnimate: boolean) => void, specialties: { title: string, description: string, icon: React.ElementType }[] }) => {
+    const { currentLanguage } = useLanguage();
     const t = useTranslations("specialties");
     const targetRef = useRef<HTMLDivElement | null>(null);
     const { scrollYProgress } = useScroll({
@@ -17,7 +19,7 @@ const HorizontalScrollCarousel = ({ didAnimate, setDidAnimate, specialties }: { 
     });
 
 
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-120%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", currentLanguage === 'ar' ? "120%" : "-120%"]);
 
     const commonClasses = "min-w-96 shrink-0 grow-0 basis-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 mb-6 h-auto"
 

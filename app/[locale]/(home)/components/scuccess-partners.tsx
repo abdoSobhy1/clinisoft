@@ -1,3 +1,4 @@
+"use client"
 import Title from "@/components/title"
 import Image from "next/image"
 import { useTranslations } from "next-intl";

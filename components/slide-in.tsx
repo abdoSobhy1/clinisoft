@@ -1,5 +1,4 @@
 'use client';
-
 import { motion, useAnimate, useInView } from 'framer-motion';
 import { ReactNode, useEffect } from 'react';
 
@@ -15,6 +14,8 @@ interface SlideInProps {
 }
 
 const getInitialPosition = (direction: Direction) => {
+
+
     switch (direction) {
         case 'left':
             return { x: -200, y: 0 };

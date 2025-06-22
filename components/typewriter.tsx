@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Paragraph from "./paragraph";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface TypewriterProps {
     text: string;
@@ -17,6 +18,7 @@ export default function Typewriter({ text, speed = 0.05, className = "", setIsFi
     const isInView = useInView(ref, { once: true, amount: "all" });
     const [animationComplete, setAnimationComplete] = useState(false);
     const [animatedText, setAnimatedText] = useState("");
+    const { currentLanguage } = useLanguage();
 
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -41,10 +43,10 @@ export default function Typewriter({ text, speed = 0.05, className = "", setIsFi
 
     return (
         <>
-            <Paragraph ref={ref} className={cn(`relative text-center text-textTeal fs-var-base md:fs-var-3xl font-medium leading-loose w-fit translate-x-1/4 md:translate-x-1/3 ${className}`)}>
+            <Paragraph ref={ref} className={cn(`relative text-center text-textTeal fs-var-base md:fs-var-3xl font-medium leading-loose w-fit ${currentLanguage === 'ar' ? '-translate-x-1/4 md:-translate-x-1/3' : 'translate-x-1/4 md:translate-x-1/3'} ${className}`)}>
                 {animatedText.length === 0 && <motion.span initial={{ width: "100%" }} animate={{ width: animatedText.length > 0 ? 0 : "100%", height: animatedText.length > 0 ? "0" : "100%" }} transition={{ duration: 0.5 }} className=" opacity-0 overflow-hidden">p</motion.span>}
                 {animatedText}
-                {!animationComplete && shouldStart && <motion.span className="absolute bottom-0 right-0 translate-x-full"
+                {!animationComplete && shouldStart && <motion.span className={`absolute bottom-0 ${currentLanguage === 'ar' ? 'left-0 -translate-x-full' : 'right-0 translate-x-full'} `}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: [0, 1, 0] }}
                     transition={{
