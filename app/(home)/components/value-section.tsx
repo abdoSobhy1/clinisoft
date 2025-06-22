@@ -68,7 +68,6 @@ export default function ValueSection({ bgColor = "" }: ValueSectionProps) {
 
     const handleToggle = (index: number) => {
         toggleItem(index);
-        console.log("toggled", index);
     }
 
     return (

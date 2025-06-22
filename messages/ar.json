@@ -1,4 +1,11 @@
 {
+  "navMenu": {
+    "home": "الرئيسية",
+    "specialties": "التخصصات",
+    "aboutUs": "من نحن",
+    "reviews": "التقييمات",
+    "customerCare": "خدمة العملاء"
+  },
   "specialtyNames": {
     "dermatology": "الجلدية",
     "dentistry": "الأسنان",
@@ -16,13 +23,6 @@
     "nutrition": "التغذية",
     "diabetology": "السكر",
     "surgery": "الجراحة"
-  },
-  "navMenu": {
-    "home": "الرئيسية",
-    "specialties": "التخصصات",
-    "aboutUs": "من نحن",
-    "reviews": "التقييمات",
-    "customerCare": "خدمة العملاء"
   },
   "hero": {
     "slides": {

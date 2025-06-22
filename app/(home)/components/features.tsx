@@ -50,7 +50,6 @@ export default function Features({ bgColor = "" }: FeaturesProps) {
                         title={feature.title}
                         description={feature.description}
                         icon={feature.icon}
-                        index={index}
                         animate={animatedIndexes.includes(index)}
                     />
                 ))}

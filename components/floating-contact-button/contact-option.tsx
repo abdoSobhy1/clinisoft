@@ -12,7 +12,6 @@ interface ContactOptionProps {
 const ContactOption = ({ icon, label, link, bgColor }: ContactOptionProps) => {
 
     const isDemo = icon.split("/")[3] === "demo.svg";
-    console.log(isDemo);
 
     return (
         <Link
@@ -26,7 +25,7 @@ const ContactOption = ({ icon, label, link, bgColor }: ContactOptionProps) => {
                 <div className={`relative w-10 h-10 ${isDemo ? "bottom-1.5 md:bottom-0" : ""}`}>
                     <Image src={icon} alt={label} fill className="object-contain" priority />
                 </div>
-                {isDemo && <span className="fs-var-xs font-semibold scale-75 absolute -bottom-2 md:hidden">Demo</span>}
+                {isDemo && <span className="fs-var-sm font-semibold scale-75 absolute -bottom-2 md:hidden">Demo</span>}
                 <span className="absolute right-full top-1/2 -translate-y-1/2 scale-x-0 mr-8 whitespace-nowrap bg-white text-black text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 group-hover:scale-x-100 hidden md:inline">
                     {label}
                 </span>

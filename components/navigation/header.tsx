@@ -15,11 +15,9 @@ export default function Header() {
     const [isFirstLoad, setIsFirstLoad] = useState(true);
 
     useEffect(() => {
-        console.log("isFirstLoad", isFirstLoad);
         if (isFirstLoad) {
             setIsFirstLoad(false);
         }
-        console.log("isFirstLoad", isFirstLoad);
     }, []);
 
     const demoButtonVariants = {

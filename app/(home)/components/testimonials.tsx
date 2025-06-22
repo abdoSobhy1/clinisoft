@@ -77,7 +77,11 @@ export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
 
     useEffect(() => {
         if (carousselInView && !isOpen) {
+            console.log("focus")
             carouselRef.current?.focus()
+        } else {
+            console.log("blur")
+            carouselRef.current?.blur()
         }
     }, [isOpen, carousselInView])
 

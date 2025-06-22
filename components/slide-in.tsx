@@ -11,6 +11,7 @@ interface SlideInProps {
     className?: string;
     delay?: number;
     duration?: number;
+    trigger?: boolean;
 }
 
 const getInitialPosition = (direction: Direction) => {
@@ -30,19 +31,18 @@ export default function SlideIn({
     children,
     direction,
     className = '',
-    delay = 0.3,
+    delay = 0,
     duration = 0.5,
+    trigger = true,
 }: SlideInProps) {
     const [scope, animate] = useAnimate();
 
     const inView = useInView(scope, {
         once: true,
-        margin: '0px 0px -20% 0px',
     });
 
     const stillInView = useInView(scope, {
         once: false,
-        margin: '0px 0px -20% 0px',
     });
 
     useEffect(() => {
@@ -54,17 +54,15 @@ export default function SlideIn({
     const initial = getInitialPosition(direction);
 
     useEffect(() => {
-        console.log({ inView })
-        if (!scope.current) {
-            return;
-        }
+        if (!scope.current) return;
+
 
         const { top, height } = scope.current.getBoundingClientRect();
         const isScrolledPast = (top + height) < 0;
 
         if (isScrolledPast) {
             animate(scope.current, { x: 0, y: 0, opacity: 1 }, { duration: 0 })
-        } else if (inView && !isScrolledPast) {
+        } else if (trigger && inView && !isScrolledPast) {
             const animationDuration = duration;
             const animationDelay = delay;
             animate(scope.current,
@@ -72,7 +70,7 @@ export default function SlideIn({
                 { duration: animationDuration, delay: animationDelay }
             )
         }
-    }, [inView, animate, scope, duration, delay]);
+    }, [inView, animate, scope, duration, delay, trigger]);
 
     return (
         <motion.p

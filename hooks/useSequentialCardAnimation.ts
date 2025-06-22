@@ -28,10 +28,15 @@ export function useSequentialCardAnimation({ length }: { length: number }) {
         setAnimatedIndexes((prev) => [...prev, i]);
         await new Promise((res) => setTimeout(res, 500));
       }
-      containerRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-      });
+      const containerRect = containerRef.current?.getBoundingClientRect();
+      const bottomVisible =
+        containerRect?.bottom && containerRect.bottom <= window.innerHeight;
+      if (!bottomVisible) {
+        containerRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "end",
+        });
+      }
     };
     setAnimatedIndexes([]); // Reset on rerun
     animateSequentially();

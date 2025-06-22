@@ -41,7 +41,6 @@ const ReviewDialog = memo(function ReviewDialog({
     useEffect(() => {
         if (reviewRef.current) {
             reviewRef.current.focus()
-            console.log(document.activeElement)
         }
     }, [currentReview, isOpen])
 

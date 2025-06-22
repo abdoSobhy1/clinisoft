@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import StatCounter from "@/components/stat-counter";
 type Stat = {
   icon: string;
@@ -16,7 +16,7 @@ const stats: Stat[] = [
   { icon: "/images/patients.svg", value: 16, finish: "16", suffix: "M+", label: "patients" },
 ];
 
-export default function StatsSection() {
+const StatsSection = forwardRef<HTMLDivElement, {}>((_, ref) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [startCounting, setStartCounting] = useState(false);
   const [isAnimated, setIsAnimated] = useState(false);
@@ -38,12 +38,16 @@ export default function StatsSection() {
   }, [isAnimated]);
 
   return (
-    <div className={`bg-teal py-9 w-[calc(100%-2rem)]  mx-auto rounded-3xl md:rounded-none md:w-full`} ref={sectionRef}>
-      <div className="max-w-100 md:max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-10 text-white px-6">
+    <div ref={sectionRef} className={`bg-teal py-9 w-[calc(100%-2rem)]  mx-auto rounded-3xl md:rounded-none md:w-full`}>
+      <div ref={ref} className="max-w-100 md:max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-10 text-white px-6">
         {stats.map((stat, index) => (
           <StatCounter key={index} stat={stat} shouldCount={startCounting} finish={stat.finish} />
         ))}
       </div>
     </div>
   );
-}
+});
+
+StatsSection.displayName = "StatsSection";
+
+export default StatsSection;
