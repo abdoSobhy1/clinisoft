@@ -40,7 +40,7 @@ export default async function LocaleLayout({
   let messages: any;
   try {
     messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
+  } catch (error: unknown) {
     messages = (await import(`../../messages/en.json`)).default;
   }
 
