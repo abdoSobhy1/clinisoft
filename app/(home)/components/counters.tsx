@@ -16,7 +16,7 @@ const stats: Stat[] = [
   { icon: "/images/patients.svg", value: 16, finish: "16", suffix: "M+", label: "patients" },
 ];
 
-const StatsSection = forwardRef<HTMLDivElement, {}>((_, ref) => {
+const StatsSection = forwardRef<HTMLDivElement, React.ComponentPropsWithoutRef<'div'>>((_, ref) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [startCounting, setStartCounting] = useState(false);
   const [isAnimated, setIsAnimated] = useState(false);
