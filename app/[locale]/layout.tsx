@@ -37,7 +37,7 @@ export default async function LocaleLayout({
   params: { locale: string };
 }>) {
 
-  let messages: any;
+  let messages
   try {
     messages = (await import(`../../messages/${locale}.json`)).default;
   } catch {
