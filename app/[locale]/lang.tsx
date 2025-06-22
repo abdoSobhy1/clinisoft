@@ -45,7 +45,7 @@ export default function LanguageSelectorModal() {
         <>
             <button
                 onClick={openModal}
-                className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-200 hover:scale-110"
+                className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 bg-[#155dfc] text-white p-3 rounded-full shadow-lg hover:bg-[#155dfc]/80 transition-all duration-200 hover:scale-110"
                 title="Change Language"
             >
                 <svg
@@ -82,7 +82,7 @@ export default function LanguageSelectorModal() {
                             <option value="en">English</option>
                         </select>
                         <button
-                            className="bg-blue-600 text-white w-full py-2 rounded-lg hover:bg-blue-700 transition"
+                            className="bg-[#155dfc] text-white w-full py-2 rounded-lg hover:bg-[#155dfc]/80 transition"
                             onClick={handleConfirm}
                         >
                             تأكيد

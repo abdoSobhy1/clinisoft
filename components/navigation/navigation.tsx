@@ -9,10 +9,21 @@ import MobileMenu from './mobile-menu';
 import { useMobile } from '@/hooks/useMobile';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useLanguage } from '@/contexts/LanguageContext';
+import localFont from 'next/font/local';
 
 const roboto = Roboto({
     weight: ["500"],
     subsets: ["latin"],
+})
+
+const theSans = localFont({
+    src: [
+        {
+            path: '../../public/fonts/TheSans-Bold.otf',
+            weight: '400',
+        }
+    ]
 })
 
 const navLinks = [
@@ -39,9 +50,10 @@ const navLinks = [
 // Desktop Navigation Component
 function DesktopNav() {
     const pathname = usePathname();
+    const { currentLanguage } = useLanguage();
 
     return (
-        <nav className={`${roboto.className} hidden lg:flex md:order-2`}>
+        <nav className={`${currentLanguage === 'ar' ? theSans.className : roboto.className} hidden lg:flex md:order-2`}>
             <div className="flex items-center space-x-6">
                 {navLinks.map(link => (
                     link.subMenu ? (

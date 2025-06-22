@@ -8,6 +8,7 @@ import Image from "next/image";
 import DemoButton from "../demo-button";
 import Seperator from "./seperator";
 import { useTranslations } from "next-intl";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const specialties = [
     [
@@ -43,6 +44,7 @@ const contactInfo = [
 const Footer: React.FC = () => {
     const t = useTranslations("footer");
     const year = new Date().getFullYear();
+    const { currentLanguage } = useLanguage();
     return (
         <footer className="bg-[#1A2632] pt-12 pb-4 px-4 fs-var-sm relative overflow-hidden">
             <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-[1fr_2fr_1fr_1fr_1.5fr] gap-4 items-start">
@@ -55,7 +57,7 @@ const Footer: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative">
                         <FooterList items={specialties[0]} />
                         <FooterList items={specialties[1]} />
-                        <Seperator className="right-4 md:right-0" vertical />
+                        <Seperator className={`${currentLanguage === 'ar' ? 'righ-0 md:left-4' : 'left-4 md:right-0'} `} vertical />
                     </div>
                 </FooterSection>
                 <FooterSection title={t("links.otherLinks")} >
@@ -65,8 +67,8 @@ const Footer: React.FC = () => {
                 <FooterSection title={t("links.contactUs")} className="col-span-2 md:col-span-1 text-center md:text-left my-4 md:my-0" >
                     <Seperator className="block md:hidden -top-2" />
                     <FooterList items={contactInfo} className="space-y-4" />
-                    <Seperator className="hidden md:block" vertical />
-                    <Seperator className="block md:hidden top-auto -bottom-4" />
+                    <Seperator className={`hidden md:block ${currentLanguage === 'ar' ? '-left-2' : ''} `} vertical />
+                    <Seperator className="block md:hidden top-auto -bottom-4 " />
                 </FooterSection>
                 <FooterContactCard />
             </div>

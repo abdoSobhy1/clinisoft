@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Tajawal } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/navigation/header";
 import Footer from "@/components/footer/Footer";
@@ -7,6 +7,7 @@ import FloatingContactButton from "@/components/floating-contact-button/floating
 import { NextIntlClientProvider } from "next-intl";
 import LanguageSelectorModal from "./lang";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import localFont from "next/font/local";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -14,11 +15,14 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const tajawal = Tajawal({
-  weight: ["200", "300", "400", "500", "700", "800", "900"],
-  subsets: ["arabic"],
-  display: "swap",
-});
+const theSans = localFont({
+  src: [
+    {
+      path: '../../public/fonts/TheSans-Bold.otf',
+      weight: '400',
+    }
+  ]
+})
 
 export const metadata: Metadata = {
   title: "CliniSoft",
@@ -48,7 +52,7 @@ export default async function LocaleLayout({
 
   return (
     <main
-      className={`${locale === "ar" ? tajawal.className : poppins.className}`}
+      className={`${locale === "ar" ? theSans.className : poppins.className}`}
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
       <NextIntlClientProvider messages={messages} locale={locale}>
