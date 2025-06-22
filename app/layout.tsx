@@ -1,14 +1,15 @@
 import './globals.css';
 import { ReactNode } from 'react';
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
     params
 }: {
     children: ReactNode;
-    params?: { locale?: string };
+    params?: Promise<{ locale?: string }>;
 }) {
-    const locale = params?.locale || 'en';
+    const resolvedParams = await params;
+    const locale = resolvedParams?.locale || 'en';
 
     return (
         <html lang={locale}>
