@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { useLockBodyScroll } from '@/hooks/useLockBodyScroll';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 import DermatologyIcon from '@/public/images/icons/dermatology.svg';
 import DentistryIcon from '@/public/images/icons/dentistry.svg';
@@ -20,7 +21,23 @@ import OrthopedicSurgeryIcon from '@/public/images/icons/orthopedic surgery.svg'
 import PediatricsIcon from '@/public/images/icons/pediatrics.svg';
 import PhysiotherapyIcon from '@/public/images/icons/physiotherapy.svg';
 import UrologyIcon from '@/public/images/icons/urology.svg';
+import localFont from 'next/font/local';
+import { Roboto } from 'next/font/google';
 
+
+const roboto = Roboto({
+    weight: ["500"],
+    subsets: ["latin"],
+})
+
+const theSans = localFont({
+    src: [
+        {
+            path: '../../public/fonts/TheSans-Bold.otf',
+            weight: '400',
+        }
+    ]
+})
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -61,7 +78,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
     const screen = typeof window !== 'undefined' ? window.innerHeight : 0;
     const t = useTranslations();
-
+    const { currentLanguage } = useLanguage();
 
     useEffect(() => {
         if (isOpen) {
@@ -146,7 +163,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                             animate="animate"
                             exit="exit"
                         >
-                            <motion.nav className='flex flex-col gap-8 items-center justify-center h-full p-6 pt-40' variants={containerVariants} initial="initial" animate="animate" exit="initial">
+                            <motion.nav className={`flex flex-col gap-6 items-center justify-center h-full p-6 pt-40 ${currentLanguage === 'ar' ? theSans.className : roboto.className}`} variants={containerVariants} initial="initial" animate="animate" exit="initial">
                                 {navLinks.map(link => (link.subMenu ? (
                                     <motion.div className='group overflow-hidden' key={link.name} variants={itemVariants}>
                                         <button className='w-full' onClick={() => setIsSubMenuOpen(!isSubMenuOpen)}>
@@ -173,13 +190,13 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                                                 //     className='text-left fs-var-xl'
                                                 //     icon={subItem.icon}
                                                 // />
-                                                <motion.li key={subItem.name} variants={buttonVariants} initial="initial" animate="open" exit="initial" className="list-none">
+                                                <motion.li key={subItem.name} variants={buttonVariants} initial="initial" animate="open" exit="initial" className={`list-none text-center opacity-70  transition duration-300  hover:opacity-100 ${pathname === subItem.path ? 'opacity-100' : ''}`}>
                                                     {subItem.icon &&
                                                         <div className="size-8 flex items-center justify-center text-white mx-auto">
                                                             <subItem.icon className="w-full h-full" />
                                                         </div>
                                                     }
-                                                    <Link href={subItem.path} className={`flex items-center gap-2 text-white fs-var-base opacity-70 font-medium justify-center px-2 uppercase transition duration-300  hover:opacity-100  ${pathname === subItem.path ? 'opacity-100' : ''}`} onClick={() => setIsSubMenuOpen(false)} >
+                                                    <Link href={subItem.path} className={`flex items-center text-white fs-var-base font-medium justify-center px-2 uppercase`} onClick={() => setIsSubMenuOpen(false)} >
 
                                                         {t(subItem.name)}
                                                     </Link>

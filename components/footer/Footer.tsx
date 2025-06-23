@@ -9,6 +9,8 @@ import DemoButton from "../demo-button";
 import Seperator from "./seperator";
 import { useTranslations } from "next-intl";
 import { useLanguage } from "@/contexts/LanguageContext";
+import FooterListWithIcons from "./FooterListWithIcons";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 const specialties = [
     [
@@ -36,9 +38,9 @@ const otherLinks = [
 ];
 
 const contactInfo = [
-    { label: "footer.contactInfo.address", },
-    { label: "footer.contactInfo.phone", href: "tel:+201204698888" },
-    { label: "info@clinisoft.com.eg", href: "mailto:info@clinisoft.com.eg" }
+    { label: "footer.contactInfo.address", icon: <MapPin size={24} className="text-white" /> },
+    { label: "footer.contactInfo.phone", href: "tel:+201204698888", icon: <Phone size={24} className="text-white" /> },
+    { label: "info@clinisoft.com.eg", href: "mailto:info@clinisoft.com.eg", icon: <Mail size={24} className="text-white" /> }
 ];
 
 const Footer: React.FC = () => {
@@ -66,7 +68,7 @@ const Footer: React.FC = () => {
                 </FooterSection>
                 <FooterSection title={t("links.contactUs")} className={`col-span-2 md:col-span-1 text-center ${currentLanguage === 'ar' ? 'text-right' : 'text-left'} my-4 md:my-0`} >
                     <Seperator className="block md:hidden -top-2" />
-                    <FooterList items={contactInfo} className="space-y-4" />
+                    <FooterListWithIcons items={contactInfo} className="space-y-4" />
                     <Seperator className={`hidden md:block ${currentLanguage === 'ar' ? '-left-2' : ''} `} vertical />
                     <Seperator className="block md:hidden top-auto -bottom-4 " />
                 </FooterSection>
@@ -74,7 +76,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-10 pt-6 gap-4 relative">
                 <Seperator />
-                <span className="text-[#d0cfec] fs-var-2xl lg:fs-var-base">{t("copyright", { year })}</span>
+                <span className="text-[#d0cfec] fs-var-2xl lg:fs-var-base text-center md:text-left ">{t("copyright", { year })}</span>
                 <FooterSocialIcons />
             </div>
             <span className="hidden md:block absolute bg-linear-90 from-[#163ECB1F] to-[#FFFFFF00] w-[130px] h-[130px] rounded-full -top-10 -right-20 z-0 pointer-events-none" />

@@ -27,7 +27,7 @@ const FeatureCard = forwardRef<HTMLDivElement, FeatureCardProps>(
                         <Image src={icon} alt={imageAlt} fill className="object-contain" priority />
                     </div>
                     <div className="md:mx-auto">
-                        <h3 className="text-black font-medium fs-var-3xl md:fs-var-3xl leading-none">{t(title)}</h3>
+                        <h3 className="text-black font-medium fs-var-3xl md:fs-var-3xl leading-none mb-2">{t(title)}</h3>
                         <p className="text-[#4d504f] leading-8 mx-auto lg:text-center fs-var-2xl md:fs-var-2xl">{t(description)}</p>
                     </div>
                 </ScaleAnim>
