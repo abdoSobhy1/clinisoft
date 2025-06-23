@@ -37,7 +37,7 @@ const otherLinks = [
 
 const contactInfo = [
     { label: "footer.contactInfo.address", },
-    { label: "+2 (120) 469 8888", href: "tel:+201204698888" },
+    { label: "footer.contactInfo.phone", href: "tel:+201204698888" },
     { label: "info@clinisoft.com.eg", href: "mailto:info@clinisoft.com.eg" }
 ];
 
@@ -57,14 +57,14 @@ const Footer: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative">
                         <FooterList items={specialties[0]} />
                         <FooterList items={specialties[1]} />
-                        <Seperator className={`${currentLanguage === 'ar' ? 'righ-0 md:left-4' : 'left-4 md:right-0'} `} vertical />
+                        <Seperator className={`${currentLanguage === 'ar' ? 'right-0 md:left-4' : 'right-4 md:right-0'} `} vertical />
                     </div>
                 </FooterSection>
                 <FooterSection title={t("links.otherLinks")} >
                     <FooterList items={otherLinks} />
                     <Seperator className="hidden md:block" vertical />
                 </FooterSection>
-                <FooterSection title={t("links.contactUs")} className="col-span-2 md:col-span-1 text-center md:text-left my-4 md:my-0" >
+                <FooterSection title={t("links.contactUs")} className={`col-span-2 md:col-span-1 text-center ${currentLanguage === 'ar' ? 'text-right' : 'text-left'} my-4 md:my-0`} >
                     <Seperator className="block md:hidden -top-2" />
                     <FooterList items={contactInfo} className="space-y-4" />
                     <Seperator className={`hidden md:block ${currentLanguage === 'ar' ? '-left-2' : ''} `} vertical />

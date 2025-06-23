@@ -145,7 +145,8 @@
       "contactUs": "Contact Us"
     },
     "contactInfo": {
-      "address": "5th Yathreb Towers, Acid City, Smouha, Alexandria"
+      "address": "5th Yathreb Towers, Acid City, Smouha, Alexandria",
+      "phone": "+2 (120) 469 8888"
     },
     "contactCard": {
       "hiThere": "Hi there",
@@ -154,5 +155,13 @@
       "contactUs": "Contact Us"
     },
     "copyright": "Copyright © {year} CliniSoft. All rights reserved."
+  },
+  "contactOptions": {
+    "demo": "Demo",
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "email": "Email",
+    "messenger": "Messenger",
+    "requestDemo": "Request a Demo"
   }
 }

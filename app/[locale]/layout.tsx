@@ -5,7 +5,7 @@ import Header from "@/components/navigation/header";
 import Footer from "@/components/footer/Footer";
 import FloatingContactButton from "@/components/floating-contact-button/floating-contact-button";
 import { NextIntlClientProvider } from "next-intl";
-import LanguageSelectorModal from "./lang";
+import LanguageSelectorModal from "../../components/lang";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import localFont from "next/font/local";
 

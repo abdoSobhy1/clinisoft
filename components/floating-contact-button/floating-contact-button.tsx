@@ -7,31 +7,31 @@ import ContactOption from "./contact-option";
 const contactOptions = [
   {
     icon: "/images/icons/messenger.svg",
-    label: "Messenger",
+    label: "messenger",
     link: "https://m.me/CliniSoft",
     bgColor: "#168AFF",
   },
   {
     icon: "/images/icons/whatsapp.svg",
-    label: "WhatsApp",
+    label: "whatsapp",
     link: "https://wa.me/+201204698888",
     bgColor: "#25D366",
   },
   {
     icon: "/images/icons/phone-call.svg",
-    label: "Call",
+    label: "call",
     link: "tel:+201204698888",
     bgColor: "#00bc7d",
   },
   {
     icon: "/images/icons/mail.svg",
-    label: "Email",
+    label: "email",
     link: "mailto:info@clinisoft.com.eg",
     bgColor: "#fb2c36",
   },
   {
     icon: "/images/icons/demo.svg",
-    label: "Request a Demo",
+    label: "demo",
     link: "/request-a-demo",
     bgColor: "#ea7f70",
   },

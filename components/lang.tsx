@@ -68,7 +68,7 @@ export default function LanguageSelectorModal() {
             </button>
 
             {showModal && (
-                <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center">
+                <div className="fixed inset-0 z-999 bg-black/40 flex items-center justify-center">
                     <div className="bg-white rounded-2xl shadow-lg p-6 w-[90%] max-w-md text-center space-y-6">
                         <Image src="/images/logo.png" alt="Logo" className="mx-auto" width={96} height={96} />
 
