@@ -43,7 +43,7 @@ export default function Innovations({ bgColor = "" }: InnovationsProps) {
             <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
             <div className="max-w-7xl mx-auto size-full grow-1 flex flex-col items-center justify-between">
                 <div className="w-fit mb-16">
-                    <Title className="py-b">{t("builtInTools")}</Title>
+                    <Title className="py-b max-w-[90%] mx-auto">{t("builtInTools")}</Title>
                     <TypewriterText />
                 </div>
                 <div className="flex-1 w-full grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(600px,1fr))] gap-8">

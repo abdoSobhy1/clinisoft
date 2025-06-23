@@ -39,17 +39,17 @@ export default function ValueCard({ stat, title, description, icon, shouldCount,
     return (
         <div ref={ref} >
             <ScaleAnim delay={index * 0.3} className={cn("rounded-3xl bg-white p-4 shadow-md h-full text-center flex flex-col ", className)} >
-                <div className="md:mb-8 flex justify-between items-center md:block">
-                    <div className="relative size-24 mx-auto  flex-1">
+                <div className="md:mb-8 flex items-center lg:justify-between gap-4 md:block">
+                    <div className="relative size-24 lg:mx-auto">
                         <Image src={icon} alt={title} fill className="object-contain object-left md:object-center" />
                     </div>
-                    <div>
+                    <div className="text-left lg:text-center">
                         <p className="text-teal fs-var-6xl font-semibold">{count} %</p>
                         <h3 className="text-[2.6vh] font-semibold text-[#1e949e]">{title}</h3>
                     </div>
                     <button
                         onClick={onToggle}
-                        className="md:hidden"
+                        className="md:hidden ml-auto"
                     >
                         <ChevronsDown
                             className={`text-[#1E949E] w-8 h-8 ${isOpen ? "rotate-180" : ""} opacity-50`}

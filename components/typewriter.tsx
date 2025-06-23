@@ -43,7 +43,7 @@ export default function Typewriter({ text, speed = 0.05, className = "", setIsFi
 
     return (
         <>
-            <Paragraph ref={ref} className={cn(`relative text-center text-textTeal fs-var-base md:fs-var-3xl font-medium leading-loose w-fit ${currentLanguage === 'ar' ? '-translate-x-1/4 md:-translate-x-1/3' : 'translate-x-1/4 md:translate-x-1/3'} ${className}`)}>
+            <Paragraph ref={ref} className={cn(`relative text-center text-textTeal  md:fs-var-3xl font-medium leading-loose w-fit ${currentLanguage === 'ar' ? 'md:-translate-x-1/3' : ' md:translate-x-1/3'} ${className}`)}>
                 {animatedText.length === 0 && <motion.span initial={{ width: "100%" }} animate={{ width: animatedText.length > 0 ? 0 : "100%", height: animatedText.length > 0 ? "0" : "100%" }} transition={{ duration: 0.5 }} className=" opacity-0 overflow-hidden">p</motion.span>}
                 {animatedText}
                 {!animationComplete && shouldStart && <motion.span className={`absolute bottom-0 ${currentLanguage === 'ar' ? 'left-0 -translate-x-full' : 'right-0 translate-x-full'} `}

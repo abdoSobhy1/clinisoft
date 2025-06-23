@@ -30,12 +30,12 @@ const FooterList: React.FC<FooterListProps> = ({ items, className }) => {
             {items.map((item, idx) => {
                 return item.href ? (
                     <li key={idx}>
-                        <Link href={item.href} className="fs-var-base font-bold text-white">
+                        <Link href={item.href} className="fs-var-xl lg:fs-var-base font-bold text-white">
                             {displayText(item.label)}
                         </Link>
                     </li>
                 ) : (
-                    <li key={idx} className="fs-var-base font-bold text-white">{displayText(item.label)}</li>
+                    <li key={idx} className="fs-var-xl  lg:fs-var-basefont-bold text-white">{displayText(item.label)}</li>
                 );
             })}
         </ul>

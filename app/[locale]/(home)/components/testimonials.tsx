@@ -8,6 +8,7 @@ import reviews from '@/public/reviews.json'
 import Seperator from "@/components/footer/seperator";
 import { useTranslations } from "next-intl";
 import { useInView } from "framer-motion";
+import Title from "@/components/title";
 type Review = {
     doctor: string;
     review: string;
@@ -88,7 +89,7 @@ export default function Testimonials({ bgColor = "" }: TestimonialsProps) {
     return (
         <section className={`py-12 px-4 min-h-vph relative flex flex-col justify-between ${bgColor}`}>
             <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
-            <h2 className="max-w-7xl mx-auto pb-12 text-center text-textTeal fs-var-3xl font-semibold leading-[48px]">{t("doctorsAcrossSpecialties")}</h2>
+            <Title className="max-w-[80%] lg:max-w-7xl mx-auto pb-12">{t("doctorsAcrossSpecialties")}</Title>
             <Carousel
                 plugins={[autoplayRef.current]}
                 className="w-full flex-1 [&>*:last-child]:h-full"

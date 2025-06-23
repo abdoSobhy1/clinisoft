@@ -11,7 +11,7 @@ const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(
         return (
             <p
                 ref={ref}
-                className={cn(" md:fs-var-3xl text-textTeal font-medium leading-normal", className)}
+                className={cn("fs-var-2xl md:fs-var-3xl text-textTeal font-medium leading-normal", className)}
             >
                 {children}
             </p>

@@ -38,7 +38,7 @@ export default function Features({ bgColor = "" }: FeaturesProps) {
 
     return (
         <section className={`pb-12 md:py-12 px-4 min-h-vph flex flex-col ${bgColor}`}>
-            <Title className="md:hidden mb-8">Why CliniSoft?</Title>
+            <Title className="md:hidden my-8">Why CliniSoft?</Title>
             <div
                 ref={containerRef}
                 className="max-w-7xl w-full h-full grow-1 mx-auto grid grid-cols-1 md:grid-cols-2 justify-center gap-8 scroll-m-2.5"

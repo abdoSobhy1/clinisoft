@@ -57,7 +57,7 @@ const Footer: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative">
                         <FooterList items={specialties[0]} />
                         <FooterList items={specialties[1]} />
-                        <Seperator className={`${currentLanguage === 'ar' ? 'right-0 md:left-4' : 'right-4 md:right-0'} `} vertical />
+                        <Seperator className={`${currentLanguage === 'ar' ? 'left-0 md:left-4' : 'right-4 md:right-0'} `} vertical />
                     </div>
                 </FooterSection>
                 <FooterSection title={t("links.otherLinks")} >
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
             </div>
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mt-10 pt-6 gap-4 relative">
                 <Seperator />
-                <span className="text-[#d0cfec]">{t("copyright", { year })}</span>
+                <span className="text-[#d0cfec] fs-var-2xl lg:fs-var-base">{t("copyright", { year })}</span>
                 <FooterSocialIcons />
             </div>
             <span className="hidden md:block absolute bg-linear-90 from-[#163ECB1F] to-[#FFFFFF00] w-[130px] h-[130px] rounded-full -top-10 -right-20 z-0 pointer-events-none" />

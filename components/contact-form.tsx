@@ -6,6 +6,8 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import * as z from "zod";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Title from "@/components/title";
+import Paragraph from "@/components/paragraph";
 const formSchema = z.object({
     name: z.string().min(3, { message: "Name is required." }),
     specialties: z.string().min(1, { message: "Please select a specialty." }),
@@ -103,8 +105,8 @@ export default function ContactForm() {
 
     return (<div className="bg-white rounded-[20px] p-8 border-2 border-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
         <div className="mb-4 space-y-3">
-            <h2 className="fs-var-3xl font-semibold text-textTeal">{t("contactUs.letUsHelpYou")}</h2>
-            <p className="fs-var-2xl text-textTeal font-semibold">{t("contactUs.fillInYourDetails")}</p>
+            <Title className="text-textTeal text-left fs-var-3xl lg:fs-var-4xl">{t("contactUs.letUsHelpYou")}</Title>
+            <Paragraph className="text-textTeal font-semibold lg:fs-var-2xl">{t("contactUs.fillInYourDetails")}</Paragraph>
         </div>
         <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -177,7 +179,7 @@ export default function ContactForm() {
             <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-teal text-white p-4 rounded-full cursor-pointer ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
+                className={`w-full bg-teal text-white p-4 rounded-full cursor-pointer fs-var-2xl lg:fs-var-base ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}>
                 {isSubmitting ? t("contactUs.submitting") : t("contactUs.submit")}
             </button>
         </form>

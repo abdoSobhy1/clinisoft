@@ -13,7 +13,7 @@ export default async function RootLayout({
 
     return (
         <html lang={locale}>
-            <body>
+            <body className='antialiased bg-[#F1FFFF]'>
                 {children}
             </body>
         </html>

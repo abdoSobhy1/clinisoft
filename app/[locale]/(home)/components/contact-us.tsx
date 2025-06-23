@@ -30,14 +30,14 @@ export default function ContactUsForm({ bgColor = "" }: ContactUsFormProps) {
                             <Image src="/images/chat-image.webp" alt="Chat Image" fill className=" object-cover" />
                         </div>
                         <MainButton href="http://wa.me/+201208123222" className="lg:w-full bg-textTeal hover:bg-textTeal text-center flex items-center justify-center px-4 py-3 gap-2">
-                            <span className="fs-var-base">
+                            <span className="fs-var-2xl lg:fs-var-base">
                                 {t("chatOnWhatsApp")}
                             </span>
                             <div className="relative size-6">
                                 <Image src="/images/icons/whatsapp.svg" alt="Phone Call" fill className="object-contain" />
                             </div>
                         </MainButton>
-                        <MainButton href="tel:+201204698888" className="lg:w-full bg-maroon hover:bg-maroon-700 text-center py-3">{t("callUs")}</MainButton>
+                        <MainButton href="tel:+201204698888" className="lg:w-full bg-maroon hover:bg-maroon-700 text-center py-3 fs-var-2xl lg:fs-var-base">{t("callUs")}</MainButton>
                     </div>
                     {slots.map((slot) => (
                         <Slot key={slot.title} title={t(slot.title)} href={slot.href} />

@@ -8,8 +8,8 @@ export default function TypewriterText() {
     const t = useTranslations("innovations");
     return (
         <>
-            <Typewriter className="ml-8" setIsFirstLineFinished={setIsFirstLineFinished} text={t("notJustFeatures")} />
-            <Typewriter className="ml-16" text={t("gameChangers")} shouldStart={isFirstLineFinished} />
+            <Typewriter className="ml-auto mr-auto md:ml-8 md:mr-0 text-[#3e3c3c]" setIsFirstLineFinished={setIsFirstLineFinished} text={t("notJustFeatures")} />
+            <Typewriter className="ml-auto mr-auto md:ml-16 md:mr-0" text={t("gameChangers")} shouldStart={isFirstLineFinished} />
         </>
     )
 } 

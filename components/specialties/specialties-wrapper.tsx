@@ -15,16 +15,16 @@ export default function SpecialtiesWrapper({ children, didAnimate, setDidAnimate
     return (
         <>
             <div className=" flex flex-col items-center text-textTeal text-center mb-8">
-                <Title className="fs-var-3xl leading-[67px] mb-4">
+                <Title className="leading-[67px] mb-4">
                     {t("specialtiesWeServe")}
                 </Title>
                 <Paragraph className="md:fs-var-3xl text-textTeal font-medium leading-normal">
                     {t("specialInterface")}
                 </Paragraph>
                 {didAnimate ?
-                    <Paragraph className="fs-var-base md:fs-var-3xl text-[#ea7f70] font-medium leading-normal">{t("noGenericLayouts")}</Paragraph>
+                    <Paragraph className="md:fs-var-3xl text-[#ea7f70] font-medium leading-normal italic">{t("noGenericLayouts")}</Paragraph>
                     :
-                    <Typewriter text={t("noGenericLayouts")} className="fs-var-base md:fs-var-3xl text-[#ea7f70] font-medium leading-normal md:translate-x-0" setIsFirstLineFinished={setDidAnimate} />
+                    <Typewriter text={t("noGenericLayouts")} className="md:fs-var-3xl text-[#ea7f70] font-medium leading-normal md:translate-x-0 italic" setIsFirstLineFinished={setDidAnimate} />
                 }
             </div >
             {children}

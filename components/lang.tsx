@@ -8,7 +8,6 @@ export default function LanguageSelectorModal() {
     const router = useRouter();
     const pathname = usePathname();
     const [showModal, setShowModal] = useState(false);
-    const [selectedLocale, setSelectedLocale] = useState('');
     const { setLanguage } = useLanguage();
     useEffect(() => {
         const saved = localStorage.getItem('preferred-locale');
@@ -19,19 +18,19 @@ export default function LanguageSelectorModal() {
         }
     }, [pathname]);
 
-    const handleConfirm = () => {
-        if (!selectedLocale) return;
+    const handleConfirm = (locale: string) => {
+        if (!locale) return;
 
-        localStorage.setItem('preferred-locale', selectedLocale);
-        setLanguage(selectedLocale);
+        localStorage.setItem('preferred-locale', locale);
+        setLanguage(locale);
         const currentLocale = pathname.split('/')[1];
-        if (selectedLocale !== currentLocale) {
+        if (locale !== currentLocale) {
             const remainingPath = pathname
                 .split('/')
                 .slice(2)
                 .join('/');
-            const newPath = `/${selectedLocale}/${remainingPath}`;
-            router.replace(newPath || `/${selectedLocale}`);
+            const newPath = `/${locale}/${remainingPath}`;
+            router.replace(newPath || `/${locale}`);
         }
 
         setShowModal(false);
@@ -45,7 +44,7 @@ export default function LanguageSelectorModal() {
         <>
             <button
                 onClick={openModal}
-                className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 bg-[#155dfc] text-white p-3 rounded-full shadow-lg hover:bg-[#155dfc]/80 transition-all duration-200 hover:scale-110"
+                className="fixed left-4 top-1/2 transform -translate-y-1/2 z-40 bg-textTeal text-white p-3 rounded-full shadow-lg hover:bg-textTeal/80 transition-all duration-200 hover:scale-110"
                 title="Change Language"
             >
                 <svg
@@ -72,21 +71,11 @@ export default function LanguageSelectorModal() {
                     <div className="bg-white rounded-2xl shadow-lg p-6 w-[90%] max-w-md text-center space-y-6">
                         <Image src="/images/logo.png" alt="Logo" className="mx-auto" width={96} height={96} />
 
-                        <select
-                            className="w-full p-3 border rounded-lg text-lg"
-                            value={selectedLocale}
-                            onChange={(e) => setSelectedLocale(e.target.value)}
-                        >
-                            <option value="">اختر اللغة</option>
-                            <option value="ar">العربية</option>
-                            <option value="en">English</option>
-                        </select>
-                        <button
-                            className="bg-[#155dfc] text-white w-full py-2 rounded-lg hover:bg-[#155dfc]/80 transition"
-                            onClick={handleConfirm}
-                        >
-                            تأكيد
-                        </button>
+                        <div className="flex gap-4">
+                            <button className="bg-textTeal text-white w-full py-2 rounded-lg hover:bg-textTeal/80 transition" onClick={() => handleConfirm('ar')}>العربية</button>
+                            <button className="bg-textTeal text-white w-full py-2 rounded-lg hover:bg-textTeal/80 transition" onClick={() => handleConfirm('en')}>English</button>
+                        </div>
+
                     </div>
                 </div>
             )}
