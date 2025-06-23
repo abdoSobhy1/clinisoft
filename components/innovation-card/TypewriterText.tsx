@@ -9,7 +9,7 @@ export default function TypewriterText() {
     return (
         <>
             <Typewriter className="ml-auto mr-auto md:ml-8 md:mr-0 text-[#3e3c3c]" setIsFirstLineFinished={setIsFirstLineFinished} text={t("notJustFeatures")} />
-            <Typewriter className="ml-auto mr-auto md:ml-16 md:mr-0" text={t("gameChangers")} shouldStart={isFirstLineFinished} />
+            <Typewriter className="ml-auto mr-auto md:ml-16 md:mr-0 text-[#3e3c3c]" text={t("gameChangers")} shouldStart={isFirstLineFinished} />
         </>
     )
 } 
