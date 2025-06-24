@@ -8,10 +8,9 @@ type Props = {
 }
 
 export default function SubMenu(props: Props) {
-    const { currentLanguage } = useLanguage();
+    const { isRTL } = useLanguage();
 
-    const isArabic = currentLanguage === 'ar';
-    const direction = isArabic ? 'right-0' : 'left-0';
+    const direction = isRTL ? 'right-0' : 'left-0';
 
     if (props.isMobile) {
         return (

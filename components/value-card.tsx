@@ -5,6 +5,7 @@ import AnimatedAccordion from "./animated-accordion";
 import { cn } from "@/lib/utils";
 import { ChevronsDown } from "lucide-react";
 import ScaleAnim from "./scale-anim";
+import { useLanguage } from "@/contexts/LanguageContext";
 // import { useState } from "react";
 type ValueCardProps = {
     stat: number;
@@ -20,21 +21,15 @@ type ValueCardProps = {
 }
 
 export default function ValueCard({ stat, title, description, icon, shouldCount, isOpen, onToggle, className, index, ref }: ValueCardProps) {
-    // const [finishedAnimation, setFinishedAnimation] = useState<boolean>(false);
-    // const [autoOpened, setAutoOpened] = useState<boolean>(false);
+
     const count = useCountUp(shouldCount ? stat : 0, 1500);
+    const { isRTL } = useLanguage();
 
-    // useEffect(() => {
-    //     console.log("finishedAnimation", finishedAnimation, index);
-    //     if (finishedAnimation && !autoOpened) {
-    //         setTimeout(() => {
-    //             console.log("auto opening");
-    //             setAutoOpened(true);
-    //             onToggle();
-    //         }, 2400);
-    //     }
-
-    // }, [finishedAnimation]);
+    const alignment = {
+        title: isRTL ? "text-right" : "text-left",
+        paragraph: isRTL ? "text-right" : "text-left",
+        chevron: isRTL ? "mr-auto" : "ml-auto"
+    }
 
     return (
         <div ref={ref} >
@@ -43,13 +38,13 @@ export default function ValueCard({ stat, title, description, icon, shouldCount,
                     <div className="relative size-24 lg:mx-auto">
                         <Image src={icon} alt={title} fill className="object-contain object-left md:object-center" />
                     </div>
-                    <div className="text-left leading-none self-end md:self-center md:leading-normal lg:text-center">
+                    <div className={`${alignment.title} md:text-center leading-none self-end md:self-center md:leading-normal `}>
                         <p className="text-teal fs-var-6xl font-semibold mb-2 md:mb-0">{count} %</p>
                         <p className="text-[2.4vh] md:fs-var-2xl font-semibold text-[#1e949e]">{title}</p>
                     </div>
                     <button
                         onClick={onToggle}
-                        className="md:hidden ml-auto"
+                        className={`md:hidden ${alignment.chevron}`}
                     >
                         <ChevronsDown
                             className={`text-[#1E949E] w-8 h-8 ${isOpen ? "rotate-180" : ""} opacity-50`}
@@ -62,7 +57,7 @@ export default function ValueCard({ stat, title, description, icon, shouldCount,
                     hideButton="hidden"
                     animationDuration={0.4}
                 >
-                    <p className="text-[#4d504f] fs-var-lg leading-8 text-left md:text-center">{description}</p>
+                    <p className={`${alignment.paragraph} text-[#4d504f] fs-var-lg leading-8 md:text-center`}>{description}</p>
                 </AnimatedAccordion>
             </ScaleAnim>
         </div>

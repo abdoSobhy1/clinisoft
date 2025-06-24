@@ -62,9 +62,9 @@
     "twentyPlusSpecialty": "أكثر من 20 واجهة متخصصة"
   },
   "counters": {
-    "clinics": "العيادات",
-    "devices": "الأجهزة الفعالة",
-    "patients": "المرضى"
+    "clinics": "عيادة",
+    "devices": "جهاز فعال",
+    "patients": "مريض"
   },
   "specialties": {
     "specialtiesWeServe": "التخصصات التي نخدمها",

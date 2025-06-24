@@ -2,18 +2,17 @@
 import { motion, useAnimate, useInView } from 'framer-motion';
 import { ReactNode, useEffect } from 'react';
 
-type Direction = 'left' | 'right' | 'top';
 
 interface SlideInProps {
     children: ReactNode;
-    direction: Direction;
+    direction: string;
     className?: string;
     delay?: number;
     duration?: number;
     trigger?: boolean;
 }
 
-const getInitialPosition = (direction: Direction) => {
+const getInitialPosition = (direction: string) => {
 
 
     switch (direction) {

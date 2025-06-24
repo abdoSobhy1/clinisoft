@@ -78,7 +78,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
     const screen = typeof window !== 'undefined' ? window.innerHeight : 0;
     const t = useTranslations();
-    const { currentLanguage } = useLanguage();
+    const { isRTL } = useLanguage();
 
     useEffect(() => {
         if (isOpen) {
@@ -163,7 +163,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
                             animate="animate"
                             exit="exit"
                         >
-                            <motion.nav className={`flex flex-col gap-6 items-center justify-center h-full p-6 pt-40 ${currentLanguage === 'ar' ? theSans.className : roboto.className}`} variants={containerVariants} initial="initial" animate="animate" exit="initial">
+                            <motion.nav className={`flex flex-col gap-6 items-center justify-center h-full p-6 pt-40 ${isRTL ? theSans.className : roboto.className}`} variants={containerVariants} initial="initial" animate="animate" exit="initial">
                                 {navLinks.map(link => (link.subMenu ? (
                                     <motion.div className='group overflow-hidden' key={link.name} variants={itemVariants}>
                                         <button className='w-full' onClick={() => setIsSubMenuOpen(!isSubMenuOpen)}>

@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Title from "@/components/title";
 import Paragraph from "@/components/paragraph";
+import { useLanguage } from "@/contexts/LanguageContext";
 const formSchema = z.object({
     name: z.string().min(3, { message: "Name is required." }),
     specialties: z.string().min(1, { message: "Please select a specialty." }),
@@ -40,6 +41,7 @@ const specialties = [
 
 export default function ContactForm() {
     const t = useTranslations();
+    const { isRTL } = useLanguage();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
     const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -105,7 +107,7 @@ export default function ContactForm() {
 
     return (<div className="bg-white rounded-[20px] p-8 border-2 border-white shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]">
         <div className="mb-4 space-y-3">
-            <Title className="text-textTeal text-left fs-var-3xl lg:fs-var-4xl">{t("contactUs.letUsHelpYou")}</Title>
+            <Title className={`text-textTeal ${isRTL ? "text-right" : "text-left"} fs-var-3xl lg:fs-var-4xl`}>{t("contactUs.letUsHelpYou")}</Title>
             <Paragraph className="text-textTeal font-semibold lg:fs-var-2xl">{t("contactUs.fillInYourDetails")}</Paragraph>
         </div>
         <form onSubmit={form.handleSubmit(handleFormSubmit)} className="space-y-4">

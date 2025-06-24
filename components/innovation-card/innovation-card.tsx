@@ -12,7 +12,7 @@ type InnovationCardProps = {
 
 export default function InnovationCard({ title, description, image, link }: InnovationCardProps) {
     const t = useTranslations("innovations");
-    const isArabic = useLanguage().currentLanguage === 'ar';
+    const { isRTL } = useLanguage();
     return (
         <div className={`rounded-3xl bg-linear-135 from-[#1E949E26] via-[#CBCBCB00] to-[#FFFFFFCC] p-8 shadow-lg shadow-[#c9f1f4] h-full flex flex-col justify-between stroke-1 stroke-[#FFFFFF33]`} >
             <div className={`flex flex-col h-full gap-2 items-center mb-4`}>
@@ -21,7 +21,7 @@ export default function InnovationCard({ title, description, image, link }: Inno
                         <Image className="self-center object-contain" src={image} alt={title} fill />
                     </div>
                     <h3 className="text-[#545778] font-semibold fs-var-3xl text-left">{t(title)}</h3>
-                    <p className={`text-[#4d504f] text-[2.17vh] leading-8 ${isArabic ? 'text-right' : 'text-left'}`}>{t(description)} <Link href={link} className={`text-textTeal text-[2.17vh] underline  leading-8 ${isArabic ? 'ml-auto' : 'mr-auto'}`}>{t("readMore")}</Link></p>
+                    <p className={`text-[#4d504f] text-[2.17vh] leading-8 ${isRTL ? 'text-right' : 'text-left'}`}>{t(description)} <Link href={link} className={`text-textTeal text-[2.17vh] underline  leading-8 ${isRTL ? 'ml-auto' : 'mr-auto'}`}>{t("readMore")}</Link></p>
 
                 </div>
             </div>

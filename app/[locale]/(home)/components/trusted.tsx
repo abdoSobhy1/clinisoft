@@ -14,7 +14,6 @@ interface TrustedProps {
 
 export default function Trusted({ bgColor = "" }: TrustedProps) {
     const t = useTranslations("trusted");
-    const { currentLanguage } = useLanguage();
     const trustPoints = [
         "offlineOperation",
         "oneTimePurchase",
@@ -37,11 +36,12 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
         }
     }, [animatedIndexes, isMobile]);
 
-    const isArabic = currentLanguage === 'ar';
+    const { isRTL } = useLanguage();
 
-    const evenDirection = isArabic ? 'left' : 'right';
-    const oddDirection = isArabic ? 'right' : 'left';
-
+    const animationDirection = {
+        even: isRTL ? 'left' : 'right',
+        odd: isRTL ? 'right' : 'left',
+    }
     return (
         <section className={`pt-12 overflow-x-hidden relative min-h-vph flex flex-col justify-between ${bgColor}`}>
             <Seperator vertical={false} className="from-[transparent] via-[black] to-[transparent] bg-linear-to-r opacity-15" />
@@ -59,7 +59,7 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
                         <div ref={el => { cardRefs.current[index] = el; }} key={index}
                             className={`${index === trustPoints.length - 1 ? 'col-span-1 lg:col-span-2' : 'col-span-1'}`}>
                             <SlideIn
-                                direction={index % 2 === 0 ? evenDirection : oddDirection}
+                                direction={index % 2 === 0 ? animationDirection.even : animationDirection.odd}
                                 className="content-center bg-[#d7fff6] px-4 py-1.5 md:py-6 border border-[#9fe5d5] rounded-full max-w-m text-textTeal text-center fs-var-xl md:text-[4.347vh] font-medium"
                                 delay={isMobile ? 0 : index * 0.6}
                                 duration={0.3}
