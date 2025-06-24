@@ -25,6 +25,7 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
 
     const { cardRefs, containerRef, animatedIndexes, isMobile } = useSequentialCardAnimation({
         length: trustPoints.length,
+        skipOnContainerHidden: true,
     });
 
 
@@ -36,8 +37,10 @@ export default function Trusted({ bgColor = "" }: TrustedProps) {
         }
     }, [animatedIndexes, isMobile]);
 
-    const oddDirection = currentLanguage === 'ar' ? 'right' : 'left';
-    const evenDirection = currentLanguage === 'ar' ? 'left' : 'right';
+    const isArabic = currentLanguage === 'ar';
+
+    const evenDirection = isArabic ? 'left' : 'right';
+    const oddDirection = isArabic ? 'right' : 'left';
 
     return (
         <section className={`pt-12 overflow-x-hidden relative min-h-vph flex flex-col justify-between ${bgColor}`}>

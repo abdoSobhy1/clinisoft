@@ -39,13 +39,13 @@ export default function ValueCard({ stat, title, description, icon, shouldCount,
     return (
         <div ref={ref} >
             <ScaleAnim delay={index * 0.3} className={cn("rounded-3xl bg-white p-4 shadow-md h-full text-center flex flex-col ", className)} >
-                <div className="md:mb-8 flex items-center lg:justify-between gap-4 md:block">
+                <div className="mb-4 md:mb-8 flex items-center lg:justify-between gap-4 md:block">
                     <div className="relative size-24 lg:mx-auto">
                         <Image src={icon} alt={title} fill className="object-contain object-left md:object-center" />
                     </div>
-                    <div className="text-left lg:text-center">
-                        <p className="text-teal fs-var-6xl font-semibold">{count} %</p>
-                        <h3 className="text-[2.6vh] font-semibold text-[#1e949e]">{title}</h3>
+                    <div className="text-left leading-none self-end md:self-center md:leading-normal lg:text-center">
+                        <p className="text-teal fs-var-6xl font-semibold mb-2 md:mb-0">{count} %</p>
+                        <p className="text-[2.4vh] md:fs-var-2xl font-semibold text-[#1e949e]">{title}</p>
                     </div>
                     <button
                         onClick={onToggle}

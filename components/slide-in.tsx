@@ -56,8 +56,6 @@ export default function SlideIn({
 
     useEffect(() => {
         if (!scope.current) return;
-
-
         const { top, height } = scope.current.getBoundingClientRect();
         const isScrolledPast = (top + height) < 0;
 
